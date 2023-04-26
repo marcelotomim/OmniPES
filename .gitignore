@@ -1,3 +1,7 @@
 /examples/rollback_kundur/FMU/
 /examples/rollback_radial/FMU/
 /examples/rollback_kundur/OmniPES_QuasiSteadyState_Examples_Kundur_Two_Area_System_log.txt
+/examples/rollback_radial/OmniPES_CoSimulation_Examples_Test_Classical_Machine_log.txt
+/examples/rollback_radial/radial.pdf
+/examples/rollback_radial/OmniPES_CoSimulation_Examples_Generic_Machine_log.txt
+/examples/rollback_radial/Radial_generic.pdf
