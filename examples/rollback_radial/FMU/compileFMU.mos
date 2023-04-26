@@ -1,0 +1,8 @@
+
+setCommandLineOptions("-d=fmuExperimental, gendebugsymbols"); getErrorString();
+setCommandLineOptions("-d=-disableDirectionalDerivatives"); getErrorString();
+//installPackage(Modelica, "4.0.0+maint.om", exactMatch=true);
+//loadModel(Modelica, {"4.0"}); getErrorString();
+loadFile("/home/marcelot/Documents/OpenModelica/PowerSystems/omnipes/modelica/trunk/OmniPES.mo"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Test_Classical_Machine, fmuType="me"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Generic_Machine, fmuType="me"); getErrorString();

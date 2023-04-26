@@ -8,6 +8,9 @@ import pyfmi
 from pyfmi.fmi import FMUModelCS2, FMUModelME2
 import tqdm
 import matplotlib.pyplot as plt
+import matplotlib
+# matplotlib.use('TkAgg')
+matplotlib.use('Qt5Agg')
 import numpy as np
 import DyMat
 from scipy.linalg import solve
@@ -90,8 +93,6 @@ if __name__ == '__main__':
             print("Ops!!!")
             exit(1)
 
-        integrator.update_history()
-
         # Armazenando de resultados
         time += [t]
         sol += [fmu_.get_real(vref)]
@@ -104,6 +105,8 @@ if __name__ == '__main__':
             sol += [fmu_.get_real(vref)]
             its.append(step_iter)
             integrator.exit_event_handling()
+
+        integrator.update_history()
 
         pbar.update(dt)
 
@@ -135,4 +138,3 @@ if __name__ == '__main__':
     ax[3].plot(time, its, '-bo', label='iterations', markevery=int(len(time) / 15))
     ax[3].set_ylabel(u'iterations')
     ax[3].legend(loc='upper right')
-
