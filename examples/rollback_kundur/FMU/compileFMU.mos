@@ -1,5 +1,6 @@
 
 setCommandLineOptions("-d=fmuExperimental"); getErrorString();
+setCommandLineOptions("-d=-disableDirectionalDerivatives"); getErrorString();
 //setCommandLineOptions("-d=gendebugsymbols"); getErrorString();
 setCommandLineOptions("-d=initialization"); getErrorString();
 //setCommandLineOptions("-d=dumpLoops,aliasConflicts"); getErrorString();
