@@ -6,3 +6,4 @@ setCommandLineOptions("-d=-disableDirectionalDerivatives"); getErrorString();
 loadFile("/home/marcelot/Documents/OpenModelica/PowerSystems/omnipes/modelica/trunk/OmniPES.mo"); getErrorString();
 buildModelFMU(OmniPES.CoSimulation.Examples.Test_Classical_Machine, fmuType="me"); getErrorString();
 buildModelFMU(OmniPES.CoSimulation.Examples.Generic_Machine, fmuType="me"); getErrorString();
+system("ls --hide=*.fmu --hide=*.mos | xargs rm")
