@@ -166,6 +166,7 @@ if __name__ == '__main__':
     sol = [fmu_.get_real(vref)]
     time = [t]
     its = [0]
+    ode_its = [0]
     erros = [0]
 
     event_fcn = [apply_fault(), clear_fault()]
@@ -208,6 +209,7 @@ if __name__ == '__main__':
                 fmu_.set("Vr", Vt.real)
                 fmu_.set("Vi", Vt.imag)
 
+                has_x_converged = False
                 integrator.step()
                 has_x_converged = integrator.check_convergence()
 
@@ -246,7 +248,7 @@ if __name__ == '__main__':
                 interface_error = abs(Vt_vec[0] - Vt_vec[1])
 
             # Se erro maior que a tolerância, realizar nova interação
-            doNextIter = interface_error > 1e-4 or not has_x_converged # or step_iter < 5
+            doNextIter = interface_error > 1e-4 and not has_x_converged # or step_iter < 5
             step_iter += 1
 
         # Avançar o tempo
@@ -339,4 +341,3 @@ if __name__ == '__main__':
     ax[-1].set_xlabel('time [s]')
     plt.tight_layout()
     plt.savefig('Radial_generic.pdf', dpi=300)
-

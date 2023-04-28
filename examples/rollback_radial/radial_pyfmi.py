@@ -227,7 +227,7 @@ if __name__ == '__main__':
                 print(f"\nDetected events trigger at {t + dt}")
 
             # Extrapolação
-            integrator.predictor()
+            # integrator.predictor()
             # Vt = Vt_ext[0]*Vt_ext[0]/Vt_ext[1]
 
             Vt_vec[0] = Vt
@@ -283,7 +283,7 @@ if __name__ == '__main__':
                 interface_error = abs(Vt_vec[0] - Vt_vec[1])
 
             # Se erro maior que a tolerância, realizar nova interação
-            doNextIter = interface_error > 1e-4 or not has_x_converged  # or step_iter < 5
+            doNextIter = interface_error > 1e-4 and not has_x_converged  # or step_iter < 5
             step_iter += 1
 
         # Avançar o tempo
