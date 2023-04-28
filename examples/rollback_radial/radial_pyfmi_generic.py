@@ -209,7 +209,6 @@ if __name__ == '__main__':
                 fmu_.set("Vr", Vt.real)
                 fmu_.set("Vi", Vt.imag)
 
-                has_x_converged = False
                 integrator.step()
                 has_x_converged = integrator.check_convergence()
 
