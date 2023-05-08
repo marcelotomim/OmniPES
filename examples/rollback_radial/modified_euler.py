@@ -16,6 +16,7 @@ class ModifiedEuler(Integrator):
         # Estimate states by means of the trapezoidal rule
         self.der_x = self.fmu.get_derivatives()
         self.x = self.hist + 0.5 * self.dt * self.der_x
+        self.fmu.continuous_states = self.x[:]
 
     def update_history(self):
         self.x_prev = self.x[:]

@@ -154,7 +154,7 @@ if __name__ == '__main__':
     print(f"Initialization finished.")
     fmu_.exit_initialization_mode()
 
-    integrator = ModifiedEuler(fmu_, dt, tf, atol=1e-4, rtol=1e-2)
+    integrator = ModifiedEuler(fmu_, dt, tf, atol=1e-4, rtol=1e-3)
     integrator.init_events()
 
     fmu_.enter_continuous_time_mode()
@@ -242,12 +242,13 @@ if __name__ == '__main__':
                 # Definição da tensão terminal da máquina
                 fmu_.set("Vr", Vt.real)
                 fmu_.set("Vi", Vt.imag)
-                fmu_.get_derivatives()
+                integrator.der_x[:] = fmu_.get_derivatives()
+                integrator.x[:] = fmu_.continuous_states
             else:
                 interface_error = abs(Vt_vec[0] - Vt_vec[1])
 
             # Se erro maior que a tolerância, realizar nova interação
-            doNextIter = interface_error > 1e-4 and not has_x_converged # or step_iter < 5
+            doNextIter = (interface_error > 1e-4) or (not has_x_converged) # or step_iter < 5
             step_iter += 1
 
         # Avançar o tempo
