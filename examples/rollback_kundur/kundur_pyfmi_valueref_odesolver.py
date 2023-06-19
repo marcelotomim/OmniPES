@@ -41,8 +41,8 @@ if __name__ == '__main__':
     fmu_.enter_initialization_mode()
     fmu_.set("fault.R", 1e-6)
     fmu_.set("fault.X", 0.01)
-    print(f"Initialization finished.")
     fmu_.exit_initialization_mode()
+    print(f"Initialization finished.")
 
     t = 0.0
     time = [t]
@@ -63,7 +63,13 @@ if __name__ == '__main__':
 
     fmu_.enter_continuous_time_mode()
 
-    pbar = tqdm.tqdm(total=tf+dt, unit='s', delay=0)
+    pbar = tqdm.tqdm(total=tf + dt,
+                     unit='s',
+                     unit_scale=True,
+                     smoothing=0,
+                     bar_format='Simulation Time: |{bar}| {n_fmt}/{total_fmt} s [wall time: {elapsed}]'
+                     )
+
     trigger_event = False
     while t < tf and not fmu_.get_event_info().terminateSimulation:
 
@@ -79,10 +85,9 @@ if __name__ == '__main__':
 
             # Integra modelo de máquina
             integrator.step()
-            has_converged = integrator.check_convergence()
 
             # Se erro maior que a tolerância, realizar nova interação
-            doNextIter = not has_converged # or step_iter < 5
+            doNextIter = not integrator.has_x_converged # or step_iter < 2
             step_iter += 1
 
         # Avançar o tempo

@@ -1,0 +1,30 @@
+within OmniPES.CoSimulation.Examples;
+
+model Classical_Machine_PQ
+  inner OmniPES.SystemData data annotation(
+    Placement(visible = true, transformation(origin = {-74, 64}, extent = {{-22, -22}, {22, 22}}, rotation = 0)));
+  parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen1_data annotation(
+    Placement(visible = true, transformation(origin = {50, 52}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs annotation(
+    Placement(visible = true, transformation(origin = {1, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
+  //
+  OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine SM(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_VTH restriction, smData = gen1_data, specs = gen1_specs) annotation(
+    Placement(visible = true, transformation(origin = {62, 0}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealInput P(start = 1) annotation(
+    Placement(visible = true, transformation(origin = {39, -29}, extent = {{13, -13}, {-13, 13}}, rotation = 0), iconTransformation(origin = {46, -36}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  Modelica.Blocks.Interfaces.RealInput Q(start = 0) annotation(
+    Placement(visible = true, transformation(origin = {39, -75}, extent = {{15, -15}, {-15, 15}}, rotation = 0), iconTransformation(origin = {44, -70}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  OmniPES.CoSimulation.Adaptors.ControlledPower controlledPower annotation(
+    Placement(visible = true, transformation(origin = {-23, -23}, extent = {{-17, -17}, {17, 17}}, rotation = -90)));
+equation
+  connect(controlledPower.P, P) annotation(
+    Line(points = {{-4, -9}, {22, -9}, {22, -28}, {40, -28}}, color = {0, 0, 127}));
+  connect(controlledPower.Q, Q) annotation(
+    Line(points = {{-4, -16}, {12, -16}, {12, -74}, {40, -74}}, color = {0, 0, 127}));
+  connect(SM.terminal, controlledPower.p) annotation(
+    Line(points = {{44, 0}, {-22, 0}, {-22, -6}}, color = {0, 0, 255}));
+protected
+  annotation(
+    experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-6, Interval = 0.0001),
+    Diagram);
+end Classical_Machine_PQ;

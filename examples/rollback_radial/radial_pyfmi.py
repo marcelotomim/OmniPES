@@ -17,42 +17,6 @@ from scipy.linalg import solve
 
 from modified_euler import ModifiedEuler
 
-from numpy.random import random
-def getJacobian(model):
-
-    states = model.get_states_list()
-    states_references = [s.value_reference for s in states.values()]
-    derivatives = model.get_derivatives_list()
-    derivatives_references = [d.value_reference for d in derivatives.values()]
-    n = len(states)
-    jac = np.zeros((n,n))
-    v = np.zeros(n)
-    for k in range(n):
-        v[k] = 1.0
-        jac[:, k] = model.get_directional_derivative(states_references, derivatives_references, v)
-        v[k] = 0.0
-
-    return jac
-
-
-def getTerminalAdmittance(model):
-    voltages = ['controlledVoltage1.Vr', 'controlledVoltage1.Vi']
-    currents = ['SM.electrical.terminal.i.re', 'SM.electrical.terminal.i.im']
-
-    voltages_references = [model.get_variable_valueref(s) for s in voltages]
-    currents_references = [model.get_variable_valueref(s) for s in currents]
-
-    n = 2
-    jac = np.zeros((n,n))
-    v = np.zeros(n)
-    for k in range(n):
-        v[k] = 1.0
-        jac[:, k] = model.get_directional_derivative(voltages_references, currents_references, v)
-        v[k] = 0.0
-
-    return jac
-
-
 def time_event(t, tevent):
     return t - tevent > 0
 
@@ -211,7 +175,12 @@ if __name__ == '__main__':
     event_fcn = [apply_fault(), clear_fault()]
     events_prev = [f(t) for f in event_fcn]
 
-    pbar = tqdm.tqdm(total=tf + dt)
+    pbar = tqdm.tqdm(total=tf + dt,
+                     unit='s',
+                     unit_scale=True,
+                     smoothing=0,
+                     bar_format='Simulation Time: |{bar}| {n_fmt}/{total_fmt} s [wall time: {elapsed}]'
+                     )
     trigger_event = False
     while t < tf and not fmu_.get_event_info().terminateSimulation:
 
@@ -224,7 +193,7 @@ if __name__ == '__main__':
             events = [f(t + dt) for f in event_fcn]
             trigger_event = np.any(np.logical_xor(events, events_prev))
             if trigger_event:
-                print(f"\nDetected events trigger at {t + dt}")
+                print(f"\nDetected events trigger at {t + dt: .4f} s")
 
             # Extrapolação
             # integrator.predictor()
@@ -248,7 +217,6 @@ if __name__ == '__main__':
                 fmu_.set("Vi", Vt.imag)
 
                 integrator.step()
-                has_x_converged = integrator.check_convergence()
 
                 # Cálculo da interface com a rede (Eq. de Norton)
                 Er = fmu_.get("SM.electrical.E1.re")[0]
@@ -283,7 +251,7 @@ if __name__ == '__main__':
                 interface_error = abs(Vt_vec[0] - Vt_vec[1])
 
             # Se erro maior que a tolerância, realizar nova interação
-            doNextIter = interface_error > 1e-4 and not has_x_converged  # or step_iter < 5
+            doNextIter = (interface_error > 1e-4) or (not integrator.has_x_converged)  # or step_iter < 5
             step_iter += 1
 
         # Avançar o tempo

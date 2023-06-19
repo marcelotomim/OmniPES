@@ -3,7 +3,9 @@ setCommandLineOptions("-d=fmuExperimental, gendebugsymbols"); getErrorString();
 setCommandLineOptions("-d=-disableDirectionalDerivatives"); getErrorString();
 //installPackage(Modelica, "4.0.0+maint.om", exactMatch=true);
 //loadModel(Modelica, {"4.0"}); getErrorString();
-loadFile("../../../OmniPES.mo"); getErrorString();
-buildModelFMU(OmniPES.CoSimulation.Examples.Test_Classical_Machine, fmuType="me"); getErrorString();
-buildModelFMU(OmniPES.CoSimulation.Examples.Generic_Machine, fmuType="me"); getErrorString();
+loadFile("../../../OmniPES/package.mo"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Test_Classical_Machine, fmuType="me_cs"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Generic_Machine, fmuType="me_cs"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Classical_Machine_TL, fmuType="me_cs"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Generic_Machine_TL, fmuType="me_cs"); getErrorString();
 system("ls --hide=*.fmu --hide=*.mos | xargs rm")
