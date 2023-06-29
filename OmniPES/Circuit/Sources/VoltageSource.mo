@@ -1,12 +1,13 @@
 within OmniPES.Circuit.Sources;
 
 model VoltageSource
-  extends OmniPES.Circuit.Interfaces.ShuntComponent;
+  extends Circuit.Interfaces.ShuntComponent;
   import Modelica.ComplexMath.conj;
   import OmniPES.Math.polar2cart;
-  parameter OmniPES.Units.PerUnit magnitude = 1.0;
-  parameter Modelica.Units.NonSI.Angle_deg angle = 0.0;
-  OmniPES.Units.CPerUnit S;
+  import Modelica.Units.NonSI;
+  parameter Units.PerUnit magnitude = 1.0;
+  parameter NonSI.Angle_deg angle = 0.0;
+  Units.CPerUnit S;
 equation
   v = polar2cart(magnitude, angle);
   S = -v*conj(i);

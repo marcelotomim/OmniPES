@@ -1,17 +1,17 @@
 within OmniPES.QuasiSteadyState.Machines;
 
 model Classical_SynchronousMachine
-  parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData smData "Record with machine parameters" annotation(
+  parameter SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {-78, 78}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData specs "Record with load flow specs." annotation(
+  parameter RestrictionData specs "Record with load flow specs." annotation(
     Placement(visible = true, transformation(origin = {-126, 78}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  OmniPES.Circuit.Interfaces.PositivePin terminal annotation(
+  Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-144, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.QuasiSteadyState.Machines.Interfaces.Inertia inertia(smData = smData) annotation(
+  Interfaces.Inertia inertia(smData = smData) annotation(
     Placement(visible = true, transformation(origin = {57, -1}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  OmniPES.QuasiSteadyState.Machines.Interfaces.Classical_Electric electrical(smData = smData) annotation(
+  Interfaces.Classical_Electric electrical(smData = smData) annotation(
     Placement(visible = true, transformation(origin = {-38, 0}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
-  replaceable OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction restriction constrainedby OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction(param = specs) annotation(
+  replaceable Interfaces.Restriction restriction constrainedby Interfaces.Restriction(param = specs) annotation(
      choicesAllMatching = true,
      Placement(visible = true, transformation(origin = {-19, 73}, extent = {{-19, -19}, {19, 19}}, rotation = 0)));
 equation

@@ -1,9 +1,8 @@
 within OmniPES.Circuit.Switches;
 
 model TimedBreaker
-  extends OmniPES.Circuit.Switches.Interfaces.BasicBreaker;
-  import OmniPES.Units;
-  parameter Real t_open;
+  extends Circuit.Switches.Interfaces.BasicBreaker;
+  parameter Modelica.Units.SI.Time t_open;
 equation
   open = if time >= t_open then true else false;
   annotation(

@@ -1,10 +1,10 @@
 within OmniPES.Circuit.Sources;
 
 model ControlledVoltageSource
-  extends OmniPES.Circuit.Interfaces.ShuntComponent;
+  extends Circuit.Interfaces.ShuntComponent;
   import Modelica.ComplexMath.conj;
   import OmniPES.Math.polar2cart;
-  OmniPES.Units.CPerUnit S;
+  Units.CPerUnit S;
   Modelica.ComplexBlocks.Interfaces.ComplexInput u annotation(
     Placement(visible = true, transformation(origin = {-62, -48}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {6, 80}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation

@@ -58,11 +58,11 @@ model Kundur_Two_Area_System_SteadyState
     Placement(visible = true, transformation(origin = {-108, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource G3(angle = 0.0, magnitude = 1.030) annotation(
     Placement(visible = true, transformation(origin = {222, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Sources.PVSource G4(Psp = 700, Vsp = 1.010) annotation(
+  OmniPES.SteadyState.Sources.PVSource G4(Psp = 700, Vsp = 1.010) annotation(
     Placement(visible = true, transformation(origin = {172, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Sources.PVSource G1(Psp = 700, Vsp = 1.030) annotation(
+  OmniPES.SteadyState.Sources.PVSource G1(Psp = 700, Vsp = 1.030) annotation(
     Placement(visible = true, transformation(origin = {-254, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  OmniPES.Circuit.Sources.PVSource G2(Psp = 700, Vsp = 1.010) annotation(
+  OmniPES.SteadyState.Sources.PVSource G2(Psp = 700, Vsp = 1.010) annotation(
     Placement(visible = true, transformation(origin = {-212, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.SteadyState.Loads.ZIPLoad L1(Psp = 967, Qsp = 100, ss_par = ssLoadData) annotation(
     Placement(visible = true, transformation(origin = {-108, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));

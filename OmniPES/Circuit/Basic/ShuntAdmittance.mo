@@ -1,10 +1,9 @@
 within OmniPES.Circuit.Basic;
 
 model ShuntAdmittance
-  extends OmniPES.Circuit.Interfaces.ShuntComponent;
-  //protected
-  parameter OmniPES.Units.PerUnit g;
-  parameter OmniPES.Units.PerUnit b;
+  extends Circuit.Interfaces.ShuntComponent;
+  parameter Units.PerUnit g;
+  parameter Units.PerUnit b;
 equation
   i = Complex(g, b)*v;
   annotation(

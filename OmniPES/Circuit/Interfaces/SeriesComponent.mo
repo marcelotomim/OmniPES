@@ -1,7 +1,6 @@
 within OmniPES.Circuit.Interfaces;
 
 partial model SeriesComponent
-  import OmniPES.Units;
   Units.CPerUnit v "Voltage drop accros this circuit element.";
   Units.CPerUnit i "Current flowing from pin 'p' to pin 'n'";
   PositivePin p annotation(

@@ -9,7 +9,7 @@ model Test_Minimal
     Placement(visible = true, transformation(origin = {-77, 69}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus1 annotation(
     Placement(visible = true, transformation(origin = {-58, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Sources.PQSource pQSource(P = 100, Q = 0) annotation(
+  OmniPES.SteadyState.Sources.PQSource pQSource(P = 100, Q = 0) annotation(
     Placement(visible = true, transformation(origin = {86, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Interfaces.Bus bus3 annotation(
     Placement(visible = true, transformation(origin = {68, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

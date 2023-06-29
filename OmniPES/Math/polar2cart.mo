@@ -5,8 +5,9 @@ function polar2cart
   import Modelica.ComplexMath.exp;
   import Modelica.ComplexMath.j;
   import Modelica.Constants.pi;
+  import Modelica.Units.SI;
   input Real mag "Absolute value of the complex";
-  input Modelica.Units.SI.Angle phase "Phase angle of the complex";
+  input SI.Angle phase "Phase angle of the complex";
   output Complex z "Resultant complex number";
 algorithm
   z := mag*exp(j*phase);

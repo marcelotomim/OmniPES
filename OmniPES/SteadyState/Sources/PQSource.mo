@@ -1,12 +1,12 @@
-within OmniPES.Circuit.Sources;
+within OmniPES.SteadyState.Sources;
 
 model PQSource
-  extends OmniPES.Circuit.Interfaces.ShuntComponent;
+  extends Circuit.Interfaces.ShuntComponent;
   import Modelica.ComplexMath.conj;
-  parameter OmniPES.Units.ActivePower P;
-  parameter OmniPES.Units.ReactivePower Q;
-  outer OmniPES.SystemData data;
-  OmniPES.Units.CPerUnit S;
+  outer SystemData data;
+  parameter Units.ActivePower P;
+  parameter Units.ReactivePower Q;
+  Units.CPerUnit S;
 equation
   S = -v*conj(i);
   S.re = P/data.Sbase;

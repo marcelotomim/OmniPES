@@ -1,19 +1,22 @@
-within OmniPES.Circuit.Sources;
+within OmniPES.SteadyState.Sources;
 
 model PVSource_Qlim
-  outer OmniPES.SystemData data;
-  extends OmniPES.Circuit.Interfaces.ShuntComponent;
+  outer SystemData data;
+  extends Circuit.Interfaces.ShuntComponent;
   import Modelica.ComplexMath.conj;
-  parameter OmniPES.Units.ActivePower Psp;
-  parameter OmniPES.Units.PerUnit Vsp = 1.0;
-  parameter OmniPES.Units.ReactivePower Qmin = -1e5;
-  parameter OmniPES.Units.ReactivePower Qmax = +1e5;
+  parameter Units.ActivePower Psp;
+  parameter Units.PerUnit Vsp = 1.0;
+  parameter Units.ReactivePower Qmin = -1e5;
+  parameter Units.ReactivePower Qmax = +1e5;
   parameter Real tolq = 1e-3;
   parameter Real tolv = 1e-3;
   parameter Real inc = 1e5;
-  OmniPES.Units.CPerUnit S(re(start = Psp/data.Sbase), im(start = 0));
-  OmniPES.Units.PerUnit Vabs(start = 1);
-  Real ch1(start = 0), ch2(start = 0), ch3(start = 0), ch4(start = 0);
+  Units.CPerUnit S(re(start = Psp/data.Sbase), im(start = 0));
+  Units.PerUnit Vabs(start = 1);
+  Real ch1(start = 0);
+  Real ch2(start = 0);
+  Real ch3(start = 0);
+  Real ch4(start = 0);
 protected
   parameter Real lim_max = Qmax/data.Sbase - tolq;
   parameter Real lim_min = Qmin/data.Sbase + tolq;

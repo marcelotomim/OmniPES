@@ -24,7 +24,7 @@ model Test_Radial_System_Power_Flow_Qlim
     Placement(visible = true, transformation(origin = {-46, -40}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData load_data annotation(
     Placement(visible = true, transformation(origin = {-46, -62}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Sources.PVSource_Qlim pVSource_Qlim(Psp = 100, Qmax = +3000, Qmin = -80, Vsp = 1.0) annotation(
+  OmniPES.SteadyState.Sources.PVSource_Qlim pVSource_Qlim(Psp = 100, Qmax = +3000, Qmin = -80, Vsp = 1.0) annotation(
     Placement(visible = true, transformation(origin = {131, -7}, extent = {{-23, -23}, {23, 23}}, rotation = -90)));
 equation
   connect(voltageSource.p, impedance2.n) annotation(

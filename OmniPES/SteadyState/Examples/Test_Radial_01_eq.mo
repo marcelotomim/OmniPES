@@ -16,7 +16,7 @@ model Test_Radial_01_eq
     Placement(visible = true, transformation(origin = {54, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus3 annotation(
     Placement(visible = true, transformation(origin = {96, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
-  OmniPES.Circuit.Sources.PVSource pVSource(Psp = 60., Vsp = 0.95) annotation(
+  OmniPES.SteadyState.Sources.PVSource pVSource(Psp = 60., Vsp = 0.95) annotation(
     Placement(visible = true, transformation(origin = {4, -18}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(tLine.p, bus1.p) annotation(

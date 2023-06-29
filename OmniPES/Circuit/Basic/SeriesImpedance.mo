@@ -1,9 +1,9 @@
 within OmniPES.Circuit.Basic;
 
 model SeriesImpedance
-  extends OmniPES.Circuit.Interfaces.SeriesComponent;
-  parameter OmniPES.Units.PerUnit r = 0.0;
-  parameter OmniPES.Units.PerUnit x = 0.0;
+  extends Circuit.Interfaces.SeriesComponent;
+  parameter Units.PerUnit r = 0.0;
+  parameter Units.PerUnit x = 0.0;
 equation
   v = Complex(r, x)*i;
   annotation(

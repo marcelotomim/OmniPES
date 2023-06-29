@@ -2,23 +2,23 @@ within OmniPES.QuasiSteadyState.Machines.Interfaces;
 
 model Model_2_2_Electric
   extends OmniPES.QuasiSteadyState.Machines.Interfaces.PartialElectrical;
-  OmniPES.Units.PerUnit F1d(start = 1.0);
-  OmniPES.Units.PerUnit Fkd(start = 1.0);
-  OmniPES.Units.PerUnit Fgq(start = 1.0);
-  OmniPES.Units.PerUnit Fkq(start = 1.0);
+  Units.PerUnit F1d(start = 1.0);
+  Units.PerUnit Fkd(start = 1.0);
+  Units.PerUnit Fgq(start = 1.0);
+  Units.PerUnit Fkq(start = 1.0);
 protected
-  parameter OmniPES.Units.PerUnit x2q = smData.convData.X2q;
-  parameter OmniPES.Units.PerUnit x2d = smData.convData.X2d;
-  parameter OmniPES.Units.PerUnit x1d = smData.convData.X1d;
-  parameter OmniPES.Units.PerUnit x1q = smData.convData.X1q;
-  parameter OmniPES.Units.PerUnit xd = smData.convData.Xd;
-  parameter OmniPES.Units.PerUnit xq = smData.convData.Xq;
-  parameter OmniPES.Units.PerUnit T1d0 = smData.convData.T1d0;
-  parameter OmniPES.Units.PerUnit T1q0 = smData.convData.T1q0;
-  parameter OmniPES.Units.PerUnit T2q0 = smData.convData.T2q0;
-  parameter OmniPES.Units.PerUnit T2d0 = smData.convData.T2d0;
-  OmniPES.Units.PerUnit Ifd, Ikd;
-  OmniPES.Units.PerUnit Igq, Ikq;
+  parameter Units.PerUnit x2q = smData.convData.X2q;
+  parameter Units.PerUnit x2d = smData.convData.X2d;
+  parameter Units.PerUnit x1d = smData.convData.X1d;
+  parameter Units.PerUnit x1q = smData.convData.X1q;
+  parameter Units.PerUnit xd = smData.convData.Xd;
+  parameter Units.PerUnit xq = smData.convData.Xq;
+  parameter Units.PerUnit T1d0 = smData.convData.T1d0;
+  parameter Units.PerUnit T1q0 = smData.convData.T1q0;
+  parameter Units.PerUnit T2q0 = smData.convData.T2q0;
+  parameter Units.PerUnit T2d0 = smData.convData.T2d0;
+  Units.PerUnit Ifd, Ikd;
+  Units.PerUnit Igq, Ikq;
 initial equation
   der(F1d) = 0;
   der(Fkd) = 0;

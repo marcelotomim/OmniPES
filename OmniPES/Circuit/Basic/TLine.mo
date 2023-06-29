@@ -1,19 +1,19 @@
 within OmniPES.Circuit.Basic;
 
 model TLine
-  outer OmniPES.SystemData data;
-  parameter OmniPES.Units.PerUnit r;
-  parameter OmniPES.Units.PerUnit x;
-  parameter OmniPES.Units.ReactivePower Q;
-  OmniPES.Circuit.Interfaces.PositivePin p annotation(
+  outer SystemData data;
+  parameter Units.PerUnit r;
+  parameter Units.PerUnit x;
+  parameter Units.ReactivePower Q;
+  Circuit.Interfaces.PositivePin p annotation(
     Placement(visible = true, transformation(origin = {-40, 52}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {-110, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Interfaces.NegativePin n annotation(
+  Circuit.Interfaces.NegativePin n annotation(
     Placement(visible = true, transformation(origin = {40, 52}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {110, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.SeriesImpedance Z(r = r, x = x) annotation(
+  SeriesImpedance Z(r = r, x = x) annotation(
     Placement(visible = true, transformation(origin = {0, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.Shunt_Capacitor Ypp(NominalPower = Q/2) annotation(
+  Shunt_Capacitor Ypp(NominalPower = Q/2) annotation(
     Placement(visible = true, transformation(origin = {-26, 26}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.Circuit.Basic.Shunt_Capacitor Ynn(NominalPower = Q/2) annotation(
+  Shunt_Capacitor Ynn(NominalPower = Q/2) annotation(
     Placement(visible = true, transformation(origin = {24, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   connect(Z.n, n) annotation(

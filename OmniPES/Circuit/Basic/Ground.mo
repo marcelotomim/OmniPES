@@ -1,7 +1,7 @@
 within OmniPES.Circuit.Basic;
 
 model Ground
-  OmniPES.Circuit.Interfaces.PositivePin p annotation(
+  Circuit.Interfaces.PositivePin p annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   p.v.re = 0;

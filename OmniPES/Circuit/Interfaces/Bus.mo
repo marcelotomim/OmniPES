@@ -1,12 +1,11 @@
 within OmniPES.Circuit.Interfaces;
 
 model Bus
-  import OmniPES.Units;
   import Modelica.Units.SI;
   PositivePin p(v.re(start = 1.0)) annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-100, -100}, {100, 100}}, rotation = 0), iconTransformation(origin = {-2, -20}, extent = {{-15, -150}, {15, 150}}, rotation = 0)));
   Units.PerUnit V(start = 1.0);
-  SI.Angle angle(start = 0);
+  SI.Angle angle(start = 0, displayUnit = "deg");
 equation
   V^2 = p.v.re^2 + p.v.im^2;
   p.v.re = V*cos(angle);

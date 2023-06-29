@@ -1,24 +1,24 @@
 within OmniPES.Circuit.Basic;
 
 model TLine_switched
-  outer OmniPES.SystemData data;
-  parameter OmniPES.Units.PerUnit r;
-  parameter OmniPES.Units.PerUnit x;
-  parameter OmniPES.Units.ReactivePower Q;
-  OmniPES.Circuit.Interfaces.PositivePin p annotation(
+  outer SystemData data;
+  parameter Units.PerUnit r;
+  parameter Units.PerUnit x;
+  parameter Units.ReactivePower Q;
+  Circuit.Interfaces.PositivePin p annotation(
     Placement(visible = true, transformation(origin = {-86, 54}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {-110, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Interfaces.NegativePin n annotation(
+  Circuit.Interfaces.NegativePin n annotation(
     Placement(visible = true, transformation(origin = {90, 54}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {110, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.SeriesImpedance Z(r = r, x = x) annotation(
+  SeriesImpedance Z(r = r, x = x) annotation(
     Placement(visible = true, transformation(origin = {0, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.Shunt_Capacitor Ypp(NominalPower = Q/2) annotation(
+  Shunt_Capacitor Ypp(NominalPower = Q/2) annotation(
     Placement(visible = true, transformation(origin = {-12, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.Circuit.Basic.Shunt_Capacitor Ynn(NominalPower = Q/2) annotation(
+  Shunt_Capacitor Ynn(NominalPower = Q/2) annotation(
     Placement(visible = true, transformation(origin = {12, 28}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter Real t_open = 0.3;
   Circuit.Switches.TimedBreaker brk_p(t_open = t_open) annotation(
     Placement(visible = true, transformation(origin = {-46, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Switches.TimedBreaker brk_n(t_open = t_open) annotation(
+  Circuit.Switches.TimedBreaker brk_n(t_open = t_open) annotation(
     Placement(visible = true, transformation(origin = {48, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(Z.p, Ypp.p) annotation(

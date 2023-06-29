@@ -1,8 +1,7 @@
 within OmniPES.Circuit.Switches;
 
 model Breaker
-  extends OmniPES.Circuit.Switches.Interfaces.BasicBreaker;
-  import OmniPES.Units;
+  extends Circuit.Switches.Interfaces.BasicBreaker;
   Modelica.Blocks.Interfaces.BooleanInput ext_open annotation(
     Placement(visible = true, transformation(origin = {0, 100}, extent = {{-20, -20}, {20, 20}}, rotation = -90), iconTransformation(origin = {0, 88}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
 equation

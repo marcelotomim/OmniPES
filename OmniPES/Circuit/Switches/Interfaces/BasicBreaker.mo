@@ -1,16 +1,11 @@
 within OmniPES.Circuit.Switches.Interfaces;
 
 partial model BasicBreaker
-  extends OmniPES.Circuit.Interfaces.SeriesComponent;
-  import OmniPES.Units;
+  extends Circuit.Interfaces.SeriesComponent;
   Boolean open(start = false);
 protected
-  parameter Real Ron(final min = 0) = 1e-6;
-  parameter Real Goff(final min = 0) = 1e-6;
   Complex s(re(start = 0)) "Auxiliary variable";
 equation
-//v = s*(if open then 1 else Ron);
-//i = s*(if open then Goff else 1);
   if open then
     v = s;
     i = Complex(0);

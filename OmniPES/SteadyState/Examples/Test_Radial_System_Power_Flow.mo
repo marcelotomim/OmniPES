@@ -14,7 +14,7 @@ model Test_Radial_System_Power_Flow
     Placement(visible = true, transformation(origin = {74, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.Circuit.Basic.SeriesImpedance impedance2(x = 0.01) annotation(
     Placement(visible = true, transformation(origin = {-70, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  OmniPES.Circuit.Sources.PVSource pVSource(Psp = 100, Vsp = 1.0) annotation(
+  OmniPES.SteadyState.Sources.PVSource pVSource(Psp = 100, Vsp = 1.0) annotation(
     Placement(visible = true, transformation(origin = {115, 3}, extent = {{-13, -13}, {13, 13}}, rotation = -90)));
   OmniPES.Circuit.Interfaces.Bus bus annotation(
     Placement(visible = true, transformation(origin = {94, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));

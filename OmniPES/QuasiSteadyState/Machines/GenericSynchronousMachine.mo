@@ -1,32 +1,31 @@
 within OmniPES.QuasiSteadyState.Machines;
 
 model GenericSynchronousMachine
-  parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData smData "Record with machine parameters" annotation(
+  import Modelica.ComplexMath.abs;
+  import Modelica.ComplexMath.arg;
+  parameter SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {-74, 78}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData specs "Record with load flow specs." annotation(
+  parameter RestrictionData specs "Record with load flow specs." annotation(
     Placement(visible = true, transformation(origin = {-126, 78}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  OmniPES.Circuit.Interfaces.PositivePin terminal annotation(
+  Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-146, 0}, extent = {{-12, -12}, {12, 12}}, rotation = 0), iconTransformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.QuasiSteadyState.Machines.Interfaces.Inertia inertia(smData = smData) annotation(
+  Interfaces.Inertia inertia(smData = smData) annotation(
     Placement(visible = true, transformation(origin = {57, -1}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  replaceable OmniPES.QuasiSteadyState.Machines.Interfaces.PartialElectrical electrical annotation(
-    Placement(visible = true, transformation(origin = {-20, 0}, extent = {{-24, -24}, {24, 24}}, rotation = 0))) constrainedby OmniPES.QuasiSteadyState.Machines.Interfaces.PartialElectrical(smData = smData) annotation(
-     choicesAllMatching = true,
-     Placement(visible = true, transformation(origin = {-36, 0}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
-  replaceable OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction restriction constrainedby OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction(param = specs) annotation(
+  replaceable Interfaces.PartialElectrical electrical annotation(Placement(visible = true, transformation(origin = {-20, 0}, extent = {{-24, -24}, {24, 24}}, rotation = 0))) constrainedby Interfaces.PartialElectrical(smData = smData) annotation(choicesAllMatching = true, Placement(visible = true, transformation(origin = {-36, 0}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
+  replaceable Interfaces.Restriction restriction constrainedby Interfaces.Restriction(param = specs) annotation(
      choicesAllMatching = true,
      Placement(visible = true, transformation(origin = {-19, 73}, extent = {{-19, -19}, {19, 19}}, rotation = 0)));
-  replaceable OmniPES.QuasiSteadyState.Controllers.Interfaces.PartialAVR avr annotation(
+  replaceable Controllers.Interfaces.PartialAVR avr annotation(
     Placement(visible = true, transformation(origin = {-96, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  replaceable OmniPES.QuasiSteadyState.Controllers.Interfaces.PartialSpeedRegulator sreg annotation(
+  replaceable Controllers.Interfaces.PartialSpeedRegulator sreg annotation(
     Placement(visible = true, transformation(origin = {58, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  replaceable OmniPES.QuasiSteadyState.Controllers.Interfaces.PartialPSS pss annotation(
+  replaceable Controllers.Interfaces.PartialPSS pss annotation(
     Placement(visible = true, transformation(origin = {-56, -70}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 equation
   restriction.P = electrical.Pt;
   restriction.Q = electrical.Qt;
-  restriction.V = Modelica.ComplexMath.abs(terminal.v);
-  restriction.theta = Modelica.ComplexMath.arg(terminal.v);
+  restriction.V = abs(terminal.v);
+  restriction.theta = arg(terminal.v);
   avr.Vctrl = restriction.V;
   connect(inertia.delta, electrical.delta) annotation(
     Line(points = {{74, 6.5}, {88, 6.5}, {88, 38}, {-82, 38}, {-82, 18}, {-65, 18}, {-65, 19}, {-49, 19}}, color = {0, 0, 127}));

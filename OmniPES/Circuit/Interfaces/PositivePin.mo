@@ -1,7 +1,6 @@
 within OmniPES.Circuit.Interfaces;
 
 connector PositivePin
-  import OmniPES.Units;
   Units.CPerUnit v(re(start = 1.0), im(start = 0.0)) "Positive node voltage";
   flow Units.CPerUnit i(re(start = 1e-6), im(start = 1e-6)) "Sum of currents flowing into node";
   annotation(

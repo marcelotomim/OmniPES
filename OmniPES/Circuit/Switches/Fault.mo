@@ -1,19 +1,18 @@
 within OmniPES.Circuit.Switches;
 
 model Fault
-  import OmniPES.Units;
   import Modelica.Units.SI;
   parameter Units.PerUnit R = 0;
   parameter Units.PerUnit X = 1e-3;
   parameter SI.Time t_on = 0.1;
   parameter SI.Time t_off = 0.2;
-  OmniPES.Circuit.Interfaces.PositivePin T annotation(
+  Circuit.Interfaces.PositivePin T annotation(
     Placement(visible = true, transformation(origin = {0, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.77636e-15, 100}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
   Boolean closed;
 protected
-  OmniPES.Circuit.Switches.Breaker breaker annotation(
+  Circuit.Switches.Breaker breaker annotation(
     Placement(visible = true, transformation(origin = {0, 76}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.Circuit.Basic.ShuntAdmittance shuntAdmittance(g = R/(R^2 + X^2), b = -X/(R^2 + X^2)) annotation(
+  Circuit.Basic.ShuntAdmittance shuntAdmittance(g = R/(R^2 + X^2), b = -X/(R^2 + X^2)) annotation(
     Placement(visible = true, transformation(origin = {0, 40}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 initial equation
   closed = false;

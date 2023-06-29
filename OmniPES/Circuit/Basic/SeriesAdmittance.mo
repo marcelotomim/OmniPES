@@ -1,9 +1,9 @@
 within OmniPES.Circuit.Basic;
 
 model SeriesAdmittance
-  extends OmniPES.Circuit.Interfaces.SeriesComponent;
-  parameter OmniPES.Units.PerUnit g;
-  parameter OmniPES.Units.PerUnit b;
+  extends Circuit.Interfaces.SeriesComponent;
+  parameter Units.PerUnit g;
+  parameter Units.PerUnit b;
 equation
   i = Complex(g, b)*v;
   annotation(

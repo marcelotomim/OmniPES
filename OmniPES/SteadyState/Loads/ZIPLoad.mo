@@ -1,16 +1,16 @@
 within OmniPES.SteadyState.Loads;
 
 model ZIPLoad
-  outer OmniPES.SystemData data;
-  extends OmniPES.Circuit.Interfaces.ShuntComponent;
-  parameter OmniPES.Units.ActivePower Psp "Specified active power [MW]";
-  parameter OmniPES.Units.ReactivePower Qsp "Specified reactive power [Mvar]";
-  parameter OmniPES.Units.PerUnit Vdef = 1.0;
-  parameter OmniPES.SteadyState.Loads.Interfaces.LoadData ss_par = OmniPES.SteadyState.Loads.Interfaces.LoadData() annotation(
-    Placement(visible = true, transformation(origin = {-70, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Units.CPerUnit S;
-  OmniPES.Units.PerUnit Vabs(start = 1);
+  outer SystemData data;
+  extends Circuit.Interfaces.ShuntComponent;
   import Modelica.ComplexMath.conj;
+  parameter Units.ActivePower Psp "Specified active power [MW]";
+  parameter Units.ReactivePower Qsp "Specified reactive power [Mvar]";
+  parameter Units.PerUnit Vdef = 1.0;
+  parameter Interfaces.LoadData ss_par = Interfaces.LoadData() annotation(
+    Placement(visible = true, transformation(origin = {-70, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Units.CPerUnit S;
+  Units.PerUnit Vabs(start = 1);
 protected
   parameter Real pp = 1 - ss_par.pi - ss_par.pz;
   parameter Real pi = ss_par.pi;

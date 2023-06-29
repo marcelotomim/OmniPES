@@ -1,18 +1,18 @@
 within OmniPES.Circuit.Basic;
 
 model TwoWindingTransformer
-  outer OmniPES.SystemData data;
-  parameter OmniPES.Units.ApparentPower NominalMVA = data.Sbase;
-  parameter OmniPES.Units.PerUnit r = 0;
-  parameter OmniPES.Units.PerUnit x;
+  outer SystemData data;
+  parameter Units.ApparentPower NominalMVA = data.Sbase;
+  parameter Units.PerUnit r = 0;
+  parameter Units.PerUnit x;
   parameter Real tap = 1.0;
-  OmniPES.Circuit.Interfaces.PositivePin p(v.re(start = 1)) annotation(
+  Circuit.Interfaces.PositivePin p(v.re(start = 1)) annotation(
     Placement(visible = true, transformation(origin = {-66, 14}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Interfaces.NegativePin n(v.re(start = 1)) annotation(
+  Circuit.Interfaces.NegativePin n(v.re(start = 1)) annotation(
     Placement(visible = true, transformation(origin = {56, 14}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.SeriesImpedance Z(r = r*data.Sbase/NominalMVA, x = x*data.Sbase/NominalMVA) annotation(
+  Circuit.Basic.SeriesImpedance Z(r = r*data.Sbase/NominalMVA, x = x*data.Sbase/NominalMVA) annotation(
     Placement(visible = true, transformation(origin = {26, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Interfaces.IdealTransformer idealTransformer(a = tap) annotation(
+  Circuit.Interfaces.IdealTransformer idealTransformer(a = tap) annotation(
     Placement(visible = true, transformation(origin = {-30, 14}, extent = {{-14, -14}, {14, 14}}, rotation = 0)));
 equation
   connect(p, idealTransformer.p) annotation(
