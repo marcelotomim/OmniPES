@@ -12,6 +12,7 @@ model ZIPLoad
   Units.CPerUnit S;
   Units.PerUnit Vabs(start = 1);
 protected
+  Real dp, dq;
   parameter Real pp = 1 - ss_par.pi - ss_par.pz;
   parameter Real pi = ss_par.pi;
   parameter Real pz = ss_par.pz;
@@ -21,8 +22,8 @@ protected
 equation
   S = v*conj(i);
   Vabs^2 = v.re^2 + v.im^2;
-  S.re = Psp/data.Sbase*(pp + pi*(Vabs/Vdef) + pz*(Vabs/Vdef)^2);
-  S.im = Qsp/data.Sbase*(qq + qi*(Vabs/Vdef) + qz*(Vabs/Vdef)^2);
+  S.re = (Psp+dp)/data.Sbase*(pp + pi*(Vabs/Vdef) + pz*(Vabs/Vdef)^2);
+  S.im = (Qsp+dq)/data.Sbase*(qq + qi*(Vabs/Vdef) + qz*(Vabs/Vdef)^2);
   annotation(
     Icon(graphics = {Text(origin = {1, 2.84217e-14}, extent = {{-55, 40}, {55, -40}}, textString = "%name"), Rectangle(origin = {1, 0.424659}, extent = {{-60, 60.5753}, {60, -60.5753}}), Line(origin = {-81, 0}, points = {{21, 0}, {-19, 0}, {-21, 0}})}));
 end ZIPLoad;

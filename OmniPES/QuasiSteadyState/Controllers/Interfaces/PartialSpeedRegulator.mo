@@ -7,5 +7,5 @@ partial model PartialSpeedRegulator
   Interfaces.RealOutput Pm annotation(
     Placement(visible = true, transformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   annotation(
-    Icon(graphics = {Text(extent = {{-100, 60}, {100, -60}}, textString = "SR"), Rectangle(extent = {{-100, 100}, {100, -100}})}, coordinateSystem(initialScale = 0.1)));
+    Icon(graphics = {Text(extent = {{-80, 60}, {80, -60}}, textString = "SR"), Rectangle(extent = {{-100, 100}, {100, -100}})}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
 end PartialSpeedRegulator;
