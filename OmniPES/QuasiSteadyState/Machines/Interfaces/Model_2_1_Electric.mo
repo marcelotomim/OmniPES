@@ -6,8 +6,8 @@ model Model_2_1_Electric
   Units.PerUnit Fkd(start = 1.0);
   Units.PerUnit Fkq(start = 0.0);
 protected
-  parameter Units.PerUnit x2q = smData.convData.X2q;
   parameter Units.PerUnit x2d = smData.convData.X2d;
+  parameter Units.PerUnit x2q = smData.convData.X2q;
   parameter Units.PerUnit x1d = smData.convData.X1d;
   parameter Units.PerUnit xd = smData.convData.Xd;
   parameter Units.PerUnit xq = smData.convData.Xq;

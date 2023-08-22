@@ -23,5 +23,5 @@ equation
   S.re = if initial() then Pesp/data.Sbase*(1 - ss_par.pi - ss_par.pz + ss_par.pi*(Vo/Vdef) + ss_par.pz*(Vo/Vdef)^2) else Pesp/data.Sbase*(1 - dyn_par.pi - dyn_par.pz + dyn_par.pi*(Vabs/Vo) + dyn_par.pz*(Vabs/Vo)^2);
   S.im = if initial() then Qesp/data.Sbase*(1 - ss_par.qi - ss_par.qz + ss_par.qi*(Vo/Vdef) + ss_par.qz*(Vo/Vdef)^2) else Qesp/data.Sbase*(1 - dyn_par.qi - dyn_par.qz + dyn_par.qi*(Vabs/Vo) + dyn_par.qz*(Vabs/Vo)^2);
   annotation(
-    Icon(graphics = {Text(origin = {1, 2.84217e-14}, extent = {{-55, 40}, {55, -40}}, textString = "%name"), Rectangle(origin = {1, 0.424659}, extent = {{-60, 60.5753}, {60, -60.5753}}), Line(origin = {-81, 0}, points = {{21, 0}, {-19, 0}, {-21, 0}})}));
+    Icon(graphics = {Text(origin = {1, (0 - 14)}, extent = {{-55, 40}, {55, -40}}, textString = "%name"), Rectangle(origin = {1, 0.424659}, extent = {{-60, 60.5753}, {60, -60.5753}}), Line(origin = {-81, 0}, points = {{21, 0}, {-19, 0}, {-21, 0}}), Text(origin = {1, (0 - 14)}, extent = {{-55, 40}, {55, -40}}, textString = "%name"), Text(origin = {0, -80}, extent = {{-60, 18}, {60, -18}}, textString = "%Pesp", fontSize = 8)}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
 end ZIPLoad;

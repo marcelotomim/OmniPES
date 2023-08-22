@@ -6,3 +6,4 @@ ShuntAdmittance
 TwoWindingTransformer
 TLine
 TLine_switched
+SeriesImpedance_switched
