@@ -15,7 +15,7 @@ model Generic_Machine_TL
     Placement(visible = true, transformation(origin = {-75, -83}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {44, -70}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 Modelica.ComplexBlocks.ComplexMath.RealToComplex realToComplex annotation(
     Placement(visible = true, transformation(origin = {-32, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-BergeronLink bergeronLink(Vesp = gen1_specs.Vesp, Zc = Complex(gen1_data.convData.Ra, gen1_data.convData.X2d), theta_esp = gen1_specs.theta_esp) annotation(
+BergeronLink bergeronLink(Vsp = gen1_specs.Vsp, Zc = Complex(gen1_data.convData.Ra, gen1_data.convData.X2d), theta_sp = gen1_specs.theta_sp) annotation(
     Placement(visible = true, transformation(origin = {10, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 Modelica.Blocks.Interfaces.RealInput var_Ehk_re(start = 0) annotation(
     Placement(visible = true, transformation(origin = {-75, -37}, extent = {{-13, -13}, {13, 13}}, rotation = 0), iconTransformation(origin = {46, -36}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

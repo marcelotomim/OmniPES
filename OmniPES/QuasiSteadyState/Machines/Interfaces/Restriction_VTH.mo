@@ -4,6 +4,6 @@ model Restriction_VTH
   extends QuasiSteadyState.Machines.Interfaces.Restriction;
   import Modelica.Constants.pi;
 initial equation
-  V = param.Vesp;
-  theta = param.theta_esp;
+  V = param.Vsp;
+  theta = param.theta_sp;
 end Restriction_VTH;

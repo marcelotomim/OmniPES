@@ -19,13 +19,13 @@ model Kundur_Two_Area_System_ShortCircuit
     Placement(visible = true, transformation(origin = {-200, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine G1(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen1_specs) annotation(
     Placement(visible = true, transformation(origin = {-250, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen3_specs(Pesp = 0., Qesp = 0.0, Vesp = 1.030, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen3_specs(Psp = 0., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {222, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.030, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-254, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen4_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.010, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen4_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {172, -36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen2_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.010, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen2_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-204, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {-66, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -71,13 +71,13 @@ model Kundur_Two_Area_System_ShortCircuit
     Placement(visible = true, transformation(origin = {-128, -26}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Basic.Shunt_Capacitor shunt_Capacitor1(NominalPower = 350) annotation(
     Placement(visible = true, transformation(origin = {84, -24}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.QuasiSteadyState.Loads.ZIPLoad L1(Pesp = 967, Qesp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
+  OmniPES.QuasiSteadyState.Loads.ZIPLoad L1(Psp = 967, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
     Placement(visible = true, transformation(origin = {-108, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter OmniPES.QuasiSteadyState.Loads.Interfaces.LoadData ssLoadData(pi = 0, qz = 0) annotation(
     Placement(visible = true, transformation(origin = {-130, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Loads.Interfaces.LoadData dynLoadData(pi = 0, pz = 1, qz = 1) annotation(
     Placement(visible = true, transformation(origin = {-96, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.QuasiSteadyState.Loads.ZIPLoad L2(Pesp = 1767, Qesp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
+  OmniPES.QuasiSteadyState.Loads.ZIPLoad L2(Psp = 1767, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
     Placement(visible = true, transformation(origin = {64, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen_data_2(D = 0, H = 6.175e10, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

@@ -17,7 +17,7 @@ model Problema_4_3_Generic_Machine
     Placement(visible = true, transformation(origin = {-191, 69}, extent = {{-19, -19}, {19, 19}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData smData(H = 3.5, MVAb = 2220., MVAs = 2220.) annotation(
     Placement(visible = true, transformation(origin = {-156, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData pfdata(Pesp = 1776., Vesp = 1.0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData pfdata(Psp = 1776., Vsp = 1.0) annotation(
     Placement(visible = true, transformation(origin = {-128, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Circuit.Switches.Fault fault(X = 0.01, t_off = 0.2, t_on = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-42, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

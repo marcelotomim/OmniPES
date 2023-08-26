@@ -5,7 +5,7 @@ model Test_Radial_System
     Placement(visible = true, transformation(origin = {-76, 78}, extent = {{-22, -22}, {22, 22}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource(angle = 0, magnitude = 1.0) annotation(
     Placement(visible = true, transformation(origin = {-98, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Pesp = 500., Qesp = 0.0, Vesp = 1.03, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 500., Qsp = 0.0, Vsp = 1.03, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {52, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.SeriesImpedance impedance(x = 0.040) annotation(
     Placement(visible = true, transformation(origin = {2, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));

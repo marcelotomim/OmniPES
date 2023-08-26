@@ -1,7 +1,7 @@
 within OmniPES.SteadyState.Examples;
 
 model Test_Minimal
-  OmniPES.Circuit.Sources.VoltageSource voltageSource annotation(
+  OmniPES.SteadyState.Sources.VTHSource voltageSource annotation(
     Placement(visible = true, transformation(origin = {-84, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Basic.TLine tLine(Q = 50, r = 0, x = 0.05) annotation(
     Placement(visible = true, transformation(origin = {39, -5}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));

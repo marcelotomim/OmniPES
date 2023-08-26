@@ -5,7 +5,7 @@ model Classical_Machine_TL
     Placement(visible = true, transformation(origin = {-74, 64}, extent = {{-22, -22}, {22, 22}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen1_data annotation(
     Placement(visible = true, transformation(origin = {50, 52}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Pesp = 80., Qesp = 15.798602722763516, Vesp = 1.0, theta_esp (displayUnit = "rad")= 0.3899475035313694)  annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 80., Qsp = 15.798602722763516, Vsp = 1.0, theta_sp (displayUnit = "rad")= 0.3899475035313694)  annotation(
     Placement(visible = true, transformation(origin = {1, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
   //
   OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine SM(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs) annotation(
@@ -14,7 +14,7 @@ model Classical_Machine_TL
     Placement(visible = true, transformation(origin = {-75, -37}, extent = {{-13, -13}, {13, 13}}, rotation = 0), iconTransformation(origin = {46, -36}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput var_Ehk_im(start = 0) annotation(
     Placement(visible = true, transformation(origin = {-75, -83}, extent = {{-15, -15}, {15, 15}}, rotation = 0), iconTransformation(origin = {44, -70}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-OmniPES.CoSimulation.BergeronLink bergeronLink(Vesp = gen1_specs.Vesp, Zc = Complex(gen1_data.convData.Ra, gen1_data.convData.X1d), theta_esp = gen1_specs.theta_esp)  annotation(
+OmniPES.CoSimulation.BergeronLink bergeronLink(Vsp = gen1_specs.Vsp, Zc = Complex(gen1_data.convData.Ra, gen1_data.convData.X1d), theta_sp = gen1_specs.theta_sp)  annotation(
     Placement(visible = true, transformation(origin = {10, 0}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 Modelica.ComplexBlocks.ComplexMath.RealToComplex realToComplex annotation(
     Placement(visible = true, transformation(origin = {-32, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

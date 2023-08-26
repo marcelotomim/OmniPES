@@ -8,7 +8,7 @@ model SubSystem_1_TL
     Placement(visible = true, transformation(origin = {88, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource(angle = 0, magnitude = 1.0) annotation(
     Placement(visible = true, transformation(origin = {-88, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.030, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {50, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.SeriesImpedance impedance(x = 0.025) annotation(
     Placement(visible = true, transformation(origin = {-20, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
@@ -22,7 +22,7 @@ model SubSystem_1_TL
   OmniPES.QuasiSteadyState.Machines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.QuasiSteadyState.Controllers.PSS.NoPSS pss, redeclare OmniPES.QuasiSteadyState.Controllers.SpeedRegulators.ConstantPm sreg) annotation(
     Placement(visible = true, transformation(origin = {72, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
-  OmniPES.QuasiSteadyState.Loads.ZIPLoad zIPLoad(Pesp = 100., Qesp = 50.) annotation(
+  OmniPES.QuasiSteadyState.Loads.ZIPLoad zIPLoad(Psp = 100., Qsp = 50.) annotation(
     Placement(visible = true, transformation(origin = {63, -27}, extent = {{-15, -15}, {15, 15}}, rotation = -90)));
   OmniPES.Circuit.Basic.SeriesImpedance seriesImpedance(x = 0.025) annotation(
     Placement(visible = true, transformation(origin = {26, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
@@ -32,7 +32,7 @@ model SubSystem_1_TL
     Placement(visible = true, transformation(origin = {4, 38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.CoSimulation.BergeronLink TL_k annotation(
     Placement(visible = true, transformation(origin = {4, -36}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData specs(Pesp = -100., Qesp = -63.9135, Vesp = 1.0061432, theta_esp = 0.180552) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData specs(Psp = -100., Qsp = -63.9135, Vsp = 1.0061432, theta_sp = 0.180552) annotation(
     Placement(visible = true, transformation(origin = {-38, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput hout_re annotation(
     Placement(visible = true, transformation(origin = {18, -66}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

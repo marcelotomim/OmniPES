@@ -23,34 +23,36 @@ model tutorial_system_SVR_SS
     Placement(visible = true, transformation(origin = {58, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.SteadyState.Sources.Ctrl_VTHSource_Qlim G1(Qmax = 26, Vsp = 1.017)  annotation(
     Placement(visible = true, transformation(origin = {-119.5, -52.5}, extent = {{-12.5, -12.5}, {12.5, 12.5}}, rotation = -90)));
-  OmniPES.SteadyState.Sources.Ctrl_PVSource_Qlim G2(Psp = 90., Qmax = 78., Vsp = 1.025)  annotation(
+  OmniPES.SteadyState.Sources.Ctrl_PVSource_Qlim G2(Psp = 90., Qmax = 78., Vsp = 1.025, useExternalPowerSpec = true, useExternalVoltageSpec = true)  annotation(
     Placement(visible = true, transformation(origin = {-120, 40}, extent = {{-10, -10}, {10, 8}}, rotation = -90)));
-  OmniPES.Circuit.Basic.SeriesImpedance line_22(x = 0.18) annotation(
+  OmniPES.Circuit.Basic.SeriesImpedance_switched line_22(t_open = 2500, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {58, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData)  annotation(
     Placement(visible = true, transformation(origin = {161, -40.4}, extent = {{-13, -13}, {13, 10.4}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp ramp_P(duration = 190, height = 140, startTime = 2000) annotation(
-    Placement(visible = true, transformation(origin = {-201, -101}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Sources.Ramp ramp_P(duration = 140, height = 140) annotation(
+    Placement(visible = true, transformation(origin = {-191, -88}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4) annotation(
     Placement(visible = true, transformation(origin = {-156, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter SteadyState.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {158, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Real ref_2, ref_1, Qtotal;
   Boolean overvoltage;
-//  Boolean not_volt_ctrl;
-//  Real frozen(start=0, fixed);
+  Boolean not_volt_ctrl;
+  discrete Real frozen_ref_1(start = 0);
 equation
-//  der(frozen) = 0;
-//  not_volt_ctrl = not G1.volt_ctrl;
-//  when edge(not_volt_ctrl) then
-//    reinit(frozen, pre(ref_1)+1e-4);
-//  end when;
-  Qtotal = G1.S.im + G2.S.im;
+  not_volt_ctrl = not G1.volt_ctrl;
+  when edge(not_volt_ctrl) then
+    frozen_ref_1 = pre(ref_1) + 0.005;
+  end when;
+  
   bus_30.V = 1.0;
-  0 = if G1.volt_ctrl then G1.S.im - (1/4)*Qtotal else ref_1 - 1;
+  0 = if G1.volt_ctrl then G1.S.im - (1/4)*Qtotal else ref_1 - frozen_ref_1;
+  
+  Qtotal = G1.S.im + G2.S.im; 
   G1.dVsp = ref_1;
   G2.dVsp = ref_2;
-  overvoltage = bus_2.V <= 1.1 or bus_30.V <= 1.1;
+ 
+  overvoltage = bus_2.V <= 1.05;
 //  assert(overvoltage, "Maximum voltage was reached.");
   
   connect(trafo_2.p, bus_2.p) annotation(
@@ -81,11 +83,10 @@ equation
     Line(points = {{148, -40}, {122, -40}}, color = {0, 0, 255}));
   connect(gain.y, G2.dPsp) annotation(
     Line(points = {{-145, 44}, {-128, 44}}, color = {0, 0, 127}));
-  connect(ramp_P.y, gain.u) annotation(
-    Line(points = {{-190, -101}, {-177, -101}, {-177, 44}, {-168, 44}}, color = {0, 0, 127}));
   connect(ramp_P.y, load.dPsp) annotation(
-    Line(points = {{-190, -101}, {157, -101}, {157, -50}, {156, -50}}, color = {0, 0, 127}));
-
+    Line(points = {{-180, -88}, {157, -88}, {157, -50}, {156, -50}}, color = {0, 0, 127}));
+  connect(ramp_P.y, gain.u) annotation(
+    Line(points = {{-180, -88}, {-180, 44}, {-168, 44}}, color = {0, 0, 127}));
 protected
   annotation(
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),

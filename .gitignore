@@ -11,3 +11,4 @@
 /examples/kundur_two_area/OmniPES_CoSimulation_Examples_Generic_Machine_log.txt
 /examples/kundur_two_area/FMU/OmniPES.CoSimulation.Examples.Generic_Machine_Kundur.fmu
 /.idea/workspace.xml
+*.bak-mo

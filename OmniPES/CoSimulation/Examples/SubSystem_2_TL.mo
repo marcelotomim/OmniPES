@@ -22,7 +22,7 @@ model SubSystem_2_TL
     Placement(visible = true, transformation(origin = {18, -66}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput hout_im annotation(
     Placement(visible = true, transformation(origin = {18, -84}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData specs(Pesp = 100., Qesp = 63.9135, Vesp = 1.0061432, theta_esp = 0.180552) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData specs(Psp = 100., Qsp = 63.9135, Vsp = 1.0061432, theta_sp = 0.180552) annotation(
     Placement(visible = true, transformation(origin = {-78, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   TL_m.hist_out.re = hout_re;

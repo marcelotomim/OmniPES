@@ -1,7 +1,7 @@
 within OmniPES.CoSimulation.Examples;
 
 model System
-  parameter QuasiSteadyState.Machines.RestrictionData gen1_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.030, theta_esp = 0) annotation(
+  parameter QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {50, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Circuit.Sources.VoltageSource voltageSource(angle = 0, magnitude = 1.0) annotation(
     Placement(visible = true, transformation(origin = {-88, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -23,7 +23,7 @@ model System
     Placement(visible = true, transformation(origin = {-66, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.Circuit.Basic.SeriesImpedance impedance(x = 0.025) annotation(
     Placement(visible = true, transformation(origin = {-20, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  QuasiSteadyState.Loads.ZIPLoad zIPLoad(Pesp = 100., Qesp = 50.) annotation(
+  QuasiSteadyState.Loads.ZIPLoad zIPLoad(Psp = 100., Qsp = 50.) annotation(
     Placement(visible = true, transformation(origin = {63, -23}, extent = {{-15, -15}, {15, 15}}, rotation = -90)));
   OmniPES.Circuit.Interfaces.Bus bus4 annotation(
     Placement(visible = true, transformation(origin = {4, -68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

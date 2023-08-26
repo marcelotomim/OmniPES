@@ -7,7 +7,7 @@ model Test_Radial_System_SWITCHED
     Placement(visible = true, transformation(origin = {80, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource(angle = 0, magnitude = 1.0) annotation(
     Placement(visible = true, transformation(origin = {-88, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.030, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {52, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.SeriesImpedance impedance(x = 0.05) annotation(
     Placement(visible = true, transformation(origin = {0, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
@@ -21,7 +21,7 @@ model Test_Radial_System_SWITCHED
   OmniPES.QuasiSteadyState.Machines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.QuasiSteadyState.Controllers.PSS.NoPSS pss, redeclare OmniPES.QuasiSteadyState.Controllers.SpeedRegulators.ConstantPm sreg) annotation(
     Placement(visible = true, transformation(origin = {72, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
-  OmniPES.QuasiSteadyState.Loads.ZIPLoad zIPLoad(Pesp = 100., Qesp = 50.) annotation(
+  OmniPES.QuasiSteadyState.Loads.ZIPLoad zIPLoad(Psp = 100., Qsp = 50.) annotation(
     Placement(visible = true, transformation(origin = {61, -23}, extent = {{-15, -15}, {15, 15}}, rotation = -90)));
   OmniPES.Circuit.Switches.Fault fault(t_off = 0.3, t_on = 0.2) annotation(
     Placement(visible = true, transformation(origin = {-22, -24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

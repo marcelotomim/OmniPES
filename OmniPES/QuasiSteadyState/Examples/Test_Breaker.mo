@@ -5,7 +5,7 @@ model Test_Breaker
     Placement(visible = true, transformation(origin = {38, -14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource annotation(
     Placement(visible = true, transformation(origin = {-74, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.QuasiSteadyState.Loads.ZIPLoad zIPLoad(Pesp = 100, Qesp = 50) annotation(
+  OmniPES.QuasiSteadyState.Loads.ZIPLoad zIPLoad(Psp = 100, Qsp = 50) annotation(
     Placement(visible = true, transformation(origin = {12, -16}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Circuit.Switches.TimedBreaker timedBreaker(t_open = 0.6) annotation(
     Placement(visible = true, transformation(origin = {-14, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

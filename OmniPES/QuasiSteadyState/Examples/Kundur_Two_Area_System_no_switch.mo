@@ -19,13 +19,13 @@ model Kundur_Two_Area_System_no_switch
     Placement(visible = true, transformation(origin = {-214, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.QuasiSteadyState.Machines.GenericSynchronousMachine G1(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare PSS_1 pss, redeclare OmniPES.QuasiSteadyState.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_1, specs = gen1_specs) annotation(
     Placement(visible = true, transformation(origin = {-258, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen3_specs(Pesp = 0., Qesp = 0.0, Vesp = 1.030, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen3_specs(Psp = 0., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {222, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.030, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-254, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen4_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.010, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen4_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {172, -36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen2_specs(Pesp = 700., Qesp = 0.0, Vesp = 1.010, theta_esp = 0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen2_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-204, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {-66, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -81,9 +81,9 @@ model Kundur_Two_Area_System_no_switch
     Placement(visible = true, transformation(origin = {170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine21(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {20, -2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Loads.ZIPLoad L2(Pesp = 1767, Qesp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
+  Loads.ZIPLoad L2(Psp = 1767, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
     Placement(visible = true, transformation(origin = {64, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  Loads.ZIPLoad L1(Pesp = 967, Qesp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
+  Loads.ZIPLoad L1(Psp = 967, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
     Placement(visible = true, transformation(origin = {-108, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 
 model IEEE_AC4A

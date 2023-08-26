@@ -3,7 +3,7 @@ within OmniPES.QuasiSteadyState.Examples;
 model Test_Generic_Load_Default
   inner OmniPES.SystemData data(Sbase = 100, fb = 60) annotation(
     Placement(visible = true, transformation(origin = {-117, 81}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));
-  OmniPES.QuasiSteadyState.Loads.ZIPLoad zip(Pesp = 100., Qesp = 50.) annotation(
+  OmniPES.QuasiSteadyState.Loads.ZIPLoad zip(Psp = 100., Qsp = 50.) annotation(
     Placement(visible = true, transformation(origin = {87, -3}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource(magnitude = 1.09) annotation(
     Placement(visible = true, transformation(origin = {-90, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));

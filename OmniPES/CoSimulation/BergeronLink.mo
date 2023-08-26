@@ -9,13 +9,13 @@ model BergeronLink
     Placement(visible = true, transformation(origin = {89, -29}, extent = {{-11, -11}, {11, 11}}, rotation = 0), iconTransformation(origin = {111, -59}, extent = {{-11, -11}, {11, 11}}, rotation = 180)));
   Complex Ehk_ini;
   parameter Complex Zc = Complex(0, 0.1);
-  parameter Real Vesp(start=1);
-  parameter Real theta_esp(start=0);
+  parameter Real Vsp(start=1);
+  parameter Real theta_sp(start=0);
   Complex S;
   import Modelica.ComplexMath.conj;
 initial equation
-  Modelica.ComplexMath.abs(pin_p.v) = Vesp;
-  Modelica.ComplexMath.arg(pin_p.v) = theta_esp;
+  Modelica.ComplexMath.abs(pin_p.v) = Vsp;
+  Modelica.ComplexMath.arg(pin_p.v) = theta_sp;
 equation
   der(Ehk_ini.re) = 0;
   der(Ehk_ini.im) = 0;

@@ -5,7 +5,7 @@ model Test_Classical_Machine_1
     Placement(visible = true, transformation(origin = {-68, 70}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen1_data(D = 0, H = 5, MVAb = 100, Nmaq = 1, Ra = 0.0, X1d = 0.2, X1q = 0.2, Xd = 1.0, Xl = 0.0, Xq = 0.8) annotation(
     Placement(visible = true, transformation(origin = {47, 53}, extent = {{-13, -13}, {13, 13}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Pesp = 100, Qesp = 50, Vesp = 1.0) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 100, Qsp = 50, Vsp = 1.0) annotation(
     Placement(visible = true, transformation(origin = {1, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
   //
   OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine SM(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs) annotation(

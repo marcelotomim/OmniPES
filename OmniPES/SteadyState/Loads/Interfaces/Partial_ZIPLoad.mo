@@ -4,15 +4,15 @@ partial model Partial_ZIPLoad
   outer SystemData data;
   extends Circuit.Interfaces.ShuntComponent;
   import Modelica.ComplexMath.conj;
-  parameter Units.ActivePower Psp "Specified active power [MW]";
-  parameter Units.ReactivePower Qsp "Specified reactive power [Mvar]";
-  parameter Units.PerUnit Vdef = 1.0;
+  parameter Units.ActivePower Psp "Specified active power";
+  parameter Units.ReactivePower Qsp "Specified reactive power";
+  parameter Units.PerUnit Vdef = 1.0 "Voltage at which the specified power is defined"; 
   parameter Interfaces.LoadData ss_par = Interfaces.LoadData() annotation(
     Placement(visible = true, transformation(origin = {-70, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Units.CPerUnit S;
-  Units.PerUnit Vabs(start = 1);
+  Units.CPerUnit S "Complex power";
+  Units.PerUnit Vabs(start = 1) "Terminal voltage magnitude";
 protected
-  Real dp, dq;
+  Modelica.Blocks.Interfaces.RealOutput dp, dq;
   parameter Real pp = 1 - ss_par.pi - ss_par.pz;
   parameter Real pi = ss_par.pi;
   parameter Real pz = ss_par.pz;

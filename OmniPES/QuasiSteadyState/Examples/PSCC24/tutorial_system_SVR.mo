@@ -34,11 +34,11 @@ model tutorial_system_SVR
     Placement(visible = true, transformation(origin = {-162, 68}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData G1_data(H = 3.0, MVAb = 50, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75) annotation(
     Placement(visible = true, transformation(origin = {-162, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.QuasiSteadyState.Loads.ZIPLoad load(Pesp = 120, Qesp = 0, dyn_par = loadData, ss_par = loadData)  annotation(
+  OmniPES.QuasiSteadyState.Loads.ZIPLoad load(Psp = 120, Qsp = 0, dyn_par = loadData, ss_par = loadData)  annotation(
     Placement(visible = true, transformation(origin = {160, -40}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData G2_pf_data(Pesp = 90., Vesp = 1.025)  annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData G2_pf_data(Psp = 90., Vsp = 1.025)  annotation(
     Placement(visible = true, transformation(origin = {-162, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData G1_pf_data(Vesp = 1.017) annotation(
+  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData G1_pf_data(Vsp = 1.017) annotation(
     Placement(visible = true, transformation(origin = {-162, -48}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.QuasiSteadyState.Examples.PSCC24.Controllers.Plant_SVR g1_srv(init = Modelica.Blocks.Types.Init.SteadyState)   annotation(
     Placement(visible = true, transformation(origin = {-232.5, -40.5}, extent = {{-13.5, -13.5}, {13.5, 13.5}}, rotation = 0)));
