@@ -2,7 +2,7 @@ within OmniPES.CoSimulation.Examples;
 
 model Generic_Machine
   inner OmniPES.SystemData data annotation(
-    Placement(visible = true, transformation(origin = {-41, 43}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-54, 46}, extent = {{-28, -28}, {28, 28}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen1_data annotation(
     Placement(visible = true, transformation(origin = {78, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs annotation(

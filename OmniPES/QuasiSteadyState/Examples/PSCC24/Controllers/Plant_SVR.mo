@@ -21,10 +21,10 @@ equation
     Line(points = {{-120, -60}, {-19, -60}}, color = {0, 0, 127}));
   connect(Vref, Q_ctrl.y) annotation(
     Line(points = {{110, -54}, {71, -54}}, color = {0, 0, 127}));
-  connect(Qcom, add.u1) annotation(
-    Line(points = {{-120, 0}, {-33, 0}, {-33, -48}, {-19, -48}}, color = {0, 0, 127}));
   connect(add.y, Q_ctrl.u) annotation(
     Line(points = {{4, -54}, {39, -54}}, color = {0, 0, 127}));
+  connect(Qcom, add.u1) annotation(
+    Line(points = {{-120, 0}, {-53, 0}, {-53, -48}, {-19, -48}}, color = {0, 0, 127}));
   annotation(
     Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Rectangle(lineThickness = 0.75, extent = {{-100, 100}, {100, -100}}), Text(origin = {-0.5, -5}, extent = {{-90.5, 65}, {90.5, -65}}, textString = "Plant
 SRV")}),

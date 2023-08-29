@@ -21,16 +21,16 @@ model tutorial_system_SVR_SS
     Placement(visible = true, transformation(origin = {20, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Basic.SeriesImpedance line_21(x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {58, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.SteadyState.Sources.Ctrl_VTHSource_Qlim G1(Qmax = 26, Vsp = 1.017)  annotation(
+  OmniPES.SteadyState.Sources.Ctrl_VTHSource_Qlim G1(Qmax = 26, Vsp = 1.017, useExternalVoltageSpec = true)  annotation(
     Placement(visible = true, transformation(origin = {-119.5, -52.5}, extent = {{-12.5, -12.5}, {12.5, 12.5}}, rotation = -90)));
   OmniPES.SteadyState.Sources.Ctrl_PVSource_Qlim G2(Psp = 90., Qmax = 78., Vsp = 1.025, useExternalPowerSpec = true, useExternalVoltageSpec = true)  annotation(
     Placement(visible = true, transformation(origin = {-120, 40}, extent = {{-10, -10}, {10, 8}}, rotation = -90)));
   OmniPES.Circuit.Basic.SeriesImpedance_switched line_22(t_open = 2500, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {58, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData)  annotation(
+  OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData, useExternalQsp = false)  annotation(
     Placement(visible = true, transformation(origin = {161, -40.4}, extent = {{-13, -13}, {13, 10.4}}, rotation = 0)));
   Modelica.Blocks.Sources.Ramp ramp_P(duration = 140, height = 140) annotation(
-    Placement(visible = true, transformation(origin = {-191, -88}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-197, -87}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4) annotation(
     Placement(visible = true, transformation(origin = {-156, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter SteadyState.Loads.Interfaces.LoadData loadData annotation(
@@ -84,9 +84,9 @@ equation
   connect(gain.y, G2.dPsp) annotation(
     Line(points = {{-145, 44}, {-128, 44}}, color = {0, 0, 127}));
   connect(ramp_P.y, load.dPsp) annotation(
-    Line(points = {{-180, -88}, {157, -88}, {157, -50}, {156, -50}}, color = {0, 0, 127}));
+    Line(points = {{-186, -87}, {157, -87}, {157, -50}, {156, -50}}, color = {0, 0, 127}));
   connect(ramp_P.y, gain.u) annotation(
-    Line(points = {{-180, -88}, {-180, 44}, {-168, 44}}, color = {0, 0, 127}));
+    Line(points = {{-186, -87}, {-186, 44}, {-168, 44}}, color = {0, 0, 127}));
 protected
   annotation(
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),

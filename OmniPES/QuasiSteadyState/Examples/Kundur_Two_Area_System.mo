@@ -73,13 +73,13 @@ model Kundur_Two_Area_System
   OmniPES.Circuit.Basic.Shunt_Capacitor shunt_Capacitor1(NominalPower = 350) annotation(
     Placement(visible = true, transformation(origin = {84, -26}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.QuasiSteadyState.Loads.ZIPLoad L1(Psp = 967, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
-    Placement(visible = true, transformation(origin = {-108, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {-108, -36}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter OmniPES.QuasiSteadyState.Loads.Interfaces.LoadData ssLoadData(pi = 0, qz = 0) annotation(
     Placement(visible = true, transformation(origin = {-130, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Loads.Interfaces.LoadData dynLoadData(pi = 0, pz = 1, qz = 1) annotation(
     Placement(visible = true, transformation(origin = {-96, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.QuasiSteadyState.Loads.ZIPLoad L2(Psp = 1767, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
-    Placement(visible = true, transformation(origin = {64, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(visible = true, transformation(origin = {63, -31}, extent = {{-9, -9}, {9, 9}}, rotation = -90)));
 
   parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen_data_2(D = 0, H = 6.175, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -208,11 +208,11 @@ equation
   connect(shunt_Capacitor1.p, bus9.p) annotation(
     Line(points = {{84, -16}, {64, -16}, {64, 16}}, color = {0, 0, 255}));
   connect(L2.p, bus9.p) annotation(
-    Line(points = {{64, -20}, {64, 16}}, color = {0, 0, 255}));
+    Line(points = {{63, -22}, {63, -2}, {64, -2}, {64, 16}}, color = {0, 0, 255}));
   connect(fault.T, bus8.p) annotation(
     Line(points = {{-30, -18}, {-30, 16}}, color = {0, 0, 255}));
   connect(L1.p, bus7.p) annotation(
-    Line(points = {{-108, -20}, {-108, 16}}, color = {0, 0, 255}));
+    Line(points = {{-108, -26}, {-108, 16}}, color = {0, 0, 255}));
   connect(shunt_Capacitor.p, bus7.p) annotation(
     Line(points = {{-128, -16}, {-108, -16}, {-108, 16}}, color = {0, 0, 255}));
   connect(impedance1.n, bus6.p) annotation(

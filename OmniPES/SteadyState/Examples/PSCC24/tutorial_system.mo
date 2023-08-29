@@ -19,7 +19,7 @@ model tutorial_system
     Placement(visible = true, transformation(origin = {20, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Basic.SeriesImpedance line_21(x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {64, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.SeriesImpedance line_22(x = 0.18) annotation(
+  OmniPES.Circuit.Basic.SeriesImpedance_switched line_22(t_open = 2500, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {64, -52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
     Placement(visible = true, transformation(origin = {187, -41.3333}, extent = {{-15, -16.6667}, {15, 13.3333}}, rotation = 0)));

@@ -2,21 +2,21 @@ within OmniPES.CoSimulation.Examples;
 
 model Generic_Machine_Kundur
   inner OmniPES.SystemData data annotation(
-    Placement(visible = true, transformation(origin = {-70, 70}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-58, 53}, extent = {{-28, -28}, {28, 28}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen1_data annotation(
-    Placement(visible = true, transformation(origin = {78, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {49.5, 57.5}, extent = {{-16.5, -16.5}, {16.5, 16.5}}, rotation = 0)));
   parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs annotation(
-    Placement(visible = true, transformation(origin = {40, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {0.5, 57.5}, extent = {{-16.5, -16.5}, {16.5, 16.5}}, rotation = 0)));
   //
   OmniPES.QuasiSteadyState.Machines.GenericSynchronousMachine SM(redeclare IEEE_AC4A avr, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Model_2_2_Electric electrical, redeclare PSS_1 pss, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs, redeclare OmniPES.QuasiSteadyState.Controllers.SpeedRegulators.ConstantPm sreg) annotation(
     Placement(visible = true, transformation(origin = {73, 15}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
 
   Modelica.Blocks.Interfaces.RealInput Vi(start = 0) annotation(
-    Placement(visible = true, transformation(origin = {35, -67}, extent = {{15, -15}, {-15, 15}}, rotation = 0), iconTransformation(origin = {44, -70}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {35, -31}, extent = {{15, -15}, {-15, 15}}, rotation = 0), iconTransformation(origin = {44, -70}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   OmniPES.CoSimulation.Adaptors.ControlledVoltage controlledVoltage1 annotation(
     Placement(visible = true, transformation(origin = {-36, -22}, extent = {{-20, -20}, {20, 20}}, rotation = -90)));
   Modelica.Blocks.Interfaces.RealInput Vr(start = 1) annotation(
-    Placement(visible = true, transformation(origin = {35, -21}, extent = {{13, -13}, {-13, 13}}, rotation = 0), iconTransformation(origin = {46, -36}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {35, -7}, extent = {{13, -13}, {-13, 13}}, rotation = 0), iconTransformation(origin = {46, -36}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 
 model IEEE_AC4A
   extends OmniPES.QuasiSteadyState.Controllers.Interfaces.PartialAVR;
@@ -87,13 +87,15 @@ end PSS_1;
 
 equation
   connect(controlledVoltage1.Vi, Vi) annotation(
-    Line(points = {{-14, -14}, {-2, -14}, {-2, -66}, {36, -66}}, color = {0, 0, 127}));
-  connect(controlledVoltage1.Vr, Vr) annotation(
-    Line(points = {{-14, -6}, {14, -6}, {14, -20}, {36, -20}}, color = {0, 0, 127}));
+    Line(points = {{-14, -14}, {-2, -14}, {-2, -31}, {35, -31}}, color = {0, 0, 127}));
   connect(SM.terminal, controlledVoltage1.p) annotation(
     Line(points = {{58, 15}, {-36, 15}, {-36, -2}}, color = {0, 0, 255}));
+  connect(controlledVoltage1.Vr, Vr) annotation(
+    Line(points = {{-14, -6}, {35, -6}, {35, -7}}, color = {0, 0, 127}));
 protected
   annotation(
     experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-6, Interval = 0.0001),
-    uses(Modelica(version = "3.2.2")));
+    uses(Modelica(version = "3.2.2")),
+  Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
+  Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})));
 end Generic_Machine_Kundur;

@@ -27,15 +27,15 @@ model tutorial_system_SVR_QSS
     Placement(visible = true, transformation(origin = {-231.5, 54.5}, extent = {{-13.5, -13.5}, {13.5, 13.5}}, rotation = 0)));
   OmniPES.QuasiSteadyState.Examples.PSCC24.Controllers.Central_SVR central_SVR annotation(
     Placement(visible = true, transformation(origin = {-231.5, 8.5}, extent = {{-13.5, -13.5}, {13.5, 13.5}}, rotation = 0)));
-  OmniPES.SteadyState.Sources.Ctrl_VTHSource_Qlim G1(Qmax = 20, Vsp = 1.017)  annotation(
+  OmniPES.SteadyState.Sources.Ctrl_VTHSource_Qlim G1(Qmax = 26., Vsp = 1.017)  annotation(
     Placement(visible = true, transformation(origin = {-119.5, -52.5}, extent = {{-12.5, -12.5}, {12.5, 12.5}}, rotation = -90)));
   OmniPES.SteadyState.Sources.Ctrl_PVSource_Qlim G2(Psp = 90., Qmax = 78., Vsp = 1.025)  annotation(
     Placement(visible = true, transformation(origin = {-120, 40}, extent = {{-10, -10}, {10, 8}}, rotation = -90)));
-  OmniPES.Circuit.Basic.SeriesImpedance_switched line_22(t_open = 25, x = 0.18) annotation(
+  OmniPES.Circuit.Basic.SeriesImpedance_switched line_22(t_open = 2500, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {58, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData)  annotation(
+  OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData, useExternalQsp = false)  annotation(
     Placement(visible = true, transformation(origin = {161, -40.4}, extent = {{-13, -13}, {13, 10.4}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp ramp_P(duration = 700, height = 238 - 120, startTime = 2000) annotation(
+  Modelica.Blocks.Sources.Ramp ramp_P(duration = 300, height = 238. - 120, startTime = 2500) annotation(
     Placement(visible = true, transformation(origin = {-189, -89}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4) annotation(
     Placement(visible = true, transformation(origin = {-156, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -87,5 +87,5 @@ protected
   annotation(
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),
-    experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.001));
+    experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.01));
 end tutorial_system_SVR_QSS;

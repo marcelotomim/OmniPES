@@ -7,8 +7,9 @@ model SystemData
     Dialog(group = "Base Quantities"));
   parameter SI.Frequency fb = 60 annotation(
     Dialog(group = "Base Quantities"));
-  parameter SI.AngularVelocity wb = 2*pi*fb;
+  final parameter SI.AngularVelocity wb = 2*pi*fb;
   annotation(
+    singleInstance = true,
     defaultComponentName = "data",
     defaultComponentPrefixes = "inner",
     missingInnerMessage = "The System object is missing, please drag it on the top layer of your model",

@@ -2,6 +2,7 @@ within OmniPES.Circuit.Switches;
 
 model Fault
   import Modelica.Units.SI;
+  import Modelica.ComplexMath.abs;
   parameter Units.PerUnit R = 0;
   parameter Units.PerUnit X = 1e-3;
   parameter SI.Time t_on = 0.1;
@@ -9,6 +10,7 @@ model Fault
   Circuit.Interfaces.PositivePin T annotation(
     Placement(visible = true, transformation(origin = {0, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.77636e-15, 100}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
   Boolean closed;
+  Units.PerUnit If;
 protected
   Circuit.Switches.Breaker breaker annotation(
     Placement(visible = true, transformation(origin = {0, 76}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -17,6 +19,7 @@ protected
 initial equation
   closed = false;
 equation
+  If = abs(T.i);
   breaker.open = not closed;
   closed = if time >= t_on and time < t_off then true else false;
   connect(breaker.p, T) annotation(
