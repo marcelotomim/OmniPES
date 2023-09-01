@@ -1,5 +1,5 @@
 Interfaces
-Classical_SynchronousMachine
-SynchronousMachineData
 RestrictionData
+SynchronousMachineData
+ClassicalSynchronousMachine
 GenericSynchronousMachine

@@ -9,7 +9,6 @@ model Test_Radial_System_Power_Flow_Qlim
     Placement(visible = true, transformation(origin = {-46, 20}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus2 annotation(
     Placement(visible = true, transformation(origin = {52, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
-  //
   OmniPES.Circuit.Basic.SeriesImpedance impedance1(x = 0.01) annotation(
     Placement(visible = true, transformation(origin = {74, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.Circuit.Basic.SeriesImpedance impedance2(x = 0.01) annotation(
@@ -42,7 +41,7 @@ equation
   connect(zip.p, bus1.p) annotation(
     Line(points = {{-47, -20}, {-47, -6}, {-46, -6}, {-46, 18}}, color = {0, 0, 255}));
   connect(pVSource_Qlim.p, bus.p) annotation(
-    Line(points = {{134, 16}, {94, 16}}, color = {0, 0, 255}));
+    Line(points = {{131, 16}, {94, 16}}, color = {0, 0, 255}));
   connect(tLine1.p, bus1.p) annotation(
     Line(points = {{-9, -1}, {-34, -1}, {-34, 18}, {-46, 18}}, color = {0, 0, 255}));
   connect(tLine1.n, bus2.p) annotation(

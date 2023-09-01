@@ -7,7 +7,7 @@ model Problema_4_3
     Placement(visible = true, transformation(origin = {-74, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource annotation(
     Placement(visible = true, transformation(origin = {88, -12}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine GS(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = smData, specs = pfdata) annotation(
+  OmniPES.QuasiSteadyState.Machines.ClassicalSynchronousMachine GS(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = smData, specs = pfdata) annotation(
     Placement(visible = true, transformation(origin = {-143, -3}, extent = {{-13, -13}, {13, 13}}, rotation = 180)));
   Circuit.Interfaces.Bus bus1 annotation(
     Placement(visible = true, transformation(origin = {-104, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

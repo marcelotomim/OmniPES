@@ -8,7 +8,7 @@ model Test_Classical_Machine_1
   parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 100, Qsp = 50, Vsp = 1.0) annotation(
     Placement(visible = true, transformation(origin = {1, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
   //
-  OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine SM(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs) annotation(
+  OmniPES.QuasiSteadyState.Machines.ClassicalSynchronousMachine SM(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs) annotation(
     Placement(visible = true, transformation(origin = {62, 0}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
   OmniPES.CoSimulation.Adaptors.ControlledVoltage controlledVoltage annotation(
     Placement(visible = true, transformation(origin = {-39, -31}, extent = {{-21, -21}, {21, 21}}, rotation = -90)));

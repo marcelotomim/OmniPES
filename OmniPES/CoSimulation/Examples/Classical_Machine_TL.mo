@@ -8,7 +8,7 @@ model Classical_Machine_TL
   parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs(Psp = 80., Qsp = 15.798602722763516, Vsp = 1.0, theta_sp (displayUnit = "rad")= 0.3899475035313694)  annotation(
     Placement(visible = true, transformation(origin = {1, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
   //
-  OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine SM(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs) annotation(
+  OmniPES.QuasiSteadyState.Machines.ClassicalSynchronousMachine SM(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs) annotation(
     Placement(visible = true, transformation(origin = {62, 0}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput var_Ehk_re(start = 0) annotation(
     Placement(visible = true, transformation(origin = {-75, -37}, extent = {{-13, -13}, {13, 13}}, rotation = 0), iconTransformation(origin = {46, -36}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

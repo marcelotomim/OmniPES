@@ -1,6 +1,6 @@
 within OmniPES.QuasiSteadyState.Machines;
 
-model Classical_SynchronousMachine
+model ClassicalSynchronousMachine
   parameter SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {-78, 78}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   parameter RestrictionData specs "Record with load flow specs." annotation(
@@ -29,4 +29,4 @@ equation
     Line(points = {{-144, 0}, {-63, 0}}, color = {0, 0, 255}));
   annotation(
     Icon(graphics = {Ellipse(origin = {33, 0}, extent = {{65, 65}, {-65, -65}}, endAngle = 360), Line(origin = {-66, -1.07}, points = {{-34, 1}, {34, 1}}), Bitmap(extent = {{22, 4}, {22, 4}}), Text(origin = {10, 27}, extent = {{72, -67}, {-30, 13}}, textString = "SM")}, coordinateSystem(initialScale = 0.1)));
-end Classical_SynchronousMachine;
+end ClassicalSynchronousMachine;

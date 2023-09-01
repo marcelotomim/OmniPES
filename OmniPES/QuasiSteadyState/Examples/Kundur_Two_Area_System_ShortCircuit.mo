@@ -11,13 +11,13 @@ model Kundur_Two_Area_System_ShortCircuit
   OmniPES.Circuit.Interfaces.Bus bus8 annotation(
     Placement(visible = true, transformation(origin = {-30, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   //
-  OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine G3(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_VTH restriction, smData = gen_data_2, specs = gen3_specs) annotation(
+  OmniPES.QuasiSteadyState.Machines.ClassicalSynchronousMachine G3(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_VTH restriction, smData = gen_data_2, specs = gen3_specs) annotation(
     Placement(visible = true, transformation(origin = {218, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine G4(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_2, specs = gen4_specs) annotation(
+  OmniPES.QuasiSteadyState.Machines.ClassicalSynchronousMachine G4(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_2, specs = gen4_specs) annotation(
     Placement(visible = true, transformation(origin = {168, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine G2(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen2_specs) annotation(
+  OmniPES.QuasiSteadyState.Machines.ClassicalSynchronousMachine G2(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen2_specs) annotation(
     Placement(visible = true, transformation(origin = {-200, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  OmniPES.QuasiSteadyState.Machines.Classical_SynchronousMachine G1(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen1_specs) annotation(
+  OmniPES.QuasiSteadyState.Machines.ClassicalSynchronousMachine G1(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen1_specs) annotation(
     Placement(visible = true, transformation(origin = {-250, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen3_specs(Psp = 0., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {222, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
