@@ -1,7 +1,7 @@
 within OmniPES.QuasiSteadyState.Machines.Interfaces;
 
 model Restriction_VTH
-  extends QuasiSteadyState.Machines.Interfaces.Restriction;
+  extends Restriction;
   import Modelica.Constants.pi;
 initial equation
   V = param.Vsp;

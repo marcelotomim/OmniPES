@@ -7,8 +7,8 @@ model ClassicalSynchronousMachine
     Placement(visible = true, transformation(origin = {-126, 78}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-144, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Interfaces.Inertia inertia(smData = smData) annotation(
-    Placement(visible = true, transformation(origin = {57, -1}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
+  OmniPES.QuasiSteadyState.Machines.Interfaces.Inertia inertia(smData = smData) annotation(
+    Placement(visible = true, transformation(origin = {55, -9}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
   Interfaces.Classical_Electric electrical(smData = smData) annotation(
     Placement(visible = true, transformation(origin = {-38, 0}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
   replaceable Interfaces.Restriction restriction constrainedby Interfaces.Restriction(param = specs) annotation(
@@ -22,9 +22,9 @@ equation
   restriction.V = Modelica.ComplexMath.abs(terminal.v);
   terminal.v.re*tan(restriction.theta) = terminal.v.im;
   connect(inertia.delta, electrical.delta) annotation(
-    Line(points = {{74, 6.5}, {88, 6.5}, {88, 38}, {-82, 38}, {-82, 18}, {-67, 18}, {-67, 19}}, color = {0, 0, 127}));
+    Line(points = {{71.5, 0}, {71.5, 38}, {-82, 38}, {-82, 18}, {-67, 18}, {-67, 19}}, color = {0, 0, 127}));
   connect(electrical.Pe, inertia.Pe) annotation(
-    Line(points = {{-12, 0}, {40, 0}}, color = {0, 0, 127}));
+    Line(points = {{-12, 0}, {38.5, 0}}, color = {0, 0, 127}));
   connect(terminal, electrical.terminal) annotation(
     Line(points = {{-144, 0}, {-63, 0}}, color = {0, 0, 255}));
   annotation(

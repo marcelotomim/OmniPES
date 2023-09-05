@@ -1,10 +1,13 @@
 within OmniPES.QuasiSteadyState.Machines.Interfaces;
 
 model Model_2_1_Electric
-  extends QuasiSteadyState.Machines.Interfaces.PartialElectrical;
+  extends Interfaces.PartialElectrical;
   Units.PerUnit F1d(start = 1.0);
   Units.PerUnit Fkd(start = 1.0);
   Units.PerUnit Fkq(start = 0.0);
+  Units.PerUnit Ifd(start = 1.0);
+  Units.PerUnit Ikd(start = 0.0);
+  Units.PerUnit Ikq(start = 0.0);
 protected
   parameter Units.PerUnit x2d = smData.convData.X2d;
   parameter Units.PerUnit x2q = smData.convData.X2q;
@@ -14,8 +17,6 @@ protected
   parameter Units.PerUnit T1d0 = smData.convData.T1d0;
   parameter Units.PerUnit T2q0 = smData.convData.T2q0;
   parameter Units.PerUnit T2d0 = smData.convData.T2d0;
-  Units.PerUnit Ifd(start = 1.0), Ikd(start = 0.0);
-  Units.PerUnit Ikq(start = 0.0);
 initial equation
   der(F1d) = 0;
   der(Fkd) = 0;

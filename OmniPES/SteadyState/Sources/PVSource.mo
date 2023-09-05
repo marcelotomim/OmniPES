@@ -1,16 +1,11 @@
 within OmniPES.SteadyState.Sources;
 
 model PVSource
-  extends Icons.Vsource;
-  extends Circuit.Interfaces.ShuntComponent;
-  import Modelica.ComplexMath.conj;
+  extends Interfaces.Partial_Source;
   import Modelica.ComplexMath.abs;
-  outer SystemData data;
   parameter Units.ActivePower Psp;
   parameter Units.PerUnit Vsp = 1.0;
-  Units.CPerUnit S;
 equation
-  S = -v*conj(i);
   S.re = Psp/data.Sbase;
   Vsp = abs(p.v);
   annotation(

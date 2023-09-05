@@ -1,14 +1,14 @@
 within OmniPES.QuasiSteadyState.Machines.Interfaces;
 
 model Model_1_0_Electric
-  extends QuasiSteadyState.Machines.Interfaces.PartialElectrical;
+  extends Interfaces.PartialElectrical;
   Units.PerUnit F1d;
+  Units.PerUnit Ifd;
 protected
   parameter Units.PerUnit x1d = smData.convData.X1d;
   parameter Units.PerUnit xd = smData.convData.Xd;
   parameter Units.PerUnit xq = smData.convData.Xq;
   parameter Units.PerUnit T1d0 = smData.convData.T1d0;
-  Units.PerUnit Ifd;
 initial equation
   der(F1d) = 0;
 equation

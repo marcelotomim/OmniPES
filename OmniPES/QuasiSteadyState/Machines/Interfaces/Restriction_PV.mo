@@ -1,7 +1,7 @@
 within OmniPES.QuasiSteadyState.Machines.Interfaces;
 
 model Restriction_PV
-  extends QuasiSteadyState.Machines.Interfaces.Restriction;
+  extends Restriction;
 initial equation
   P = param.Psp/data.Sbase;
   V = param.Vsp;
