@@ -31,7 +31,7 @@ model tutorial_system_SVR_QSS
     Placement(visible = true, transformation(origin = {-119.5, -52.5}, extent = {{-12.5, -12.5}, {12.5, 12.5}}, rotation = -90)));
   OmniPES.SteadyState.Sources.Ctrl_PVSource_Qlim G2(Psp = 90., Qmax = 78., Vsp = 1.025)  annotation(
     Placement(visible = true, transformation(origin = {-120, 40}, extent = {{-10, -10}, {10, 8}}, rotation = -90)));
-  OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18) annotation(
+  OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 25, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {58, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData, useExternalQsp = false)  annotation(
     Placement(visible = true, transformation(origin = {161, -40.4}, extent = {{-13, -13}, {13, 10.4}}, rotation = 0)));
@@ -45,9 +45,9 @@ equation
   G1.dVsp = g1_srv.Vref + central_SVR.Vref;
   G2.dVsp = g2_srv.Vref + central_SVR.Vref;
   g1_srv.Qcom = central_SVR.Qout[1];
-  g1_srv.Qt = G1.S.im;
+  g1_srv.Qg = G1.S.im;
   g2_srv.Qcom = central_SVR.Qout[2];
-  g2_srv.Qt = G2.S.im;
+  g2_srv.Qg = G2.S.im;
   central_SVR.Qin[1] = G1.S.im;
   central_SVR.Qin[2] = G2.S.im;
   central_SVR.Vpilot = bus30.V;

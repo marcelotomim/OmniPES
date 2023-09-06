@@ -35,5 +35,7 @@ model AVR
       Line(points = {{-11, -51}, {-70, -51}, {-70, 0}, {-47, 0}}, color = {0, 0, 127}));
     annotation(
       Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
-  Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})));
+  Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Rectangle(origin = {-119, 0}, lineColor = {255, 0, 0}, lineThickness = 0.5, extent = {{-33, 22}, {33, -22}}), Text(origin = {-116, 34}, textColor = {255, 0, 0}, extent = {{-38, 14}, {39, -13}}, textString = "Unknown
+Reference 
+Value")}));
   end AVR;

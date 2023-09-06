@@ -37,5 +37,7 @@ within OmniPES.QuasiSteadyState.Examples.PSCC24.Controllers;
       Line(points = {{-19, 42}, {-13, 42}}, color = {0, 0, 127}));
     annotation(
       Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
-  Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})));
+  Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Rectangle(origin = {-13, 42}, lineColor = {255, 0, 0}, lineThickness = 0.5, extent = {{-38, 23}, {38, -23}}), Text(origin = {-14, 77}, textColor = {255, 0, 0}, extent = {{-38, 14}, {39, -13}}, textString = "Unknown
+Reference 
+Value")}));
   end SpeedGovernor;

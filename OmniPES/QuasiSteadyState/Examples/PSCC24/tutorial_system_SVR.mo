@@ -51,9 +51,9 @@ equation
   G1.avr.Vext = g1_srv.Vref + central_SVR.Vref;
   G2.avr.Vext = g2_srv.Vref + central_SVR.Vref;
   g1_srv.Qcom = central_SVR.Qout[1];
-  g1_srv.Qt = G1.electrical.Qt;
+  g1_srv.Qg = G1.electrical.Qt;
   g2_srv.Qcom = central_SVR.Qout[2];
-  g2_srv.Qt = G2.electrical.Qt;
+  g2_srv.Qg = G2.electrical.Qt;
   central_SVR.Qin[1] = G1.electrical.Qt;
   central_SVR.Qin[2] = G2.electrical.Qt;
   central_SVR.Vpilot = bus30.V;

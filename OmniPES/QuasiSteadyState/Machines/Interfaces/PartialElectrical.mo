@@ -42,8 +42,8 @@ equation
   Qt = St.im;
   Vt = Vabs;
   Vqd = -ra*Iqd - j*Fqd;
-  Pe = Fqd.im*Iqd.re - Fqd.re*Iqd.im;
   Fqd = xl*Iqd + Faqd;
+  Pe = Fqd.im*Iqd.re - Fqd.re*Iqd.im;
 annotation(
     Icon(graphics = {Text(extent = {{-80, 30}, {80, -30}}, textString = "Electrical"), Rectangle(extent = {{-100, 100}, {100, -100}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
 end PartialElectrical;
