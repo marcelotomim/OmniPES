@@ -5,6 +5,6 @@ Math
 Scopes
 Circuit
 SteadyState
-QuasiSteadyState
+Transient
 CoSimulation
 Icons

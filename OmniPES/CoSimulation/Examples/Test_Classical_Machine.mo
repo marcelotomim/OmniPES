@@ -3,12 +3,12 @@ within OmniPES.CoSimulation.Examples;
 model Test_Classical_Machine
   inner OmniPES.SystemData data annotation(
     Placement(visible = true, transformation(origin = {-74, 64}, extent = {{-22, -22}, {22, 22}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen1_data annotation(
+  parameter OmniPES.Transient.Machines.SynchronousMachineData gen1_data annotation(
     Placement(visible = true, transformation(origin = {50, 52}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs annotation(
+  parameter OmniPES.Transient.Machines.RestrictionData gen1_specs annotation(
     Placement(visible = true, transformation(origin = {1, 53}, extent = {{-17, -17}, {17, 17}}, rotation = 0)));
   //
-  OmniPES.QuasiSteadyState.Machines.ClassicalSynchronousMachine SM(redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs) annotation(
+  OmniPES.Transient.Machines.ClassicalSynchronousMachine SM(redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PQ restriction, smData = gen1_data, specs = gen1_specs) annotation(
     Placement(visible = true, transformation(origin = {62, 0}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput Vr(start = 1) annotation(
     Placement(visible = true, transformation(origin = {39, -29}, extent = {{13, -13}, {-13, 13}}, rotation = 0), iconTransformation(origin = {46, -36}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));

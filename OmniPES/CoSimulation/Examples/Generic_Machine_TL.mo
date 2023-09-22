@@ -3,12 +3,12 @@ within OmniPES.CoSimulation.Examples;
 model Generic_Machine_TL
   inner OmniPES.SystemData data annotation(
     Placement(visible = true, transformation(origin = {-41, 43}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen1_data annotation(
+  parameter OmniPES.Transient.Machines.SynchronousMachineData gen1_data annotation(
     Placement(visible = true, transformation(origin = {78, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs annotation(
+  parameter OmniPES.Transient.Machines.RestrictionData gen1_specs annotation(
     Placement(visible = true, transformation(origin = {40, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   //
-  OmniPES.QuasiSteadyState.Machines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.QuasiSteadyState.Controllers.PSS.NoPSS pss, redeclare OmniPES.QuasiSteadyState.Controllers.SpeedRegulators.ConstantPm sreg) annotation(
+  OmniPES.Transient.Machines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.Transient.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PQ restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg) annotation(
     Placement(visible = true, transformation(origin = {71, 1}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
 
   Modelica.Blocks.Interfaces.RealInput var_Ehk_im(start = 0) annotation(

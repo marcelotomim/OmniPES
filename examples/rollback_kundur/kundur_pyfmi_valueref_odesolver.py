@@ -25,7 +25,7 @@ from numpy.random import random
 if __name__ == '__main__':
     print(os.getcwd())
 
-    model_name = "OmniPES.QuasiSteadyState.Examples.Kundur_Two_Area_System"
+    model_name = "OmniPES.Transient.Examples.Kundur_Two_Area_System"
 
     #    Importa as FMUS
     # fmu_ = pyfmi.load_fmu(f'FMU/{model_name}.fmu', log_level=2, kind='me')

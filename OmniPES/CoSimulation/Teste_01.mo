@@ -2,7 +2,7 @@ within OmniPES.CoSimulation;
 
 model Teste_01
   parameter Real dt = 0.1;
-  OmniPES.CoSimulation.BergeronLink bl_1(restrictionData = specs, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_VTH restriction) annotation(
+  OmniPES.CoSimulation.BergeronLink bl_1(restrictionData = specs, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_VTH restriction) annotation(
     Placement(visible = true, transformation(origin = {2, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource slack_cs annotation(
     Placement(visible = true, transformation(origin = {-88, 22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
@@ -16,7 +16,7 @@ model Teste_01
     Placement(visible = true, transformation(origin = {156, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus_m annotation(
     Placement(visible = true, transformation(origin = {98, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData specs(Psp = 100., Qsp = 10.1021, Vsp = 0.984222, theta_sp = -5.8315) annotation(
+  parameter OmniPES.Transient.Machines.RestrictionData specs(Psp = 100., Qsp = 10.1021, Vsp = 0.984222, theta_sp = -5.8315) annotation(
     Placement(visible = true, transformation(origin = {36, 10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine1(Q = 0, r = 0, x = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-54, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -36,7 +36,7 @@ model Teste_01
     Placement(visible = true, transformation(origin = {-54, 28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tl1(Q = 0, r = 0, x = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-18, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.CoSimulation.BergeronLink bl_2(restrictionData = specs, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_VTH restriction) annotation(
+  OmniPES.CoSimulation.BergeronLink bl_2(restrictionData = specs, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_VTH restriction) annotation(
     Placement(visible = true, transformation(origin = {70, 32}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
 equation
   connect(zIPLoad_cs.p, bus_load_cs.p) annotation(

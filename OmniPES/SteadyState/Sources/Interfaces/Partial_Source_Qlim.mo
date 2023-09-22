@@ -15,11 +15,11 @@ partial model Partial_Source_Qlim
   Units.CPerUnit S;
   Units.PerUnit Vabs(start = 1);
   Boolean volt_ctrl, qmax_ctrl, qmin_ctrl;
-protected
-  Real ch1(start = 0);
-  Real ch2(start = 0);
-  Real ch3(start = 0);
-  Real ch4(start = 0);
+//protected
+  Real ch1(start = 1);
+  Real ch2(start = 1);
+  Real ch3(start = 1);
+  Real ch4(start = 1);
   parameter Real lim_max = Qmax/data.Sbase - tolq;
   parameter Real lim_min = Qmin/data.Sbase + tolq;
   Real lim_sup;

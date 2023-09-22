@@ -1,7 +1,7 @@
 within OmniPES.SteadyState.Examples.PSCC24.Controllers;
 
 model AVR_SRV
-    extends OmniPES.QuasiSteadyState.Controllers.Interfaces.PartialAVR;
+    extends OmniPES.Transient.Controllers.Interfaces.PartialAVR;
     parameter Real ka = 100;
     parameter Modelica.Units.SI.Time T = 0.05;
     parameter OmniPES.Units.PerUnit Efd_max = 7.0;

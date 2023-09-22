@@ -54,7 +54,7 @@ model Kundur_Two_Area_System_SteadyState
     Placement(visible = true, transformation(origin = {-128, -26}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Basic.Shunt_Capacitor shunt_Capacitor1(NominalPower = 350) annotation(
     Placement(visible = true, transformation(origin = {84, -24}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  parameter OmniPES.QuasiSteadyState.Loads.Interfaces.LoadData ssLoadData(pi = 0, qz = 0) annotation(
+  parameter OmniPES.Transient.Loads.Interfaces.LoadData ssLoadData(pi = 0, qz = 0) annotation(
     Placement(visible = true, transformation(origin = {-108, -54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource G3(angle = 0.0, magnitude = 1.030) annotation(
     Placement(visible = true, transformation(origin = {222, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

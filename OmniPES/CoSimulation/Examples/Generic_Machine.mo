@@ -3,12 +3,12 @@ within OmniPES.CoSimulation.Examples;
 model Generic_Machine
   inner OmniPES.SystemData data annotation(
     Placement(visible = true, transformation(origin = {-54, 46}, extent = {{-28, -28}, {28, 28}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.SynchronousMachineData gen1_data annotation(
+  parameter OmniPES.Transient.Machines.SynchronousMachineData gen1_data annotation(
     Placement(visible = true, transformation(origin = {78, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.QuasiSteadyState.Machines.RestrictionData gen1_specs annotation(
+  parameter OmniPES.Transient.Machines.RestrictionData gen1_specs annotation(
     Placement(visible = true, transformation(origin = {40, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   //
-  OmniPES.QuasiSteadyState.Machines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.QuasiSteadyState.Machines.Interfaces.Restriction_PQ restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.QuasiSteadyState.Controllers.PSS.NoPSS pss, redeclare OmniPES.QuasiSteadyState.Controllers.SpeedRegulators.ConstantPm sreg) annotation(
+  OmniPES.Transient.Machines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.Transient.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PQ restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg) annotation(
     Placement(visible = true, transformation(origin = {73, 15}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
 
   Modelica.Blocks.Interfaces.RealInput Vi(start = 0) annotation(
@@ -23,7 +23,7 @@ Modelica.Blocks.Interfaces.RealOutput Ir annotation(
     Placement(visible = true, transformation(origin = {-92, -20}, extent = {{10, -10}, {-10, 10}}, rotation = 0), iconTransformation(origin = {-112, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 model IEEE_AC4A
-  extends OmniPES.QuasiSteadyState.Controllers.Interfaces.PartialAVR;
+  extends OmniPES.Transient.Controllers.Interfaces.PartialAVR;
   Modelica.Blocks.Continuous.FirstOrder Rectifier(T = 0.01, initType = Modelica.Blocks.Types.Init.SteadyState, k = 200) annotation(
     Placement(visible = true, transformation(origin = {40, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add3 add3(k1 = -1, k2 = +1) annotation(
