@@ -41,11 +41,11 @@ model tutorial_system_SVR
   parameter OmniPES.Transient.Machines.RestrictionData G1_pf_data(Vsp = 1.017) annotation(
     Placement(visible = true, transformation(origin = {-100, -39}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Transient.Examples.PSCC24.Controllers.Plant_SVR g1_srv annotation(
-    Placement(visible = true, transformation(origin = {-140, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-156, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Transient.Examples.PSCC24.Controllers.Plant_SVR g2_srv(init = Modelica.Blocks.Types.Init.SteadyState)  annotation(
-    Placement(visible = true, transformation(origin = {-140, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-156, 40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Transient.Examples.PSCC24.Controllers.Central_SVR central_SVR annotation(
-    Placement(visible = true, transformation(origin = {-140, 0}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {-156, 0}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
 equation
   G1.avr.Vext = g1_srv.Vref + central_SVR.Vref;
   G2.avr.Vext = g2_srv.Vref + central_SVR.Vref;
@@ -86,6 +86,6 @@ equation
 protected
   annotation(
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),
-    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),
+    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1}), graphics = {Text(origin = {-182.5, 46}, extent = {{-12, 7}, {13, -7}}, textString = "Qcom[1]", fontSize = 14), Text(origin = {-180.5, 34}, extent = {{-7, 4}, {8, -4}}, textString = "Qg", fontSize = 14), Text(origin = {-180.5, -46}, extent = {{-7, 4}, {8, -4}}, textString = "Qg", fontSize = 14), Text(origin = {-183, -34}, extent = {{-13, 7}, {13, -7}}, textString = "Qcom[2]", fontSize = 14), Text(origin = {-186, -7}, extent = {{-11, 4}, {12, -4}}, textString = "Vpilot", fontSize = 14), Text(origin = {-182, 7}, extent = {{-10, 7}, {10, -7}}, textString = "Qin", fontSize = 14), Text(origin = {-135, 40}, extent = {{-10, 7}, {10, -7}}, textString = "Vref", fontSize = 14), Text(origin = {-135, -40}, extent = {{-10, 7}, {10, -7}}, textString = "Vref", fontSize = 14), Text(origin = {-133, -7}, extent = {{-10, 7}, {10, -7}}, textString = "Vref", fontSize = 14), Text(origin = {-134, 7}, extent = {{-10, 7}, {10, -7}}, textString = "Qcom", fontSize = 14)}),
     experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.001));
 end tutorial_system_SVR;
