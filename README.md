@@ -1,1 +1,2 @@
-# OmniPES
+# **OmniPES** Power System Analysis Library
+
