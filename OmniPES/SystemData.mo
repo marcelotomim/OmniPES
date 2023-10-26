@@ -16,5 +16,20 @@ model SystemData
     Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}), graphics = {Rectangle(fillColor = {255, 255, 0}, fillPattern = FillPattern.Solid, extent = {{-80, 70}, {80, -70}}), Text(extent = {{-60, 40}, {60, -40}}, textString = "System
 %Sbase
 %fb")}),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})));
+    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})),
+  Documentation(info = "<html>
+  
+  <head></head>
+  
+  <body>
+    <h1>SystemData Model</h1>
+    <div>The SystemData model contains base values used for the transmission network. The transmission network comprises
+      all passive elements, including transmission lines and other concentrated elements such as reactors and capacitor
+      banks.</div>
+    <div><br></div>
+    <div>All per-unit quantities are modeled with respect to the values defined within this model as base values.</div>
+    <br>
+  </body>
+  
+  </html>"));
 end SystemData;
