@@ -12,3 +12,9 @@
 /examples/kundur_two_area/FMU/OmniPES.CoSimulation.Examples.Generic_Machine_Kundur.fmu
 /.idea/workspace.xml
 *.bak-mo
+examples/rollback_radial/radial_cs_tl.pdf
+.gitignore
+examples/rollback_radial/radial_generic_cs_tl.pdf
+examples/rollback_radial/radial_generic_me.pdf
+examples/rollback_radial/radial_me.pdf
+*.pyc

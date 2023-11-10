@@ -165,13 +165,13 @@ if __name__ == '__main__':
 
     Vesp = 1.0
     Pesp = 1776. / Sbase
-    fmu_.set("gen1_specs.Pesp", Pesp * Sbase)
+    fmu_.set("gen1_specs.Psp", Pesp * Sbase)
 
     Vt, Qesp = initNet(Pesp, Vesp)
 
-    fmu_.set("gen1_specs.Vesp", np.abs(Vt))
-    fmu_.set("gen1_specs.theta_esp", np.angle(Vt))
-    fmu_.set("gen1_specs.Qesp", Qesp * Sbase)
+    fmu_.set("gen1_specs.Vsp", np.abs(Vt))
+    fmu_.set("gen1_specs.theta_sp", np.angle(Vt))
+    fmu_.set("gen1_specs.Qsp", Qesp * Sbase)
 
     t = 0.0
 
@@ -338,5 +338,5 @@ if __name__ == '__main__':
 
     ax[-1].set_xlabel('time [s]')
     plt.tight_layout()
-    plt.savefig('radial.pdf', dpi=300)
+    plt.savefig('radial_cs_tl.pdf', dpi=300)
 

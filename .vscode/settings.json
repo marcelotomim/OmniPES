@@ -1,0 +1,9 @@
+{
+    "python.autoComplete.extraPaths": [
+
+        "/home/marcelot/Documents/OpenModelica/FMU_CS/cosimulation/git/utils"
+    ],
+    "terminal.integrated.env.linux": {
+            "PYTHONPATH": "/home/marcelot/Documents/OpenModelica/FMU_CS/cosimulation/git/utils"
+    }
+}

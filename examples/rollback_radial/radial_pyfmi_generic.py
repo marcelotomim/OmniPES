@@ -123,13 +123,13 @@ if __name__ == '__main__':
 
     Vesp = 1.0
     Pesp = 1776./Sbase
-    fmu_.set("gen1_specs.Pesp", Pesp*Sbase)
+    fmu_.set("gen1_specs.Psp", Pesp*Sbase)
 
     Vt, Qesp = initNet(Pesp, Vesp)
 
     fmu_.set("Vr", Vt.real)
     fmu_.set("Vi", Vt.imag)
-    fmu_.set("gen1_specs.Qesp", Qesp*Sbase)
+    fmu_.set("gen1_specs.Qsp", Qesp*Sbase)
 
     Zg = fmu_.get("gen1_data.convData.Ra")[0] + 1j * fmu_.get("gen1_data.convData.X2d")[0]
     t = 0.0
@@ -279,7 +279,7 @@ if __name__ == '__main__':
 
         pbar.update(t-time[-1])
         
-        # Armazenando estatísticas do prcessos iterativo
+        # Armazenando estatísticas do processos iterativo
         its.append(step_iter)
         erros.append(interface_error)
 
@@ -292,7 +292,7 @@ if __name__ == '__main__':
 
     solv = np.array(sol)
 
-    # Carraganto resultados do OMEdit para comparação
+    # Carregando resultados do OMEdit para comparação
 
     d = DyMat.DyMatFile('results/Radial_Generic_Machine_res.mat')
     delta_om = d['GS.electrical.delta']
@@ -343,4 +343,4 @@ if __name__ == '__main__':
 
     ax[-1].set_xlabel('time [s]')
     plt.tight_layout()
-    plt.savefig('Radial_generic.pdf', dpi=300)
+    plt.savefig('radial_generic_me.pdf', dpi=300)

@@ -165,16 +165,16 @@ if __name__ == '__main__':
 
     Vesp = 1.0
     Pesp = 1776. / Sbase
-    fmu_.set("gen1_specs.Pesp", Pesp * Sbase)
+    fmu_.set("gen1_specs.Psp", Pesp * Sbase)
 
     Vt, Qesp = initNet(Pesp, Vesp)
 
     X2d = fmu_.get("gen1_data.convData.X2d")[0]
     Zc = complex(0, X2d)
 
-    fmu_.set("gen1_specs.Vesp", np.abs(Vt))
-    fmu_.set("gen1_specs.theta_esp", np.angle(Vt))
-    fmu_.set("gen1_specs.Qesp", Qesp * Sbase)
+    fmu_.set("gen1_specs.Vsp", np.abs(Vt))
+    fmu_.set("gen1_specs.theta_sp", np.angle(Vt))
+    fmu_.set("gen1_specs.Qsp", Qesp * Sbase)
     fmu_.set("bergeronLink.Zc.re", Zc.real)
     fmu_.set("bergeronLink.Zc.im", Zc.imag)
 
@@ -276,7 +276,7 @@ if __name__ == '__main__':
 
         pbar.update(t - time[-1])
 
-        # Armazenando estatísticas do prcessos iterativo
+        # Armazenando estatísticas do processos iterativo
         its.append(step_iter)
 
         # Armazenando de resultados
@@ -288,7 +288,7 @@ if __name__ == '__main__':
 
     solv = np.array(sol)
 
-    # Carraganto resultados do OMEdit para comparação
+    # Carragando resultados do OMEdit para comparação
     d = DyMat.DyMatFile('results/Radial_Generic_Machine_res.mat')
     delta_om = d['GS.electrical.delta']
     time_delta_om = d.abscissa('GS.electrical.delta', valuesOnly=True)
@@ -329,5 +329,5 @@ if __name__ == '__main__':
 
     ax[-1].set_xlabel('time [s]')
     plt.tight_layout()
-    plt.savefig('radial.pdf', dpi=300)
+    plt.savefig('radial_generic_cs_tl.pdf', dpi=300)
 
