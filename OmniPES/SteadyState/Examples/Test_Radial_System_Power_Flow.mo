@@ -15,7 +15,7 @@ model Test_Radial_System_Power_Flow
   OmniPES.Circuit.Basic.SeriesImpedance impedance2(x = 0.01) annotation(
     Placement(visible = true, transformation(origin = {-70, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.SteadyState.Sources.PVSource pVSource(Psp = 100, Vsp = 1.0) annotation(
-    Placement(visible = true, transformation(origin = {115, 3}, extent = {{-13, -13}, {13, 13}}, rotation = -90)));
+    Placement(transformation(origin = {117, 3}, extent = {{-13, -13}, {13, 13}}, rotation = -90)));
   OmniPES.Circuit.Interfaces.Bus bus annotation(
     Placement(visible = true, transformation(origin = {94, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine(Q = 150, r = 0, x = 0.1) annotation(
@@ -23,7 +23,7 @@ model Test_Radial_System_Power_Flow
   OmniPES.SteadyState.Loads.ZIPLoad zip(Psp = 100, Qsp = 50, ss_par = load_data) annotation(
     Placement(visible = true, transformation(origin = {-46, -40}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData load_data annotation(
-    Placement(visible = true, transformation(origin = {-46, -64}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-46, -62}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Basic.TLine_switched tLine_switched(Q = 150, r = 0, t_open = 2, x = 0.1) annotation(
     Placement(visible = true, transformation(origin = {0, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
@@ -36,7 +36,7 @@ equation
   connect(impedance1.p, bus.p) annotation(
     Line(points = {{84, 16}, {94, 16}}, color = {0, 0, 255}));
   connect(pVSource.p, bus.p) annotation(
-    Line(points = {{115, 16}, {94, 16}}, color = {0, 0, 255}));
+    Line(points = {{117, 16}, {94, 16}}, color = {0, 0, 255}));
   connect(tLine.n, bus2.p) annotation(
     Line(points = {{14, 30}, {38, 30}, {38, 22}, {52, 22}, {52, 16}}, color = {0, 0, 255}));
   connect(tLine.p, bus1.p) annotation(

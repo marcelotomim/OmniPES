@@ -1,14 +1,14 @@
-
 from pyfmi.fmi import FMUModelME2
 from modified_euler import ModifiedEuler
 import numpy as np
 
-class Generator():
 
-    def __init__(self, gen_data, tf = 10, dt=1e-3, atol=1e-4, rtol=1e-3, MVAb=100.):
+class Generator:
+
+    def __init__(self, gen_data, tf=10, dt=1e-3, atol=1e-4, rtol=1e-3, MVAb=100.0):
         self.data = gen_data.copy()
         self.MVAb = MVAb
-        self.fmu = FMUModelME2(f'./FMU/OmniPES.CoSimulation.Examples.Generic_Machine_Kundur.fmu', log_level=0)
+        self.fmu = FMUModelME2(f"./FMU/Generic_Machine_Kundur.fmu", log_level=0)
 
         self.fmu.instantiate()
         self.fmu.setup_experiment(tolerance=1e-6, start_time=0, stop_time=tf + dt)
@@ -25,10 +25,12 @@ class Generator():
         self.Inorton = complex(0, 0)
         self.Zeq = complex(0, 0)
 
-        self.variables = ["SM.inertia.delta",
-                          "SM.inertia.omega",
-                          "SM.electrical.Pe",
-                          "SM.electrical.Efd"]
+        self.variables = [
+            "SM.inertia.delta",
+            "SM.inertia.omega",
+            "SM.electrical.Pe",
+            "SM.electrical.Efd",
+        ]
         self.vref = [self.fmu.get_variable_valueref(v) for v in self.variables]
 
     def initialize(self, Vt, St):
@@ -39,10 +41,13 @@ class Generator():
         for key, val in self.data.items():
             self.fmu.set(f"gen1_data.{key}", val)
 
-        self.Zeq = self.fmu.get("gen1_data.convData.Ra")[0] + 1j * self.fmu.get("gen1_data.convData.X2d")[0]
+        self.Zeq = (
+            self.fmu.get("gen1_data.convData.Ra")[0]
+            + 1j * self.fmu.get("gen1_data.convData.X2d")[0]
+        )
 
-        self.fmu.set("gen1_specs.Pesp", St.real*self.MVAb)
-        self.fmu.set("gen1_specs.Qesp", St.imag*self.MVAb)
+        self.fmu.set("gen1_specs.Psp", St.real * self.MVAb)
+        self.fmu.set("gen1_specs.Qsp", St.imag * self.MVAb)
         self.fmu.set("Vr", Vt.real)
         self.fmu.set("Vi", Vt.imag)
 
@@ -57,7 +62,9 @@ class Generator():
 
     def init_integrator(self):
         if self.integrator == None:
-            self.integrator = ModifiedEuler(self.fmu, self.dt, self.tf, atol=self.atol, rtol=self.rtol)
+            self.integrator = ModifiedEuler(
+                self.fmu, self.dt, self.tf, atol=self.atol, rtol=self.rtol
+            )
 
     def enter_continuous_time_mode(self):
         self.fmu.enter_continuous_time_mode()

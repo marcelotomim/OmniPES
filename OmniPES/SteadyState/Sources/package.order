@@ -1,7 +1,8 @@
 Interfaces
 VTHSource
-PVSource
 PQSource
-PVSource_Qlim
-Ctrl_PVSource_Qlim
-Ctrl_VTHSource_Qlim
+PVSource
+PVSource_Qlim_discrete
+PVSource_Qlim_sigmoid
+VTHSource_Qlim_discrete
+VTHSource_Qlim_sigmoid

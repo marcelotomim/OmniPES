@@ -27,18 +27,18 @@ model tutorial_system_SVR_QSS
     Placement(visible = true, transformation(origin = {-231.5, 54.5}, extent = {{-13.5, -13.5}, {13.5, 13.5}}, rotation = 0)));
   OmniPES.Transient.Examples.PSCC24.Controllers.Central_SVR central_SVR annotation(
     Placement(visible = true, transformation(origin = {-231.5, 8.5}, extent = {{-13.5, -13.5}, {13.5, 13.5}}, rotation = 0)));
-  OmniPES.SteadyState.Sources.Ctrl_VTHSource_Qlim G1(Qmax = 26., Vsp = 1.017)  annotation(
-    Placement(visible = true, transformation(origin = {-119.5, -52.5}, extent = {{-12.5, -12.5}, {12.5, 12.5}}, rotation = -90)));
-  OmniPES.SteadyState.Sources.Ctrl_PVSource_Qlim G2(Psp = 90., Qmax = 78., Vsp = 1.025)  annotation(
-    Placement(visible = true, transformation(origin = {-120, 40}, extent = {{-10, -10}, {10, 8}}, rotation = -90)));
-  OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 25, x = 0.18) annotation(
+  OmniPES.SteadyState.Sources.VTHSource_Qlim G1(Qmax = 26., Vsp = 1.017, useExternalPowerSpec = false)  annotation(
+    Placement(transformation(origin = {-119.5, -52.5}, extent = {{-12.5, -12.5}, {12.5, 12.5}}, rotation = -90)));
+  OmniPES.SteadyState.Sources.PVSource_Qlim_sigmoid G2(Psp = 90., Qmax = 78., Vsp = 1.025)  annotation(
+    Placement(transformation(origin = {-118.944, 36.9444}, extent = {{-12.5, -12.5}, {12.5, 12.5}}, rotation = -90)));
+  OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {58, -58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData, useExternalQsp = false)  annotation(
-    Placement(visible = true, transformation(origin = {161, -40.4}, extent = {{-13, -13}, {13, 10.4}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp rampP (duration = 300, height = 238. - 120, startTime = 2500) annotation(
+    Placement(transformation(origin = {163, -38.4}, extent = {{-13, -13}, {13, 10.4}})));
+  Modelica.Blocks.Sources.Ramp rampP (duration = 300, height = 238. - 120, startTime = 25) annotation(
     Placement(visible = true, transformation(origin = {-189, -89}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4) annotation(
-    Placement(visible = true, transformation(origin = {-156, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-156, 42}, extent = {{-10, -10}, {10, 10}})));
   parameter SteadyState.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {158, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
@@ -70,19 +70,19 @@ equation
   connect(G1.p, bus1.p) annotation(
     Line(points = {{-119.5, -40}, {-90, -40}}, color = {0, 0, 255}));
   connect(G2.p, bus2.p) annotation(
-    Line(points = {{-120, 50}, {-90, 50}}, color = {0, 0, 255}));
+    Line(points = {{-119, 50}, {-90, 50}}, color = {0, 0, 255}));
   connect(line22.p, bus10.p) annotation(
     Line(points = {{48, -58}, {1, -58}, {1, -40}, {0, -40}}, color = {0, 0, 255}));
   connect(line22.n, bus30.p) annotation(
     Line(points = {{68, -58}, {122, -58}, {122, -40}}, color = {0, 0, 255}));
   connect(load.p, bus30.p) annotation(
-    Line(points = {{148, -40}, {122, -40}}, color = {0, 0, 255}));
+    Line(points = {{150, -40}, {122, -40}}, color = {0, 0, 255}));
   connect(gain.y, G2.dPsp) annotation(
-    Line(points = {{-145, 44}, {-128, 44}}, color = {0, 0, 127}));
+    Line(points = {{-145, 42}, {-129, 42}}, color = {0, 0, 127}));
   connect(rampP.y, gain.u) annotation(
-    Line(points = {{-178, -89}, {-178, 44}, {-168, 44}}, color = {0, 0, 127}));
+    Line(points = {{-178, -89}, {-178, 42}, {-168, 42}}, color = {0, 0, 127}));
   connect(rampP.y, load.dPsp) annotation(
-    Line(points = {{-178, -89}, {157, -89}, {157, -50}, {156, -50}}, color = {0, 0, 127}));
+    Line(points = {{-178, -89}, {158, -89}, {158, -49}}, color = {0, 0, 127}));
 protected
   annotation(
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),

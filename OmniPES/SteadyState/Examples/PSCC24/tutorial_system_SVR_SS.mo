@@ -23,36 +23,28 @@ model tutorial_system_SVR_SS
     Placement(visible = true, transformation(origin = {49, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {49, -33}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.SteadyState.Loads.Ctrl_ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
+  OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
     Placement(visible = true, transformation(origin = {108.5, -15.4444}, extent = {{-18.5, -20.5556}, {18.5, 16.4444}}, rotation = 0)));
-  OmniPES.SteadyState.Sources.Ctrl_VTHSource_Qlim G1(Qmax = 26, Vsp = 1.017, useExternalVoltageSpec = true) annotation(
+  replaceable OmniPES.SteadyState.Sources.VTHSource_Qlim_sigmoid G1(Qmax = 26, Vsp = 1.017, useExternalVoltageSpec = true, useExternalPowerSpec = false) annotation(
     Placement(visible = true, transformation(origin = {-142, -36}, extent = {{-21, -21}, {21, 21}}, rotation = -90)));
-  OmniPES.SteadyState.Sources.Ctrl_PVSource_Qlim G2(Psp = 90,Qmax = 78, Vsp = 1.025, useExternalVoltageSpec = true) annotation(
+  replaceable OmniPES.SteadyState.Sources.PVSource_Qlim_sigmoid G2(Psp = 90, Qmax = 78, Vsp = 1.025, useExternalVoltageSpec = true) annotation(
     Placement(visible = true, transformation(origin = {-139.5, 32.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = -90)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {109, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp rampP (duration = 110, height = 110) annotation(
+  Modelica.Blocks.Sources.Ramp rampP (duration = 110, height = 119.5) annotation(
     Placement(visible = true, transformation(origin = {-210, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4)  annotation(
     Placement(visible = true, transformation(origin = {-173.5, 41.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}}, rotation = 0)));
-Real ref2, ref1, Qtotal;
-  Boolean overvoltage;
-  Boolean not_volt_ctrl;
-  discrete Real frozen_ref(start = 0);
+  Real ref2, ref1, Qtotal;
 equation
-  not_volt_ctrl = not G1.volt_ctrl;
-  when edge(not_volt_ctrl) then
-    frozen_ref = pre(ref1) + 0.005;
-  end when;
-  
+ 
   bus30.V = 1.0;
-  0 = if G1.volt_ctrl then G1.S.im - (1/4)*Qtotal else ref1 - frozen_ref;
+  G1.S.im = (1/4)*Qtotal;
   
   Qtotal = G1.S.im + G2.S.im; 
   G1.dVsp = ref1;
   G2.dVsp = ref2;
  
-  overvoltage = bus2.V <= 1.05;
   connect(G2.p, bus2.p) annotation(
     Line(points = {{-139.5, 54}, {-100, 54}}, color = {0, 0, 255}));
   connect(bus2.p, trafo2.p) annotation(

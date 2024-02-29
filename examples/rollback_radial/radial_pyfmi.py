@@ -9,16 +9,19 @@ from pyfmi.fmi import FMUModelCS2, FMUModelME2
 import tqdm
 import matplotlib.pyplot as plt
 import matplotlib
+
 # matplotlib.use('TkAgg')
-matplotlib.use('Qt5Agg')
+matplotlib.use("Qt5Agg")
 import numpy as np
 import DyMat
 from scipy.linalg import solve
 
 from modified_euler import ModifiedEuler
 
+
 def time_event(t, tevent):
     return t - tevent > 0
+
 
 def apply_fault():
     tf = 0.1
@@ -102,15 +105,15 @@ def initNet(Pesp, Vesp):
 
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(os.getcwd())
 
-    model_name = "OmniPES.CoSimulation.Examples.Test_Classical_Machine"
+    model_name = "Test_Classical_Machine"
 
     #    Importa as FMUS
     # fmu_ = pyfmi.load_fmu(f'{model_name}.fmu', log_level=2, kind='me')
     # fmu_ = FMUModelCS2(path_fmus + f'./{model_name}.fmu', log_level=2)
-    fmu_ = FMUModelME2(f'./FMU/{model_name}.fmu', log_level=2)
+    fmu_ = FMUModelME2(f"./FMU/{model_name}.fmu", log_level=2)
     print(fmu_.get_capability_flags())
 
     fmu_.instantiate()
@@ -120,7 +123,7 @@ if __name__ == '__main__':
 
     # Testes de alterações de parâmetros da simulação
     fmu_.enter_initialization_mode()
-    Sbase = 2220.
+    Sbase = 2220.0
     fmu_.set("data.Sbase", Sbase)
     fmu_.set("gen1_data.MVAs", Sbase)
     fmu_.set("gen1_data.MVAb", Sbase)
@@ -128,7 +131,7 @@ if __name__ == '__main__':
     fmu_.set("gen1_data.D", 0.0)
 
     Vesp = 1.0
-    Pesp = 1776. / Sbase
+    Pesp = 1776.0 / Sbase
     fmu_.set("gen1_specs.Psp", Pesp * Sbase)
 
     Vt, Qesp = initNet(Pesp, Vesp)
@@ -137,7 +140,10 @@ if __name__ == '__main__':
     fmu_.set("Vi", Vt.imag)
     fmu_.set("gen1_specs.Qsp", Qesp * Sbase)
 
-    Zg = fmu_.get("gen1_data.convData.Ra")[0] + 1j * fmu_.get("gen1_data.convData.X1d")[0]
+    Zg = (
+        fmu_.get("gen1_data.convData.Ra")[0]
+        + 1j * fmu_.get("gen1_data.convData.X1d")[0]
+    )
     t = 0.0
 
     # Cálculo da interface com a rede (Eq. de Norton)
@@ -162,10 +168,12 @@ if __name__ == '__main__':
     integrator.init_events()
 
     fmu_.enter_continuous_time_mode()
-    variables = ["SM.inertia.delta",
-                 "SM.inertia.omega",
-                 "SM.electrical.Pe",
-                 "SM.electrical.Efd"]
+    variables = [
+        "SM.inertia.delta",
+        "SM.inertia.omega",
+        "SM.electrical.Pe",
+        "SM.electrical.Efd",
+    ]
     vref = [fmu_.get_variable_valueref(v) for v in variables]
     sol = [fmu_.get_real(vref)]
     time = [t]
@@ -175,12 +183,13 @@ if __name__ == '__main__':
     event_fcn = [apply_fault(), clear_fault()]
     events_prev = [f(t) for f in event_fcn]
 
-    pbar = tqdm.tqdm(total=tf + dt,
-                     unit='s',
-                     unit_scale=True,
-                     smoothing=0,
-                     bar_format='Simulation Time: |{bar}| {n_fmt}/{total_fmt} s [wall time: {elapsed}]'
-                     )
+    pbar = tqdm.tqdm(
+        total=tf + dt,
+        unit="s",
+        unit_scale=True,
+        smoothing=0,
+        bar_format="Simulation Time: |{bar}| {n_fmt}/{total_fmt} s [wall time: {elapsed}]",
+    )
     trigger_event = False
     while t < tf and not fmu_.get_event_info().terminateSimulation:
 
@@ -251,7 +260,9 @@ if __name__ == '__main__':
                 interface_error = abs(Vt_vec[0] - Vt_vec[1])
 
             # Se erro maior que a tolerância, realizar nova interação
-            doNextIter = (interface_error > 1e-4) or (not integrator.has_x_converged)  # or step_iter < 5
+            doNextIter = (interface_error > 1e-4) or (
+                not integrator.has_x_converged
+            )  # or step_iter < 5
             step_iter += 1
 
         # Avançar o tempo
@@ -294,54 +305,53 @@ if __name__ == '__main__':
 
     # Carragando resultados do OMEdit para comparação
 
-    d = DyMat.DyMatFile('results/Radial_res.mat')
-    delta_om = d['GS.electrical.delta']
-    time_delta_om = d.abscissa('GS.electrical.delta', valuesOnly=True)
-    omega_om = d['GS.inertia.omega']
-    time_omega_om = d.abscissa('GS.inertia.omega', valuesOnly=True)
-    pe_om = d['GS.electrical.Pe']
-    time_pe_om = d.abscissa('GS.electrical.Pe', valuesOnly=True)
-    efd_om = d['GS.electrical.Efd']
-    time_efd_om = d.abscissa('GS.electrical.Efd', valuesOnly=True)
+    d = DyMat.DyMatFile("results/Radial_res.mat")
+    delta_om = d["GS.electrical.delta"]
+    time_delta_om = d.abscissa("GS.electrical.delta", valuesOnly=True)
+    omega_om = d["GS.inertia.omega"]
+    time_omega_om = d.abscissa("GS.inertia.omega", valuesOnly=True)
+    pe_om = d["GS.electrical.Pe"]
+    time_pe_om = d.abscissa("GS.electrical.Pe", valuesOnly=True)
+    efd_om = d["GS.electrical.Efd"]
+    time_efd_om = d.abscissa("GS.electrical.Efd", valuesOnly=True)
 
     # Traçado de gráficos
     fig = plt.figure(figsize=(12, 6))
     ax = fig.subplots(nrows=6, sharex=True)
-    ax[0].grid(ls=':')
-    ax[0].plot(time, solv[:, 0], '-ro', label='CS', markevery=int(len(time) / 20))
-    ax[0].plot(time_delta_om, delta_om, '--b', label='OMEdit')
-    ax[0].set_ylabel('$\delta(t)$ [rad]')
-    ax[0].legend(loc='upper right')
+    ax[0].grid(ls=":")
+    ax[0].plot(time, solv[:, 0], "-ro", label="CS", markevery=int(len(time) / 20))
+    ax[0].plot(time_delta_om, delta_om, "--b", label="OMEdit")
+    ax[0].set_ylabel("$\delta(t)$ [rad]")
+    ax[0].legend(loc="upper right")
 
-    ax[1].grid(ls=':')
-    ax[1].plot(time, solv[:, 1], '-ro', label='CS', markevery=int(len(time) / 20))
-    ax[1].plot(time_omega_om, omega_om, '--b', label='OMEdit')
-    ax[1].set_ylabel('$\omega(t)$ [pu]')
-    ax[1].legend(loc='upper right')
+    ax[1].grid(ls=":")
+    ax[1].plot(time, solv[:, 1], "-ro", label="CS", markevery=int(len(time) / 20))
+    ax[1].plot(time_omega_om, omega_om, "--b", label="OMEdit")
+    ax[1].set_ylabel("$\omega(t)$ [pu]")
+    ax[1].legend(loc="upper right")
 
-    ax[2].grid(ls=':')
-    ax[2].plot(time, solv[:, 2], '-ro', label='CS', markevery=int(len(time) / 20))
-    ax[2].plot(time_pe_om, pe_om, '--b', label='OMEdit')
-    ax[2].set_ylabel('$P_e(t)$ [pu]')
-    ax[2].legend(loc='upper right')
+    ax[2].grid(ls=":")
+    ax[2].plot(time, solv[:, 2], "-ro", label="CS", markevery=int(len(time) / 20))
+    ax[2].plot(time_pe_om, pe_om, "--b", label="OMEdit")
+    ax[2].set_ylabel("$P_e(t)$ [pu]")
+    ax[2].legend(loc="upper right")
 
-    ax[3].grid(ls=':')
-    ax[3].plot(time, solv[:, 3], '-ro', label='CS', markevery=int(len(time) / 20))
-    ax[3].plot(time_efd_om, efd_om, '--b', label='OMEdit')
-    ax[3].set_ylabel('$E_{fd}(t)$ [pu]')
-    ax[3].legend(loc='upper right')
+    ax[3].grid(ls=":")
+    ax[3].plot(time, solv[:, 3], "-ro", label="CS", markevery=int(len(time) / 20))
+    ax[3].plot(time_efd_om, efd_om, "--b", label="OMEdit")
+    ax[3].set_ylabel("$E_{fd}(t)$ [pu]")
+    ax[3].legend(loc="upper right")
 
-    ax[4].grid(ls=':')
-    ax[4].plot(time, error, '-bo', label='v_error', markevery=int(len(time) / 15))
-    ax[4].set_ylabel('error')
-    ax[4].legend(loc='upper right')
+    ax[4].grid(ls=":")
+    ax[4].plot(time, error, "-bo", label="v_error", markevery=int(len(time) / 15))
+    ax[4].set_ylabel("error")
+    ax[4].legend(loc="upper right")
 
-    ax[5].grid(ls=':')
-    ax[5].plot(time, its, '-bo', label='iterations', markevery=int(len(time) / 15))
-    ax[5].set_ylabel(u'iterations')
+    ax[5].grid(ls=":")
+    ax[5].plot(time, its, "-bo", label="iterations", markevery=int(len(time) / 15))
+    ax[5].set_ylabel("iterations")
     # ax[5].legend(loc='upper right')
 
-    ax[-1].set_xlabel('time [s]')
+    ax[-1].set_xlabel("time [s]")
     plt.tight_layout()
-    plt.savefig('radial_me.pdf', dpi=300)
-
+    plt.savefig("radial_me.pdf", dpi=300)

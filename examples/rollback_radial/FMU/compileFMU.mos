@@ -11,9 +11,9 @@ setCommandLineOptions("-d=-disableDirectionalDerivatives"); getErrorString();
 loadFile("../../../OmniPES/package.mo"); getErrorString();
 
 // Build FMUS
-//buildModelFMU(OmniPES.CoSimulation.Examples.Test_Classical_Machine, fmuType="me_cs"); getErrorString();
-//buildModelFMU(OmniPES.CoSimulation.Examples.Generic_Machine, fmuType="me_cs"); getErrorString();
-//buildModelFMU(OmniPES.CoSimulation.Examples.Classical_Machine_TL, fmuType="me_cs"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Test_Classical_Machine, fmuType="me_cs"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Generic_Machine, fmuType="me_cs"); getErrorString();
+buildModelFMU(OmniPES.CoSimulation.Examples.Classical_Machine_TL, fmuType="me_cs"); getErrorString();
 buildModelFMU(OmniPES.CoSimulation.Examples.Generic_Machine_TL, fmuType="me_cs"); getErrorString();
 
 // Cleaning temporary files

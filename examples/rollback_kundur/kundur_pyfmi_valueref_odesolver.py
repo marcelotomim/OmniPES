@@ -9,8 +9,9 @@ from pyfmi.fmi import FMUModelCS2, FMUModelME2
 import tqdm
 import matplotlib.pyplot as plt
 import matplotlib
+
 # matplotlib.use('TkAgg')
-matplotlib.use('Qt5Agg')
+matplotlib.use("Qt5Agg")
 import numpy as np
 import DyMat
 from scipy.linalg import solve
@@ -22,20 +23,20 @@ from modified_euler import ModifiedEuler
 from numpy.random import random
 
 # Press the green button in the gutter to run the script.
-if __name__ == '__main__':
+if __name__ == "__main__":
     print(os.getcwd())
 
-    model_name = "OmniPES.Transient.Examples.Kundur_Two_Area_System"
+    model_name = "Kundur_Two_Area_System"
 
     #    Importa as FMUS
     # fmu_ = pyfmi.load_fmu(f'FMU/{model_name}.fmu', log_level=2, kind='me')
-    fmu_ = FMUModelME2(f'FMU/{model_name}.fmu', log_level=2)
+    fmu_ = FMUModelME2(f"FMU/{model_name}.fmu", log_level=2)
     # print(fmu_.get_capability_flags())
 
     fmu_.instantiate()
-    tf = 10.
+    tf = 10.0
     dt = 1e-3
-    fmu_.setup_experiment(tolerance=1e-6, start_time=0, stop_time=tf+dt)
+    fmu_.setup_experiment(tolerance=1e-6, start_time=0, stop_time=tf + dt)
 
     # Testes de alterações de parâmetros da simulação
     fmu_.enter_initialization_mode()
@@ -46,12 +47,14 @@ if __name__ == '__main__':
 
     t = 0.0
     time = [t]
-    variables = ["G1.electrical.delta",
-                 "G2.electrical.delta",
-                 "G3.electrical.delta",
-                 "G4.electrical.delta",
-                 "G1.avr.Efd",
-                 "bus8.V"]
+    variables = [
+        "G1.electrical.delta",
+        "G2.electrical.delta",
+        "G3.electrical.delta",
+        "G4.electrical.delta",
+        "G1.avr.Efd",
+        "bus8.V",
+    ]
     vref = [fmu_.get_variable_valueref(v) for v in variables]
     sol = [fmu_.get_real(vref)]
 
@@ -63,12 +66,13 @@ if __name__ == '__main__':
 
     fmu_.enter_continuous_time_mode()
 
-    pbar = tqdm.tqdm(total=tf + dt,
-                     unit='s',
-                     unit_scale=True,
-                     smoothing=0,
-                     bar_format='Simulation Time: |{bar}| {n_fmt}/{total_fmt} s [wall time: {elapsed}]'
-                     )
+    pbar = tqdm.tqdm(
+        total=tf + dt,
+        unit="s",
+        unit_scale=True,
+        smoothing=0,
+        bar_format="Simulation Time: |{bar}| {n_fmt}/{total_fmt} s [wall time: {elapsed}]",
+    )
 
     trigger_event = False
     while t < tf and not fmu_.get_event_info().terminateSimulation:
@@ -87,7 +91,7 @@ if __name__ == '__main__':
             integrator.step()
 
             # Se erro maior que a tolerância, realizar nova interação
-            doNextIter = not integrator.has_x_converged # or step_iter < 2
+            doNextIter = not integrator.has_x_converged  # or step_iter < 2
             step_iter += 1
 
         # Avançar o tempo
@@ -121,25 +125,44 @@ if __name__ == '__main__':
 
     fig = plt.figure(figsize=(10, 5))
     ax = fig.subplots(nrows=4, sharex=True)
-    ax[0].grid(ls=':')
-    ax[0].plot(time, solv[:, 0] - solv[:, 3], label='$\delta_{14}(t)$', markevery=int(len(time)/15))
-    ax[0].plot(time, solv[:, 1] - solv[:, 3], label='$\delta_{24}(t)$', markevery=int(len(time) / 15))
-    ax[0].plot(time, solv[:, 2] - solv[:, 3], label='$\delta_{34}(t)$', markevery=int(len(time) / 15))
-    ax[0].set_ylabel('$\delta$ [rad]')
+    ax[0].grid(ls=":")
+    ax[0].plot(
+        time,
+        solv[:, 0] - solv[:, 3],
+        label="$\delta_{14}(t)$",
+        markevery=int(len(time) / 15),
+    )
+    ax[0].plot(
+        time,
+        solv[:, 1] - solv[:, 3],
+        label="$\delta_{24}(t)$",
+        markevery=int(len(time) / 15),
+    )
+    ax[0].plot(
+        time,
+        solv[:, 2] - solv[:, 3],
+        label="$\delta_{34}(t)$",
+        markevery=int(len(time) / 15),
+    )
+    ax[0].set_ylabel("$\delta$ [rad]")
     ax[0].legend()
 
-    ax[1].grid(ls=':')
-    ax[1].plot(time, solv[:, 4], '-bo', label='$E_{fd}(t)$', markevery=int(len(time)/15))
+    ax[1].grid(ls=":")
+    ax[1].plot(
+        time, solv[:, 4], "-bo", label="$E_{fd}(t)$", markevery=int(len(time) / 15)
+    )
     # ax[1].plot(t_, efd_, '-rs', label='$E_{fd}(t) (mat)$', markevery=int(len(t_) / 10))
-    ax[1].set_ylabel('$E_{fd}(t)$ [pu]')
+    ax[1].set_ylabel("$E_{fd}(t)$ [pu]")
     ax[1].legend()
 
-    ax[2].grid(ls=':')
-    ax[2].plot(time, solv[:, 5], '-bo', label='$V_{8}(t)$', markevery=int(len(time)/15))
-    ax[2].set_ylabel('$V_{8}(t)$ [pu]')
+    ax[2].grid(ls=":")
+    ax[2].plot(
+        time, solv[:, 5], "-bo", label="$V_{8}(t)$", markevery=int(len(time) / 15)
+    )
+    ax[2].set_ylabel("$V_{8}(t)$ [pu]")
     ax[2].legend()
 
-    ax[3].grid(ls=':')
-    ax[3].plot(time, its, '-bo', label='iterations', markevery=int(len(time) / 15))
-    ax[3].set_ylabel(u'iterations')
-    ax[3].legend(loc='upper right')
+    ax[3].grid(ls=":")
+    ax[3].plot(time, its, "-bo", label="iterations", markevery=int(len(time) / 15))
+    ax[3].set_ylabel("iterations")
+    ax[3].legend(loc="upper right")

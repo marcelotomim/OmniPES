@@ -7,6 +7,6 @@ setCommandLineOptions("-d=initialization"); getErrorString();
 //installPackage(Modelica, "4.0.0+maint.om", exactMatch=true);
 //loadModel(Modelica, {"4.0"}); getErrorString();
 loadFile("../../../OmniPES/package.mo"); getErrorString();
-buildModelFMU(OmniPES.QuasiSteadyState.Examples.Kundur_Two_Area_System, fmuType="me"); getErrorString();
-buildModelFMU(OmniPES.QuasiSteadyState.Examples.Kundur_Two_Area_System_no_switch, fmuType="me"); getErrorString();
+buildModelFMU(OmniPES.Transient.Examples.Kundur_Two_Area_System, fmuType="me"); getErrorString();
+buildModelFMU(OmniPES.Transient.Examples.Kundur_Two_Area_System_no_switch, fmuType="me"); getErrorString();
 system("ls --hide=*.fmu --hide=*.mos | xargs rm")
