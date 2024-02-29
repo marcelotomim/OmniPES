@@ -5,7 +5,7 @@ model CurrentSource
   extends Circuit.Interfaces.ShuntComponent;
   import OmniPES.Math.polar2cart;
   import Modelica.Units.NonSI;
-  parameter Units.PerUnit magnitude = 0.0;
+  parameter Modelica.Units.SI.PerUnit magnitude = 0.0;
   parameter NonSI.Angle_deg angle = 0.0;
 equation
   i = -polar2cart(magnitude, angle);

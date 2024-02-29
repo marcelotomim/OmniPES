@@ -4,8 +4,8 @@ model AVR_SRV
   extends OmniPES.Transient.Controllers.Interfaces.PartialAVR;
   parameter Real ka = 100;
   parameter Modelica.Units.SI.Time T = 0.05;
-  parameter OmniPES.Units.PerUnit Efd_max = 7.0;
-  parameter OmniPES.Units.PerUnit Efd_min = -7.0;
+  parameter Modelica.Units.SI.PerUnit Efd_max = 7.0;
+  parameter Modelica.Units.SI.PerUnit Efd_min = -7.0;
   Modelica.Blocks.Continuous.LimIntegrator limIntegrator(initType = Modelica.Blocks.Types.Init.SteadyState, k = ka/T, outMax = Efd_max, outMin = Efd_min, y_start = 2) annotation(
     Placement(visible = true, transformation(origin = {11, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 1/ka) annotation(

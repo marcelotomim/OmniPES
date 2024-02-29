@@ -8,7 +8,7 @@ model Inertia
   parameter OmniPES.Transient.Machines.SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {-66, 76}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   parameter SI.Time H = smData.convData.H;
-  parameter Units.PerUnit D = smData.convData.D;
+  parameter Modelica.Units.SI.PerUnit D = smData.convData.D;
   Modelica.Blocks.Interfaces.RealInput Pm(unit = "pu") annotation(
     Placement(visible = true, transformation(origin = {-120, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput Pe(unit = "pu") annotation(

@@ -20,10 +20,10 @@ model Classical_Electric
     Placement(visible = true, transformation(origin = {110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 58}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Interfaces.RealOutput Pe(unit = "pu") annotation(
     Placement(visible = true, transformation(origin = {110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Units.CPerUnit Vt(re(start = 1.0), im(start = 0.0));
-  Units.CPerUnit Ia(re(start = 0.0), im(start = 0.0));
-  Units.CPerUnit St;
-  Units.CPerUnit E1;
+  Modelica.Units.SI.ComplexPerUnit Vt(re(start = 1.0), im(start = 0.0));
+  Modelica.Units.SI.ComplexPerUnit Ia(re(start = 0.0), im(start = 0.0));
+  Modelica.Units.SI.ComplexPerUnit St;
+  Modelica.Units.SI.ComplexPerUnit E1;
   equation
   Vt = terminal.v;
   Ia = -terminal.i;

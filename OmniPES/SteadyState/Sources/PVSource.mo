@@ -4,7 +4,7 @@ model PVSource
   extends Interfaces.Partial_Source;
   import Abs=Modelica.ComplexMath.abs;
   parameter Units.ActivePower Psp;
-  parameter Units.PerUnit Vsp = 1.0;
+  parameter Modelica.Units.SI.PerUnit Vsp = 1.0;
 equation
   S.re = Psp/data.Sbase;
   Vsp = V;

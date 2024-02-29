@@ -1,8 +1,8 @@
 within OmniPES.Circuit.Basic;
 
 model SeriesImpedance_switched
-  parameter Units.PerUnit r = 0;
-  parameter Units.PerUnit x = 0;
+  parameter Modelica.Units.SI.PerUnit r = 0;
+  parameter Modelica.Units.SI.PerUnit x = 0;
   parameter Modelica.Units.SI.Time t_open = 0.3;
   OmniPES.Circuit.Basic.SeriesImpedance Z(r = r, x = x)  annotation(
     Placement(visible = true, transformation(origin = {0, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

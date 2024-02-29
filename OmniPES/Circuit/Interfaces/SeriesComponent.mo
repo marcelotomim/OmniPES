@@ -1,8 +1,8 @@
 within OmniPES.Circuit.Interfaces;
 
 partial model SeriesComponent
-  Units.CPerUnit v "Voltage drop accros this circuit element.";
-  Units.CPerUnit i "Current flowing from pin 'p' to pin 'n'";
+  Modelica.Units.SI.ComplexPerUnit v "Voltage drop accros this circuit element.";
+  Modelica.Units.SI.ComplexPerUnit i "Current flowing from pin 'p' to pin 'n'";
   PositivePin p annotation(
     Placement(visible = true, transformation(origin = {-46, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-96, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   NegativePin n annotation(

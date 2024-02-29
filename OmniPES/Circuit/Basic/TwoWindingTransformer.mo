@@ -3,8 +3,8 @@ within OmniPES.Circuit.Basic;
 model TwoWindingTransformer
   outer SystemData data;
   parameter Units.ApparentPower NominalMVA = data.Sbase;
-  parameter Units.PerUnit r = 0;
-  parameter Units.PerUnit x;
+  parameter Modelica.Units.SI.PerUnit r = 0;
+  parameter Modelica.Units.SI.PerUnit x;
   parameter Real tap = 1;
   Circuit.Interfaces.PositivePin p(v.re(start = 1)) annotation(
     Placement(visible = true, transformation(origin = {-66, 14}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

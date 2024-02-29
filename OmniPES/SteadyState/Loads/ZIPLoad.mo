@@ -2,7 +2,7 @@ within OmniPES.SteadyState.Loads;
 
 model ZIPLoad
   extends Interfaces.Partial_Load;
-  parameter Units.PerUnit Vdef = 1.0 "Voltage at which the specified power is defined"; 
+  parameter Modelica.Units.SI.PerUnit Vdef = 1.0 "Voltage at which the specified power is defined"; 
   parameter Interfaces.LoadData ss_par = Interfaces.LoadData() "ZIP load parameters" annotation(
     Placement(visible = true, transformation(origin = {-70, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 protected

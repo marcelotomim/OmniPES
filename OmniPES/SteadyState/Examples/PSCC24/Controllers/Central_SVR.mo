@@ -19,7 +19,7 @@ model Central_SVR
     Placement(visible = true, transformation(origin = {-111, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-120, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput Qout[ng] annotation(
     Placement(visible = true, transformation(origin = {110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Units.PerUnit Qtotal;
+  Modelica.Units.SI.PerUnit Qtotal;
   Modelica.Blocks.Continuous.Integrator SVR_ref(initType = Modelica.Blocks.Types.Init.NoInit, k = 1, y_start = 1) annotation(
     Placement(visible = true, transformation(origin = {-69, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Add add1 annotation(

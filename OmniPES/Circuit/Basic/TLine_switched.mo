@@ -2,8 +2,8 @@ within OmniPES.Circuit.Basic;
 
 model TLine_switched
   outer SystemData data;
-  parameter Units.PerUnit r;
-  parameter Units.PerUnit x;
+  parameter Modelica.Units.SI.PerUnit r;
+  parameter Modelica.Units.SI.PerUnit x;
   parameter Units.ReactivePower Q;
   Circuit.Interfaces.PositivePin p annotation(
     Placement(visible = true, transformation(origin = {-86, 54}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {-110, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

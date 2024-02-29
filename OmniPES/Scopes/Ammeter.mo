@@ -6,8 +6,8 @@ model Ammeter
   import Modelica.ComplexMath.arg;
   import Modelica.ComplexMath.abs;
   import Modelica.Units.SI;
-  Units.PerUnit I;
-  Units.CPerUnit S;
+  Modelica.Units.SI.PerUnit I;
+  Modelica.Units.SI.ComplexPerUnit S;
   SI.Angle theta;
 equation
   I = abs(p.i);

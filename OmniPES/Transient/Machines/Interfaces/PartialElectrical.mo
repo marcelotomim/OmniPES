@@ -9,8 +9,8 @@ partial model PartialElectrical
   parameter SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {-2, 74}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   protected
-  parameter Units.PerUnit ra = smData.convData.Ra;
-  parameter Units.PerUnit xl = smData.convData.Xl;
+  parameter Modelica.Units.SI.PerUnit ra = smData.convData.Ra;
+  parameter Modelica.Units.SI.PerUnit xl = smData.convData.Xl;
   public
   Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-104, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -18,18 +18,18 @@ partial model PartialElectrical
     Placement(visible = true, transformation(origin = {-120, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput delta(unit = "rad", displayUnit = "deg") annotation(
     Placement(visible = true, transformation(origin = {-120, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Units.PerUnit Pt, Qt;
+  Modelica.Units.SI.PerUnit Pt, Qt;
   Modelica.Blocks.Interfaces.RealOutput Pe(unit = "pu") annotation(
     Placement(visible = true, transformation(origin = {110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput Vt(unit = "pu") annotation(
     Placement(visible = true, transformation(origin = {110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Units.CPerUnit Vqd(re(start = 1.0), im(start = 0.0));
-  Units.PerUnit Vabs(start = 1.0);
+  Modelica.Units.SI.ComplexPerUnit Vqd(re(start = 1.0), im(start = 0.0));
+  Modelica.Units.SI.PerUnit Vabs(start = 1.0);
   Modelica.Units.SI.Angle theta;
-  Units.CPerUnit St;
-  Units.CPerUnit Iqd;
-  Units.CPerUnit Fqd;
-  Units.CPerUnit Faqd;
+  Modelica.Units.SI.ComplexPerUnit St;
+  Modelica.Units.SI.ComplexPerUnit Iqd;
+  Modelica.Units.SI.ComplexPerUnit Fqd;
+  Modelica.Units.SI.ComplexPerUnit Faqd;
 initial equation
   der(delta) = 0.0;
 equation

@@ -2,13 +2,13 @@ within OmniPES.Transient.Machines.Interfaces;
 
 model Model_1_0_Electric
   extends Interfaces.PartialElectrical;
-  Units.PerUnit F1d;
-  Units.PerUnit Ifd;
+  Modelica.Units.SI.PerUnit F1d;
+  Modelica.Units.SI.PerUnit Ifd;
 protected
-  parameter Units.PerUnit x1d = smData.convData.X1d;
-  parameter Units.PerUnit xd = smData.convData.Xd;
-  parameter Units.PerUnit xq = smData.convData.Xq;
-  parameter Units.PerUnit T1d0 = smData.convData.T1d0;
+  parameter Modelica.Units.SI.PerUnit x1d = smData.convData.X1d;
+  parameter Modelica.Units.SI.PerUnit xd = smData.convData.Xd;
+  parameter Modelica.Units.SI.PerUnit xq = smData.convData.Xq;
+  parameter Modelica.Units.SI.PerUnit T1d0 = smData.convData.T1d0;
 initial equation
   der(F1d) = 0;
 equation

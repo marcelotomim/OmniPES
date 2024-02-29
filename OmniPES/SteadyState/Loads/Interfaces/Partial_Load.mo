@@ -7,8 +7,8 @@ model Partial_Load
   import Abs=Modelica.ComplexMath.abs;
   parameter Units.ActivePower Psp "Specified active power";
   parameter Units.ReactivePower Qsp "Specified reactive power";
-  Units.CPerUnit S "Load complex power";
-  Units.PerUnit V(start = 1) "Terminal voltage magnitude";
+  Modelica.Units.SI.ComplexPerUnit S "Load complex power";
+  Modelica.Units.SI.PerUnit V(start = 1) "Terminal voltage magnitude";
 
   Modelica.Blocks.Interfaces.RealInput dPsp if useExternalPsp  annotation(
     Placement(visible = useExternalPsp, transformation(origin = {-70, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-40, -72}, extent = {{-12, -12}, {12, 12}}, rotation = 90)));

@@ -6,14 +6,14 @@ partial model Partial_ZIPLoad
   extends Circuit.Interfaces.ShuntComponent;
   parameter Units.ActivePower Psp "Specified active power [MW]";
   parameter Units.ReactivePower Qsp "Specified reactive power [Mvar]";
-  parameter Units.PerUnit Vdef = 1.0;
+  parameter Modelica.Units.SI.PerUnit Vdef = 1.0;
   parameter Interfaces.LoadData dyn_par = Interfaces.LoadData(pz = 1, qz = 1, pi = 0, qi = 0) annotation(
     Placement(visible = true, transformation(origin = {-70, 36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter Interfaces.LoadData ss_par = Interfaces.LoadData() annotation(
     Placement(visible = true, transformation(origin = {-70, -10}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Units.CPerUnit S;
-  Units.PerUnit Vabs(start = 1);
-  Units.PerUnit Vo(start = 1);
+  Modelica.Units.SI.ComplexPerUnit S;
+  Modelica.Units.SI.PerUnit Vabs(start = 1);
+  Modelica.Units.SI.PerUnit Vo(start = 1);
   protected
   Modelica.Blocks.Interfaces.RealOutput dp, dq;
 initial equation

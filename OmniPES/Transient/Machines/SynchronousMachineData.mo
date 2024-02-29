@@ -9,63 +9,63 @@ record SynchronousMachineData
     Dialog(group = "Base Quatities"));
   parameter Integer Nmaq = 1 "Number of parallel machines" annotation(
     Dialog(group = "Base Quatities"));
-  parameter Units.PerUnit Ra = 0.0 annotation(
+  parameter Modelica.Units.SI.PerUnit Ra = 0.0 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit Xl = 0.0 annotation(
+  parameter Modelica.Units.SI.PerUnit Xl = 0.0 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit Xd = 1.0 annotation(
+  parameter Modelica.Units.SI.PerUnit Xd = 1.0 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit Xq = 0.8 annotation(
+  parameter Modelica.Units.SI.PerUnit Xq = 0.8 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit X1d = 0.2 annotation(
+  parameter Modelica.Units.SI.PerUnit X1d = 0.2 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit X1q = 0.2 annotation(
+  parameter Modelica.Units.SI.PerUnit X1q = 0.2 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit X2d = 0.02 annotation(
+  parameter Modelica.Units.SI.PerUnit X2d = 0.02 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit X2q = 0.02 annotation(
+  parameter Modelica.Units.SI.PerUnit X2q = 0.02 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit T1d0 = 5.0 annotation(
+  parameter Modelica.Units.SI.PerUnit T1d0 = 5.0 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit T2d0 = 0.01 annotation(
+  parameter Modelica.Units.SI.PerUnit T2d0 = 0.01 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit T1q0 = 0.3 annotation(
+  parameter Modelica.Units.SI.PerUnit T1q0 = 0.3 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit T2q0 = 0.01 annotation(
+  parameter Modelica.Units.SI.PerUnit T2q0 = 0.01 annotation(
     Dialog(group = "Electrical Data"));
-  parameter Units.PerUnit H = 5.0 annotation(
+  parameter Modelica.Units.SI.PerUnit H = 5.0 annotation(
     Dialog(group = "Mechanical Data"));
-  parameter Units.PerUnit D = 0.0 annotation(
+  parameter Modelica.Units.SI.PerUnit D = 0.0 annotation(
     Dialog(group = "Mechanical Data"));
 
   record ConvertedData
-    parameter Units.PerUnit Ra annotation(
+    parameter Modelica.Units.SI.PerUnit Ra annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit Xl annotation(
+    parameter Modelica.Units.SI.PerUnit Xl annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit Xd annotation(
+    parameter Modelica.Units.SI.PerUnit Xd annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit Xq annotation(
+    parameter Modelica.Units.SI.PerUnit Xq annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit X1d annotation(
+    parameter Modelica.Units.SI.PerUnit X1d annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit X1q annotation(
+    parameter Modelica.Units.SI.PerUnit X1q annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit X2d annotation(
+    parameter Modelica.Units.SI.PerUnit X2d annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit X2q annotation(
+    parameter Modelica.Units.SI.PerUnit X2q annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit T1d0 annotation(
+    parameter Modelica.Units.SI.PerUnit T1d0 annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit T2d0 annotation(
+    parameter Modelica.Units.SI.PerUnit T2d0 annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit T1q0 annotation(
+    parameter Modelica.Units.SI.PerUnit T1q0 annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit T2q0 annotation(
+    parameter Modelica.Units.SI.PerUnit T2q0 annotation(
       Dialog(group = "Electrical Data"));
-    parameter Units.PerUnit H annotation(
+    parameter Modelica.Units.SI.PerUnit H annotation(
       Dialog(group = "Mechanical Data"));
-    parameter Units.PerUnit D annotation(
+    parameter Modelica.Units.SI.PerUnit D annotation(
       Dialog(group = "Mechanical Data"));
   end ConvertedData;
 

@@ -4,7 +4,7 @@ partial model Partial_VSource_Qlim_sigmoid
   outer SystemData data;
   extends Icons.Vsource;
   extends Interfaces.Partial_VSource_Qlim;
-  parameter Units.PerUnit growth_rate = 1e5 "Sigmoid growth rate" annotation(Dialog(tab="Reactive limits parameters"));
+  parameter Modelica.Units.SI.PerUnit growth_rate = 1e5 "Sigmoid growth rate" annotation(Dialog(tab="Reactive limits parameters"));
   Real ch1, ch2, ch3, ch4;
   protected
   final parameter Real lim_max = Qmax/data.Sbase - tolq;
