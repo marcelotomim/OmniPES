@@ -51,10 +51,8 @@ equation
   G2.avr.Vext = g2_srv.Vref + central_SVR.Vref;
   g1_srv.Qg = G1.electrical.Qt;
   g2_srv.Qg = G2.electrical.Qt;
-  central_SVR.Qin[1] = G1.electrical.Qt;
-  central_SVR.Qin[2] = G2.electrical.Qt;
-  g1_srv.Qcom = central_SVR.Qout[1];
-  g2_srv.Qcom = central_SVR.Qout[2];
+  central_SVR.Qin = {G1.electrical.Qt, G2.electrical.Qt};
+  central_SVR.Qout = {g1_srv.Qcom, g2_srv.Qcom};
   central_SVR.Vpilot = bus30.V;
   d12 = G1.inertia.delta - G2.inertia.delta;
   connect(G2.terminal, bus2.p) annotation(

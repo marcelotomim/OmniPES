@@ -15,15 +15,15 @@ model Central_SVR
   Modelica.Blocks.Sources.Constant ref(k = 1) annotation(
     Placement(visible = true, transformation(origin = {-80, -21}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealVectorInput Qin[2] annotation(
-    Placement(visible = true, transformation(origin = {-90, 32}, extent = {{-12, -12}, {12, 12}}, rotation = 0), iconTransformation(origin = {-120, 60}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealOutput Qout[2](start={K,1}) annotation(
+    Placement(transformation(origin = {-90, 32}, extent = {{-12, -12}, {12, 12}}), iconTransformation(origin = {-120, 60}, extent = {{-20, -20}, {20, 20}})));
+  Modelica.Blocks.Interfaces.RealOutput Qout[2](start = {K, 1}) annotation(
     Placement(visible = true, transformation(origin = {110, 32}, extent = {{-12, -12}, {12, 12}}, rotation = 0), iconTransformation(origin = {110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Sum sum1(nin = 2) annotation(
-    Placement(visible = true, transformation(origin = {-60, 32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Math.Gain gain(k =  1/(K + 1))  annotation(
+    Placement(transformation(origin = {-60, 32}, extent = {{-10, -10}, {10, 10}})));
+  Modelica.Blocks.Math.Gain gain(k = 1/(K + 1)) annotation(
     Placement(visible = true, transformation(origin = {-5, 32}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  Modelica.Blocks.Math.Add add1(k2 = -1)  annotation(
-    Placement(visible = true, transformation(origin = {51, 54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Math.Add add1(k2 = -1) annotation(
+    Placement(transformation(origin = {32, 54}, extent = {{-10, -10}, {10, 10}})));
 equation
   connect(Vpilot, add.u2) annotation(
     Line(points = {{-80.5, -59.5}, {-37, -59.5}, {-37, -44}, {-2, -44}}, color = {0, 0, 127}));
@@ -40,11 +40,11 @@ equation
   connect(gain.y, Qout[2]) annotation(
     Line(points = {{12, 32}, {110, 32}}, color = {0, 0, 127}));
   connect(add1.u1, sum1.y) annotation(
-    Line(points = {{39, 60}, {-34, 60}, {-34, 32}, {-49, 32}}, color = {0, 0, 127}));
+    Line(points = {{20, 60}, {-34, 60}, {-34, 32}, {-49, 32}}, color = {0, 0, 127}));
   connect(add1.u2, gain.y) annotation(
-    Line(points = {{39, 48}, {14, 48}, {14, 32}, {12, 32}}, color = {0, 0, 127}));
+    Line(points = {{20, 48}, {14, 48}, {14, 32}, {12, 32}}, color = {0, 0, 127}));
   connect(add1.y, Qout[1]) annotation(
-    Line(points = {{62, 54}, {76, 54}, {76, 32}, {110, 32}}, color = {0, 0, 127}));
+    Line(points = {{43, 54}, {76, 54}, {76, 32}, {110, 32}}, color = {0, 0, 127}));
   annotation(
     Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Rectangle(lineThickness = 0.75, extent = {{-100, 100}, {100, -100}}), Text(origin = {-0.5, -5}, extent = {{-90.5, 65}, {90.5, -65}}, textString = "Central
 SRV")}),

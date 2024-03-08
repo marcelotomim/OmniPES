@@ -5,11 +5,9 @@ partial model Partial_VSource_Qlim
   extends Icons.Vsource;
   extends Interfaces.Partial_Source;
   parameter Modelica.Units.SI.PerUnit Vsp = 1.0  "Specified Terminal Voltage";
-  parameter Modelica.Units.SI.PerUnit Psp = 1.0  "Specified Active Power";
+  parameter Modelica.Units.SI.PerUnit Psp = 0.0  "Specified Active Power";
   parameter Units.ReactivePower Qmin = -1e5 "Minimum reactive power";
   parameter Units.ReactivePower Qmax = +1e5 "Maximum reactive power";
-  parameter Modelica.Units.SI.PerUnit tolq = 1e-3 "Reactive power tolerance" annotation(Dialog(tab="Reactive limits parameters"));
-  parameter Modelica.Units.SI.PerUnit tolv = 1e-3 "Voltage magnitude tolerance" annotation(Dialog(tab="Reactive limits parameters"));
   
   parameter Boolean useExternalPowerSpec = false  "Check to activate the external power specification" annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Selectors"));
   

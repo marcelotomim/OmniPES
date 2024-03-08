@@ -31,7 +31,7 @@ model tutorial_system
     Placement(visible = true, transformation(origin = {-139.5, 32.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = -90)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {109, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp rampP(duration = 110, height = 100) annotation(
+  Modelica.Blocks.Sources.Ramp rampP(duration = 100, height = 100, startTime = 25) annotation(
     Placement(visible = true, transformation(origin = {-210, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4) annotation(
     Placement(transformation(origin = {-173.5, 41.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}})));
@@ -71,5 +71,6 @@ equation
   annotation(
     Icon(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
     Diagram(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
-    experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.001));
+    experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.1),
+  __OpenModelica_simulationFlags(lv = "LOG_STDOUT,LOG_ASSERT,LOG_EVENTS_V,LOG_STATS,LOG_STATS_V", s = "dassl", variableFilter = ".*"));
 end tutorial_system;

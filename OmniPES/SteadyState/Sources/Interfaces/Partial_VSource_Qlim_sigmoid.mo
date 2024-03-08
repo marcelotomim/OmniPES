@@ -5,6 +5,9 @@ partial model Partial_VSource_Qlim_sigmoid
   extends Icons.Vsource;
   extends Interfaces.Partial_VSource_Qlim;
   parameter Modelica.Units.SI.PerUnit growth_rate = 1e5 "Sigmoid growth rate" annotation(Dialog(tab="Reactive limits parameters"));
+  parameter Modelica.Units.SI.PerUnit tolq = 1e-3 "Reactive power tolerance" annotation(Dialog(tab="Reactive limits parameters"));
+  parameter Modelica.Units.SI.PerUnit tolv = 1e-3 "Voltage magnitude tolerance" annotation(Dialog(tab="Reactive limits parameters"));
+
   Real ch1, ch2, ch3, ch4;
   protected
   final parameter Real lim_max = Qmax/data.Sbase - tolq;
@@ -36,9 +39,9 @@ equation
   (1 - ch1*ch3)*(1 - ch2*ch4)*(V - Vsp - dvsp) + ch1*ch3*(1 - ch2*ch4)*(S.im - Qmax/data.Sbase) + (1 - ch1*ch3)*(ch2*ch4)*(S.im - Qmin/data.Sbase) = 0;
 algorithm
   ch1 := 1/(1 + exp(-growth_rate*(S.im - lim_max)));
-  ch2 := 1/(1 + exp(growth_rate*(S.im - lim_min)));
-  ch3 := 1/(1 + exp(growth_rate*(V - lim_sup)));
-  ch4 := 1/(1 + exp(-growth_rate*(V - lim_inf)));
+  ch2 := 1/(1 + exp( growth_rate*(S.im - lim_min)));
+  ch3 := 1/(1 + exp( growth_rate*(   V - lim_sup)));
+  ch4 := 1/(1 + exp(-growth_rate*(   V - lim_inf)));
   annotation(
     Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}, grid = {1, 1})));
 end Partial_VSource_Qlim_sigmoid;

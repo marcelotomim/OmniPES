@@ -11,10 +11,12 @@ partial model Partial_VSource_Qlim_discrete
   Boolean smin(start=false);
   Boolean bmax(start=false);
   Boolean bmin(start=false);
-  Boolean ns_normal(start=true), ns_qmax(start=false), ns_qmin(start=false);
+  Boolean ns_normal(start=true);
+  Boolean ns_qmax(start=false);
+  Boolean ns_qmin(start=false);
 equation
-  x = Vsp - V + dvsp;
-  if s_normal then 
+  x = Vsp + dvsp - V;
+  if s_normal then
     x = 0;
   else 
     if s_qmax then 
@@ -25,10 +27,10 @@ equation
   end if;
 
 algorithm
-  smax := S.im > Qmax/data.Sbase - tolq;
-  smin := S.im < Qmin/data.Sbase + tolq;
-  bmin := x > tolv;
-  bmax := x < -tolv;
+  smax := S.im > Qmax/data.Sbase;
+  smin := S.im < Qmin/data.Sbase;
+  bmin := x > 0;
+  bmax := x < 0;
   
   if initial() then
     if ((not smax) and (not smin)) then
