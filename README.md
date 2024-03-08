@@ -1,4 +1,4 @@
-# **OmniPES** Power Systems Analysis Library
+# **OmniPES**: Modelica Library for Power Systems Simulation
 
 The OmniPES library is the main outcome of a learning experience in which we investigated how we could effectively use the Modelica language for modeling and analyzing electrical power systems. As the library matured, it was structured along the same lines as industrial-grade power-flow and transient stability programs employ for modeling bulk power systems.
 
