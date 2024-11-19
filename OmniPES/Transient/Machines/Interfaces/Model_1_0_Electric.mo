@@ -2,8 +2,8 @@ within OmniPES.Transient.Machines.Interfaces;
 
 model Model_1_0_Electric
   extends Interfaces.PartialElectrical;
-  Modelica.Units.SI.PerUnit F1d;
-  Modelica.Units.SI.PerUnit Ifd;
+  Modelica.Units.SI.PerUnit F1d(start=1.0);
+  Modelica.Units.SI.PerUnit XmdIfd(start=1.0);
 protected
   parameter Modelica.Units.SI.PerUnit x1d = smData.convData.X1d;
   parameter Modelica.Units.SI.PerUnit xd = smData.convData.Xd;
@@ -12,8 +12,11 @@ protected
 initial equation
   der(F1d) = 0;
 equation
-  T1d0*der(F1d) = Efd - (xd - xl)*Ifd;
-  Ifd = ((x1d - xd)/(xd - xl)*Faqd.im + F1d)/(x1d - xl);
-  Faqd.im = (x1d - xl)*Iqd.im + F1d;
-  Faqd.re = (xq - xl)*Iqd.re;
+  if is_saturable then
+    F1d = sat_d.u;
+  end if;
+  T1d0*der(F1d) = Efd - XmdIfd;
+  XmdIfd = F1d + (xd - x1d)*Iqd.im + (if is_saturable then sat_d.y else 0);
+  Fqd.im = F1d - x1d*Iqd.im;
+  Fqd.re = -xq*Iqd.re;
 end Model_1_0_Electric;

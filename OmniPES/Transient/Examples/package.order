@@ -7,10 +7,8 @@ Test_Generic_Machine_2
 Test_Breaker
 Test_Radial_System_SWITCHED
 Test_CtrlVoltageSource
-Test_Classical_Machine_3
 Kundur_Two_Area_System_ShortCircuit
-Test_Classical_Machine_1
-Problema_4_3
 Problema_4_3_Generic_Machine
 Kundur_Two_Area_System_no_switch
 PSCC24
+Test_Single_Machine
