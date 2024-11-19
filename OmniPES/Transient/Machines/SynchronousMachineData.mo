@@ -37,7 +37,7 @@ record SynchronousMachineData
     Dialog(group = "Mechanical Data"));
   parameter Modelica.Units.SI.PerUnit D = 0.0 annotation(
     Dialog(group = "Mechanical Data"));
-
+  
   record ConvertedData
     parameter Modelica.Units.SI.PerUnit Ra annotation(
       Dialog(group = "Electrical Data"));
