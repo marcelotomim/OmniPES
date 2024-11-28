@@ -8,7 +8,7 @@ partial model PartialElectrical
   import OmniPES.Math.sys2qd;
   parameter SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {-2, 74}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
-  parameter Boolean is_saturable = false "Mark for considering saturation." annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Saturation data"));
+  parameter Boolean is_saturable = false "Mark for enabling saturation." annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Saturation data"));
   replaceable OmniPES.Transient.Machines.SaturationFunctions.Exponential_2 sat_d if is_saturable "Choose a saturation function model." constrainedby OmniPES.Transient.Machines.Interfaces.PartialSaturationFunction annotation(choicesAllMatching = true, Placement(transformation(extent = {{-10, -10}, {10, 10}})), Dialog(group="Saturation data", enable = is_saturable));
   Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-104, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
