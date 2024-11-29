@@ -27,7 +27,7 @@ equation
   T2d0*der(Fdi) = -F2d + F1d - (x1d-x2d)*Iqd.im;
   T2q0*der(F2q) = -F2q - (xq-x2q)*Iqd.re;
   Fdi = F2d - (x2d-xl)/(x1d-xl)*F1d;
-  XmdIfd = -(xd-x1d)/(x1d-xl)*F2d + (xd-xl)/(x1d-xl)*F1d + (x2d-xl)/(x1d-xl)*(xd-x1d)*Iqd.im + (if sat_on_d_axis then sat_d.y else 0);
+  XmdIfd = -(xd-x1d)/(x1d-xl)*F2d + (xd-xl)/(x1d-xl)*F1d + (x2d-xl)/(x1d-xl)*(xd-x1d)*Iqd.im + (if is_saturable then sat_d.y else 0);
   Fqd.im = F2d - x2d*Iqd.im;
   Fqd.re = F2q - x2q*Iqd.re;
 end Model_2_1_Electric;

@@ -83,7 +83,7 @@ model Kundur_Two_Area_System_ShortCircuit
     Placement(visible = true, transformation(origin = {170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine3(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {16, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Sources.CurrentSource currentSource(magnitude = 1) annotation(
+  OmniPES.Circuit.Sources.CurrentSource currentSource(magnitude = 0) annotation(
     Placement(visible = true, transformation(origin = {-64, -48}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 equation
   d13 = G1.inertia.delta - G3.inertia.delta;
