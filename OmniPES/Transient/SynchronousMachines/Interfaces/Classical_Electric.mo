@@ -1,4 +1,4 @@
-within OmniPES.Transient.Machines.Interfaces;
+within OmniPES.Transient.SynchronousMachines.Interfaces;
 
 model Classical_Electric
   import Modelica.Blocks.Interfaces;
@@ -6,7 +6,7 @@ model Classical_Electric
   import Modelica.ComplexMath.conj;
   import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.exp;
-  parameter Transient.Machines.SynchronousMachineData smData "Record with machine parameters" annotation(
+  parameter Transient.SynchronousMachines.SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {-2, 74}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-104, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-104, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

@@ -1,4 +1,4 @@
-within OmniPES.Transient.Machines.Interfaces;
+within OmniPES.Transient.SynchronousMachines.Interfaces;
 
 model Model_2_2_Electric
   extends Interfaces.PartialElectrical;
@@ -15,16 +15,16 @@ model Model_2_2_Electric
   Modelica.Units.SI.PerUnit sq if is_saturable;
 
 protected
-  parameter Modelica.Units.SI.PerUnit x2q = smData.convData.X2q;
-  parameter Modelica.Units.SI.PerUnit x2d = smData.convData.X2d;
-  parameter Modelica.Units.SI.PerUnit x1d = smData.convData.X1d;
-  parameter Modelica.Units.SI.PerUnit x1q = smData.convData.X1q;
-  parameter Modelica.Units.SI.PerUnit xd = smData.convData.Xd;
-  parameter Modelica.Units.SI.PerUnit xq = smData.convData.Xq;
-  parameter Modelica.Units.SI.PerUnit T1d0 = smData.convData.T1d0;
-  parameter Modelica.Units.SI.PerUnit T1q0 = smData.convData.T1q0;
-  parameter Modelica.Units.SI.PerUnit T2q0 = smData.convData.T2q0;
-  parameter Modelica.Units.SI.PerUnit T2d0 = smData.convData.T2d0;
+  parameter Modelica.Units.SI.PerUnit x2q = smData.X2q;
+  parameter Modelica.Units.SI.PerUnit x2d = smData.X2d;
+  parameter Modelica.Units.SI.PerUnit x1d = smData.X1d;
+  parameter Modelica.Units.SI.PerUnit x1q = smData.X1q;
+  parameter Modelica.Units.SI.PerUnit xd = smData.Xd;
+  parameter Modelica.Units.SI.PerUnit xq = smData.Xq;
+  parameter Modelica.Units.SI.PerUnit T1d0 = smData.T1d0;
+  parameter Modelica.Units.SI.PerUnit T1q0 = smData.T1q0;
+  parameter Modelica.Units.SI.PerUnit T2q0 = smData.T2q0;
+  parameter Modelica.Units.SI.PerUnit T2d0 = smData.T2d0;
 initial equation
   der(F1d) = 0;
   der(F1q) = 0;

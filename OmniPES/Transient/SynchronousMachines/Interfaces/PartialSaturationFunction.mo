@@ -1,4 +1,4 @@
-within OmniPES.Transient.Machines.Interfaces;
+within OmniPES.Transient.SynchronousMachines.Interfaces;
 
 partial block PartialSaturationFunction
   Modelica.Blocks.Interfaces.RealInput u annotation(

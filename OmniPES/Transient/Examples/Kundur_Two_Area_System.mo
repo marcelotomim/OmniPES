@@ -4,28 +4,28 @@ model Kundur_Two_Area_System
   Real d13, d23, d43;
   inner OmniPES.SystemData data(Sbase = 100, fb = 60) annotation(
     Placement(visible = true, transformation(origin = {-1, 67}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.SynchronousMachineData gen_data_1(D = 0, H = 6.5, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_1(D = 0, H = 6.5, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {-202, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus7 annotation(
     Placement(visible = true, transformation(origin = {-108, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus8 annotation(
     Placement(visible = true, transformation(origin = {-30, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   //
-  OmniPES.Transient.Machines.GenericSynchronousMachine G3(redeclare OmniPES.Transient.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_VTH restriction, redeclare IEEE_AC4A avr, redeclare PSS_1 pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_2, specs = gen3_specs, avr_on = true, pss_on = true) annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G3(redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_VTH restriction, redeclare IEEE_AC4A avr, redeclare PSS_1 pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_2, specs = gen3_specs, avr_on = true, pss_on = true) annotation(
     Placement(visible = true, transformation(origin = {218, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.Machines.GenericSynchronousMachine G4(redeclare OmniPES.Transient.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare PSS_1 pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_2, specs = gen4_specs, avr_on = true, pss_on = true) annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G4(redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare PSS_1 pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_2, specs = gen4_specs, avr_on = true, pss_on = true) annotation(
     Placement(visible = true, transformation(origin = {168, -20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.Machines.GenericSynchronousMachine G2(redeclare OmniPES.Transient.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare PSS_1 pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_1, specs = gen2_specs, avr_on = true, pss_on = true) annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G2(redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare PSS_1 pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_1, specs = gen2_specs, avr_on = true, pss_on = true) annotation(
     Placement(visible = true, transformation(origin = {-214, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  OmniPES.Transient.Machines.GenericSynchronousMachine G1(redeclare OmniPES.Transient.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare PSS_1 pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_1, specs = gen1_specs, avr_on = true, sreg_on = false, pss_on = true) annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G1(redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, smData = gen_data_1, specs = gen1_specs, avr_on = true, sreg_on = false, pss_on = true, redeclare PSS_1 pss) annotation(
     Placement(visible = true, transformation(origin = {-258, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen3_specs(Vsp = 1.030, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen3_specs(Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {222, 38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-260, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen4_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen4_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {172, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen2_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen2_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-216, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {-66, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -81,11 +81,11 @@ model Kundur_Two_Area_System
   OmniPES.Transient.Loads.ZIPLoad L2(Psp = 1767, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
     Placement(visible = true, transformation(origin = {63, -31}, extent = {{-9, -9}, {9, 9}}, rotation = -90)));
 
-  parameter OmniPES.Transient.Machines.SynchronousMachineData gen_data_2(D = 0, H = 6.175, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_2(D = 0, H = 6.175, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Switches.Fault fault(R = 0, X = 1e-3, t_off = 0.3, t_on = 0.2) annotation(
+  OmniPES.Circuit.Switches.Fault fault(R = 0, X = 1e-5, t_off = 0.3, t_on = 0.2) annotation(
     Placement(visible = true, transformation(origin = {-30, -28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine_switched tLine21(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
+  OmniPES.Circuit.Basic.TLine_switched tLine21(Q = 0.175*110, r = 0.0001*110, x = 0.001*110, t_open = 0.3) annotation(
     Placement(visible = true, transformation(origin = {12, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 model IEEE_AC4A
@@ -94,7 +94,7 @@ model IEEE_AC4A
     Placement(visible = true, transformation(origin = {2, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Continuous.Integrator Vref(initType = Modelica.Blocks.Types.Init.SteadyState, k = 1, y_start = 1) annotation(
     Placement(visible = true, transformation(origin = {-44, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Nonlinear.Limiter limiter(strict = false, u(start = 1), uMax = 4, uMin = -4) annotation(
+  Modelica.Blocks.Nonlinear.Limiter limiter(strict = false, u(start = 1), uMax = 4, uMin = 0) annotation(
     Placement(visible = true, transformation(origin = {76, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Continuous.FirstOrder filter(T = 0.01, initType = Modelica.Blocks.Types.Init.SteadyState, k = 1) annotation(
     Placement(visible = true, transformation(origin = {-54, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -227,7 +227,7 @@ equation
     Line(points = {{23, -1}, {42, -1}, {42, 16}, {64, 16}}, color = {0, 0, 255}));
 protected
   annotation(
-    experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-06, Interval = 0.001),
+    experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-06, Interval = 0.02),
     uses(Modelica(version = "3.2.2")),
     Diagram(coordinateSystem(extent = {{-300, -100}, {300, 100}})),
     Icon(coordinateSystem(extent = {{-300, -100}, {300, 100}})));

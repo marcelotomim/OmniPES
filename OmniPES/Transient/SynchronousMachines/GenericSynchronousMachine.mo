@@ -1,28 +1,34 @@
-within OmniPES.Transient.Machines;
+within OmniPES.Transient.SynchronousMachines;
 
 model GenericSynchronousMachine
   OmniPES.Circuit.Interfaces.PositivePin terminal annotation(
     Placement(transformation(origin = {-91, 32}, extent = {{-12, -12}, {12, 12}}), iconTransformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}})));
-  OmniPES.Transient.Machines.Interfaces.Inertia inertia(smData = smData) annotation(
-    Placement(transformation(origin = {67, 3}, extent = {{-20, -20}, {20, 20}})));
 //
 // Machine parameters
 //
-  parameter OmniPES.Transient.Machines.SynchronousMachineData smData "Record with machine parameters" annotation(
+  outer SystemData data;
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {0, 70}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
+  final parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData convData = ConvertBase(smData, data.Sbase) "Record with machine parameters in the system base";
 //
-// Power Flow Restriction  
-//
-  parameter OmniPES.Transient.Machines.RestrictionData specs "Record with load flow specs." annotation(Dialog(tab = "Power Flow Restriction", group = "Parameters"),
+// Power Flow Restriction
+  //
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData specs "Record with load flow specs." annotation(Dialog(tab = "Power Flow Restriction", group = "Parameters"),
     Placement(visible = true, transformation(origin = {-40, 70}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
 //
-  replaceable OmniPES.Transient.Machines.Interfaces.Restriction restriction constrainedby Interfaces.Restriction(param = specs) annotation(
+  replaceable OmniPES.Transient.SynchronousMachines.Interfaces.Restriction restriction annotation(
+    Placement(transformation(origin = {57, 70}, extent = {{-19, -19}, {19, 19}}))) constrainedby Interfaces.Restriction(param = specs) annotation(
      choicesAllMatching = true, Dialog(tab = "Power Flow Restriction", group = "Model"),
      Placement(visible = true, transformation(origin = {-19, 73}, extent = {{-19, -19}, {19, 19}}, rotation = 0)));
 //
 // Electrical Model
 //
-  replaceable OmniPES.Transient.Machines.Interfaces.PartialElectrical electrical(smData = smData) constrainedby Interfaces.PartialElectrical(smData = smData) annotation(choicesAllMatching = true, Dialog(tab = "Electrical Model", group = "Model"), Placement(transformation(origin = {-11.5, 2.5}, extent = {{-20.5, -20.5}, {20.5, 20.5}})));
+  replaceable OmniPES.Transient.SynchronousMachines.Interfaces.PartialElectrical electrical(smData = convData) constrainedby Interfaces.PartialElectrical(smData = convData) annotation(choicesAllMatching = true, Dialog(tab = "Electrical Model", group = "Model"), Placement(transformation(origin = {-11.5, 2.5}, extent = {{-20.5, -20.5}, {20.5, 20.5}})));
+//
+// Mechanical Model
+//
+OmniPES.Transient.SynchronousMachines.Interfaces.Inertia inertia(smData = convData) annotation(
+    Placement(transformation(origin = {67, 3}, extent = {{-20, -20}, {20, 20}})));
 //
 // Automatic Voltage Regulator
 //
@@ -30,9 +36,9 @@ parameter Boolean avr_on = false annotation(Evaluate=true, HideResult=true, choi
 //
 replaceable OmniPES.Transient.Controllers.AVR.ConstantEfd avr if avr_on constrainedby Interfaces.PartialAVR annotation(choicesAllMatching = true, Dialog(tab = "Controllers", group="Automatic Voltage Regulator", enable = avr_on), Placement(transformation(origin = {-68, -10}, extent = {{-10, 10}, {10, -10}})));
 //
-// Speed Regulator  
-//  
-parameter Boolean sreg_on = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab = "Controllers", group="Speed Regulator"));
+// Speed Regulator
+  //
+  parameter Boolean sreg_on = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab = "Controllers", group="Speed Regulator"));
 //
   replaceable OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg if sreg_on constrainedby OmniPES.Transient.Controllers.Interfaces.PartialSpeedRegulator annotation(choicesAllMatching = true, Dialog(tab = "Controllers", group="Speed Regulator", enable = sreg_on), Placement(transformation(origin = {64, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 //

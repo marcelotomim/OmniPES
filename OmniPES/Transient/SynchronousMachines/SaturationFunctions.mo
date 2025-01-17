@@ -1,8 +1,10 @@
-within OmniPES.Transient.Machines;
+within OmniPES.Transient.SynchronousMachines;
 
-package SaturationFunctions model
-  Exponential_2
-  extends OmniPES.Transient.Machines.Interfaces.PartialSaturationFunction;
+package SaturationFunctions 
+extends Modelica.Icons.FunctionsPackage;
+
+model Exponential_2
+  extends OmniPES.Transient.SynchronousMachines.Interfaces.PartialSaturationFunction;
     import Modelica.Math.exp;
     parameter Real A = 0.015;
     parameter Real B = 9.60;

@@ -1,4 +1,4 @@
-within OmniPES.Transient.Machines.Interfaces;
+within OmniPES.Transient.SynchronousMachines.Interfaces;
 
 partial model PartialElectrical
   import Modelica.ComplexMath.j;
@@ -6,10 +6,10 @@ partial model PartialElectrical
   import Modelica.ComplexMath.abs;
   import Modelica.ComplexMath.arg;
   import OmniPES.Math.sys2qd;
-  parameter SynchronousMachineData smData "Record with machine parameters" annotation(
+  parameter SynchronousMachineData smData "Record with machine parameters in the system base" annotation(
     Placement(visible = true, transformation(origin = {-2, 74}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   parameter Boolean is_saturable = false "Mark for enabling saturation." annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Saturation data"));
-  replaceable OmniPES.Transient.Machines.SaturationFunctions.Exponential_2 sat_d if is_saturable "Choose a saturation function model." constrainedby OmniPES.Transient.Machines.Interfaces.PartialSaturationFunction annotation(choicesAllMatching = true, Placement(transformation(extent = {{-10, -10}, {10, 10}})), Dialog(group="Saturation data", enable = is_saturable));
+  replaceable OmniPES.Transient.SynchronousMachines.SaturationFunctions.Exponential_2 sat_d if is_saturable "Choose a saturation function model." constrainedby OmniPES.Transient.SynchronousMachines.Interfaces.PartialSaturationFunction annotation(choicesAllMatching = true, Placement(transformation(extent = {{-10, -10}, {10, 10}})), Dialog(group="Saturation data", enable = is_saturable));
   Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-104, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput Efd(start = 1.0, unit = "pu") annotation(
@@ -28,8 +28,8 @@ partial model PartialElectrical
   Modelica.Units.SI.ComplexPerUnit Iqd;
   Modelica.Units.SI.ComplexPerUnit Fqd;
   protected
-  parameter Modelica.Units.SI.PerUnit ra = smData.convData.Ra;
-  parameter Modelica.Units.SI.PerUnit xl = smData.convData.Xl;
+  parameter Modelica.Units.SI.PerUnit ra = smData.Ra;
+  parameter Modelica.Units.SI.PerUnit xl = smData.Xl;
 initial equation
   der(delta) = 0.0;
 equation

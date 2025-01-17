@@ -5,7 +5,7 @@ model Test_Radial_System
     Placement(visible = true, transformation(origin = {-76, 78}, extent = {{-22, -22}, {22, 22}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource(angle = 0, magnitude = 1.0) annotation(
     Placement(visible = true, transformation(origin = {-98, 10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen1_specs(Psp = 100, Qsp = 0.0, Vsp = 1.0, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 100, Qsp = 0.0, Vsp = 1.0, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {52, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.SeriesImpedance impedance(x = 0.15) annotation(
     Placement(visible = true, transformation(origin = {2, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
@@ -20,9 +20,9 @@ model Test_Radial_System
     Placement(visible = true, transformation(origin = {2, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.Circuit.Basic.SeriesImpedance impedance2(x = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-66, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  OmniPES.Transient.Machines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.Transient.Machines.Interfaces.Model_2_2_Electric electrical(is_saturable = true, redeclare OmniPES.Transient.Machines.SaturationFunctions.Exponential_2 sat_d), redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PV restriction, redeclare OmniPES.Transient.Controllers.AVR.ConstantEfd avr, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, avr_on = false) annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_2_Electric electrical(is_saturable = true, redeclare OmniPES.Transient.SynchronousMachines.SaturationFunctions.Exponential_2 sat_d), redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, redeclare OmniPES.Transient.Controllers.AVR.ConstantEfd avr, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, avr_on = false) annotation(
     Placement(visible = true, transformation(origin = {74, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.SynchronousMachineData gen1_data(D = 0, H = 6.5, MVAb = 100, Nmaq = 1, Ra = 0.0, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen1_data(D = 0, H = 6.5, MVAb = 100, Nmaq = 1, Ra = 0.0, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {82, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Circuit.Switches.Fault fault(t_off = 100.2, t_on = 100.1) annotation(
     Placement(visible = true, transformation(origin = {-10, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

@@ -1,4 +1,4 @@
-within OmniPES.Transient.Machines;
+within OmniPES.Transient.SynchronousMachines;
 
 record RestrictionData
   extends Modelica.Icons.Record;

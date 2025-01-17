@@ -1,6 +1,7 @@
 Interfaces
+SaturationFunctions
 RestrictionData
 SynchronousMachineData
+ConvertBase
 ClassicalSynchronousMachine
 GenericSynchronousMachine
-SaturationFunctions

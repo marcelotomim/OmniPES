@@ -4,28 +4,28 @@ model Kundur_Two_Area_System_ShortCircuit
   Real d13;
   inner OmniPES.SystemData data(Sbase = 100, fb = 60) annotation(
     Placement(visible = true, transformation(origin = {1, 71}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.SynchronousMachineData gen_data_1(D = 0, H = 6.5e10, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_1(D = 0, H = 6.5e10, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {-202, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus7 annotation(
     Placement(visible = true, transformation(origin = {-108, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus8 annotation(
     Placement(visible = true, transformation(origin = {-30, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   //
-  OmniPES.Transient.Machines.ClassicalSynchronousMachine G3(redeclare OmniPES.Transient.Machines.Interfaces.Restriction_VTH restriction, smData = gen_data_2, specs = gen3_specs) annotation(
+  OmniPES.Transient.SynchronousMachines.ClassicalSynchronousMachine G3(redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_VTH restriction, smData = gen_data_2, specs = gen3_specs) annotation(
     Placement(visible = true, transformation(origin = {218, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.Machines.ClassicalSynchronousMachine G4(redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_2, specs = gen4_specs) annotation(
+  OmniPES.Transient.SynchronousMachines.ClassicalSynchronousMachine G4(redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, smData = gen_data_2, specs = gen4_specs) annotation(
     Placement(visible = true, transformation(origin = {168, -18}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.Machines.ClassicalSynchronousMachine G2(redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen2_specs) annotation(
+  OmniPES.Transient.SynchronousMachines.ClassicalSynchronousMachine G2(redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen2_specs) annotation(
     Placement(visible = true, transformation(origin = {-200, -8}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  OmniPES.Transient.Machines.ClassicalSynchronousMachine G1(redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen1_specs) annotation(
+  OmniPES.Transient.SynchronousMachines.ClassicalSynchronousMachine G1(redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, smData = gen_data_1, specs = gen1_specs) annotation(
     Placement(visible = true, transformation(origin = {-250, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen3_specs(Psp = 0., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen3_specs(Psp = 0., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {222, 34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-254, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen4_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen4_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {172, -36}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.RestrictionData gen2_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen2_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-204, -26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {-66, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -79,7 +79,7 @@ model Kundur_Two_Area_System_ShortCircuit
     Placement(visible = true, transformation(origin = {-96, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Transient.Loads.ZIPLoad L2(Psp = 1767, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
     Placement(visible = true, transformation(origin = {64, -30}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  parameter OmniPES.Transient.Machines.SynchronousMachineData gen_data_2(D = 0, H = 6.175e10, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_2(D = 0, H = 6.175e10, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine3(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {16, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

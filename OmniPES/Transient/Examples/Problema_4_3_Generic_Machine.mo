@@ -15,15 +15,15 @@ model Problema_4_3_Generic_Machine
     Placement(visible = true, transformation(origin = {48, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner OmniPES.SystemData data(Sbase = 2220.) annotation(
     Placement(visible = true, transformation(origin = {-191, 69}, extent = {{-19, -19}, {19, 19}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.SynchronousMachineData smData(H = 3.5, MVAb = 2220., MVAs = 2220.) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData smData(H = 3.5, MVAb = 2220., MVAs = 2220.) annotation(
     Placement(visible = true, transformation(origin = {-156, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.Machines.RestrictionData pfdata(Psp = 1776., Vsp = 1.05) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData pfdata(Psp = 1776., Vsp = 1.05) annotation(
     Placement(visible = true, transformation(origin = {-128, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Circuit.Switches.Fault fault(X = 0.01, t_off = 0.2, t_on = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-42, -46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Circuit.Basic.TLine_switched tLine_switched(Q = 0, r = 0, t_open = 0.2, x = 0.93) annotation(
     Placement(visible = true, transformation(origin = {4, -22}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.Machines.GenericSynchronousMachine GS(smData = smData, specs = pfdata, redeclare OmniPES.Transient.Machines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.Machines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, avr_on = true) annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine GS(smData = smData, specs = pfdata, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_2_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, redeclare IEEE_AC4A avr, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, avr_on = true) annotation(
     Placement(visible = true, transformation(origin = {-142, 2}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 
 model IEEE_AC4A
