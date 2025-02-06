@@ -2,9 +2,9 @@ within OmniPES.Circuit.Switches.Interfaces;
 
 partial model BasicBreaker
   extends Circuit.Interfaces.SeriesComponent;
-  Boolean open(start = false);
+  Boolean open(start = false) "breaker state (true if open)";
 protected
-  Complex s(re(start = 0)) "Auxiliary variable";
+  Complex s(re(start = 0)) "auxiliary variable";
 equation
   if open then
     v = s;

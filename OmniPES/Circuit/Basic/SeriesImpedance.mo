@@ -1,9 +1,10 @@
 within OmniPES.Circuit.Basic;
 
 model SeriesImpedance
+  import Modelica.Units.SI;
   extends Circuit.Interfaces.SeriesComponent;
-  parameter Modelica.Units.SI.PerUnit r = 0.0;
-  parameter Modelica.Units.SI.PerUnit x = 0.0;
+  parameter SI.PerUnit r = 0.0 "series resistance";
+  parameter SI.PerUnit x = 0.0 "series reactance";
 equation
   v = Complex(r, x)*i;
   annotation(

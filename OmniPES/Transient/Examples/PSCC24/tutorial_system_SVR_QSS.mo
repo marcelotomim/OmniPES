@@ -30,13 +30,13 @@ model tutorial_system_SVR_QSS
     Placement(visible = true, transformation(origin = {-68, -27}, extent = {{-14.5, -14.5}, {14.5, 14.5}}, rotation = 180)));
   parameter OmniPES.Transient.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {144, -3}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData G2_data(H = 3.0e7, MVAb = 150, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75, D = 2) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData G2_data(H = 3.0e7, MVAb = 1.5e8, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75, D = 2) annotation(
     Placement(transformation(origin = {-101, 41}, extent = {{-10, -10}, {10, 10}})));
-  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData G1_data(H = 3e7, MVAb = 50, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75, D = 2) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData G1_data(H = 3e7, MVAb = 5e7, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75, D = 2) annotation(
     Placement(visible = true, transformation(origin = {-100, -17}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.Loads.ZIPLoad load(Psp = 120, Qsp = 0, dyn_par = loadData, ss_par = loadData) annotation(
-    Placement(visible = true, transformation(origin = {144, -27}, extent = {{-18, -18}, {18, 18}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.RestrictionData G2_pf_data(Psp = 90., Vsp = 1.025) annotation(
+  OmniPES.Transient.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, dyn_par = loadData, ss_par = loadData) annotation(
+    Placement(transformation(origin = {149, -45}, extent = {{-18, -18}, {18, 18}}, rotation = -90)));
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData G2_pf_data(Psp = 9e7, Vsp = 1.025) annotation(
     Placement(visible = true, transformation(origin = {-100, 19}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter OmniPES.Transient.SynchronousMachines.RestrictionData G1_pf_data(Vsp = 1.017) annotation(
     Placement(visible = true, transformation(origin = {-100, -39}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -82,7 +82,7 @@ equation
   connect(line21.n, bus30.p) annotation(
     Line(points = {{85, -27.2}, {106, -27.2}}, color = {0, 0, 255}));
   connect(load.p, bus30.p) annotation(
-    Line(points = {{125.64, -27}, {105.64, -27}}, color = {0, 0, 255}));
+    Line(points = {{149, -27}, {105.64, -27}}, color = {0, 0, 255}));
 protected
   annotation(
     Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),

@@ -2,13 +2,14 @@ within OmniPES.Transient.SynchronousMachines.Interfaces;
 
 partial model Restriction
   outer SystemData data;
+  import Modelica.Units.SI;
   parameter RestrictionData param;
-  Modelica.Units.SI.PerUnit P;
-  Modelica.Units.SI.PerUnit Q;
-  Modelica.Units.SI.PerUnit V;
-  Modelica.Units.SI.Angle theta(displayUnit = "deg");
+  SI.PerUnit P;
+  SI.PerUnit Q;
+  SI.PerUnit V;
+  SI.Angle theta(displayUnit = "deg");
   annotation(
-    Icon(graphics = {Rectangle(extent = {{-100, 80}, {100, -80}}), Text(extent = {{-80, 60}, {80, -60}}, textString = "Power Flow 
-Restriction")}, coordinateSystem(extent = {{-100, -80}, {100, 80}})),
+    Icon(graphics = {Rectangle(extent = {{-100, 80}, {100, -80}}), Text(extent = {{-90, 70}, {90, -70}}, textString = "Power Flow 
+Restriction", fontSize = 8)}, coordinateSystem(extent = {{-100, -80}, {100, 80}})),
   Diagram(coordinateSystem(extent = {{-100, -80}, {100, 80}})));
 end Restriction;

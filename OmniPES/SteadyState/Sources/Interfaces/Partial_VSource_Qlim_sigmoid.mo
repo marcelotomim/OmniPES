@@ -4,9 +4,10 @@ partial model Partial_VSource_Qlim_sigmoid
   outer SystemData data;
   extends Icons.Vsource;
   extends Interfaces.Partial_VSource_Qlim;
-  parameter Modelica.Units.SI.PerUnit growth_rate = 1e5 "Sigmoid growth rate" annotation(Dialog(tab="Reactive limits parameters"));
-  parameter Modelica.Units.SI.PerUnit tolq = 1e-3 "Reactive power tolerance" annotation(Dialog(tab="Reactive limits parameters"));
-  parameter Modelica.Units.SI.PerUnit tolv = 1e-3 "Voltage magnitude tolerance" annotation(Dialog(tab="Reactive limits parameters"));
+  import Modelica.Units.SI;
+  parameter SI.PerUnit growth_rate = 1e5 "Sigmoid growth rate" annotation(Dialog(tab="Reactive limits parameters"));
+  parameter SI.PerUnit tolq = 1e-3 "Reactive power tolerance" annotation(Dialog(tab="Reactive limits parameters"));
+  parameter SI.PerUnit tolv = 1e-3 "Voltage magnitude tolerance" annotation(Dialog(tab="Reactive limits parameters"));
 
   Real ch1, ch2, ch3, ch4;
   protected
@@ -15,7 +16,6 @@ partial model Partial_VSource_Qlim_sigmoid
   Real lim_sup;
   Real lim_inf;
 initial algorithm
-
 if (S.im < Qmax/data.Sbase - tolq) and (S.im > Qmin/data.Sbase + tolq) then
   ch1 := 0;
   ch2 := 0;

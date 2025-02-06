@@ -2,9 +2,9 @@ within OmniPES.Transient.Examples;
 
 model Kundur_Two_Area_System
   Real d13, d23, d43;
-  inner OmniPES.SystemData data(Sbase = 100, fb = 60) annotation(
-    Placement(visible = true, transformation(origin = {-1, 67}, extent = {{-21, -21}, {21, 21}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_1(D = 0, H = 6.5, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
+  inner OmniPES.SystemData data annotation(
+    Placement(transformation(origin = {-7, 71}, extent = {{-27, -27}, {27, 27}})));
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_1(D = 0, H = 6.5, MVAb = 9e8, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {-202, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus7 annotation(
     Placement(visible = true, transformation(origin = {-108, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
@@ -21,31 +21,31 @@ model Kundur_Two_Area_System
     Placement(visible = true, transformation(origin = {-258, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen3_specs(Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {222, 38}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 700., Qsp = 0.0, Vsp = 1.030, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 7e8, Vsp = 1.030, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-260, 42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen4_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen4_specs( Qsp = 0.0, Vsp = 1.010, theta_sp = 0, Psp = 7e8) annotation(
     Placement(visible = true, transformation(origin = {172, -42}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen2_specs(Psp = 700., Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen2_specs(Psp = 7e8, Qsp = 0.0, Vsp = 1.010, theta_sp = 0) annotation(
     Placement(visible = true, transformation(origin = {-216, -32}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
+  OmniPES.Circuit.Basic.TLine tLine(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {-66, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine1(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
+  OmniPES.Circuit.Basic.TLine tLine1(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {-66, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine2(Q = 0.175*110, r = 0.0001*110, x = 0.001*110) annotation(
+  OmniPES.Circuit.Basic.TLine tLine2(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {12, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus9 annotation(
-    Placement(visible = true, transformation(origin = {64, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine4(Q = 0.175*10, r = 0.0001*10, x = 0.001*10) annotation(
+    Placement(transformation(origin = {64, 16}, extent = {{-6, -6}, {6, 6}})));
+  OmniPES.Circuit.Basic.TLine tLine4(Q = 0.175e6*10, r = 0.0001*10, x = 0.001*10) annotation(
     Placement(visible = true, transformation(origin = {88, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine5(Q = 0.175*25, r = 0.0001*25, x = 0.001*25) annotation(
+  OmniPES.Circuit.Basic.TLine tLine5(Q = 0.175e6*25, r = 0.0001*25, x = 0.001*25) annotation(
     Placement(visible = true, transformation(origin = {132, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus10 annotation(
     Placement(visible = true, transformation(origin = {108, 16}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus11 annotation(
     Placement(visible = true, transformation(origin = {154, 16}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine6(Q = 0.175*10, r = 0.0001*10, x = 0.001*10) annotation(
+  OmniPES.Circuit.Basic.TLine tLine6(Q = 0.175e6*10, r = 0.0001*10, x = 0.001*10) annotation(
     Placement(visible = true, transformation(origin = {-128, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine7(Q = 0.175*25, r = 0.0001*25, x = 0.001*25) annotation(
+  OmniPES.Circuit.Basic.TLine tLine7(Q = 0.175e6*25, r = 0.0001*25, x = 0.001*25) annotation(
     Placement(visible = true, transformation(origin = {-172, 14}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus5 annotation(
     Placement(visible = true, transformation(origin = {-196, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
@@ -68,24 +68,24 @@ model Kundur_Two_Area_System
   OmniPES.Circuit.Interfaces.Bus bus4 annotation(
     Placement(visible = true, transformation(origin = {150, -18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
 
-  OmniPES.Circuit.Basic.Shunt_Capacitor shunt_Capacitor(NominalPower = 200) annotation(
-    Placement(visible = true, transformation(origin = {-128, -26}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.Circuit.Basic.Shunt_Capacitor shunt_Capacitor1(NominalPower = 350) annotation(
-    Placement(visible = true, transformation(origin = {84, -26}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.Transient.Loads.ZIPLoad L1(Psp = 967, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
-    Placement(visible = true, transformation(origin = {-108, -36}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  OmniPES.Circuit.Basic.Shunt_Capacitor shunt_Capacitor(NominalPower = 2e8) annotation(
+    Placement(transformation(origin = {-128, -18}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  OmniPES.Circuit.Basic.Shunt_Capacitor shunt_Capacitor1(NominalPower = 3.5e8) annotation(
+    Placement(transformation(origin = {82, -14}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+  OmniPES.Transient.Loads.ZIPLoad L1(Psp (displayUnit = "MW")= 9.67e8, Qsp (displayUnit = "Mvar")= 1e8, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
+    Placement(transformation(origin = {-108, -38}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   parameter OmniPES.Transient.Loads.Interfaces.LoadData ssLoadData(pi = 0, qz = 0) annotation(
-    Placement(visible = true, transformation(origin = {-130, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-130, -64}, extent = {{-10, -10}, {10, 10}})));
   parameter OmniPES.Transient.Loads.Interfaces.LoadData dynLoadData(pi = 0, pz = 1, qz = 1) annotation(
-    Placement(visible = true, transformation(origin = {-96, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.Loads.ZIPLoad L2(Psp = 1767, Qsp = 100, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
-    Placement(visible = true, transformation(origin = {63, -31}, extent = {{-9, -9}, {9, 9}}, rotation = -90)));
+    Placement(transformation(origin = {-96, -64}, extent = {{-10, -10}, {10, 10}})));
+  OmniPES.Transient.Loads.ZIPLoad L2(Psp = 1.767e9, Qsp = 1e8, dyn_par = dynLoadData, ss_par = ssLoadData) annotation(
+    Placement(transformation(origin = {65, -37}, extent = {{-9, -9}, {9, 9}}, rotation = -90)));
 
-  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_2(D = 0, H = 6.175, MVAb = 900, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_2(D = 0, H = 6.175, MVAb = 9e8, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Switches.Fault fault(R = 0, X = 1e-5, t_off = 0.3, t_on = 0.2) annotation(
     Placement(visible = true, transformation(origin = {-30, -28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine_switched tLine21(Q = 0.175*110, r = 0.0001*110, x = 0.001*110, t_open = 0.3) annotation(
+  OmniPES.Circuit.Basic.TLine_switched tLine21(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110, t_open = 0.3) annotation(
     Placement(visible = true, transformation(origin = {12, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 model IEEE_AC4A
@@ -206,15 +206,15 @@ equation
   connect(impedance2.p, bus10.p) annotation(
     Line(points = {{120, -20}, {108, -20}, {108, 14}}, color = {0, 0, 255}));
   connect(shunt_Capacitor1.p, bus9.p) annotation(
-    Line(points = {{84, -16}, {64, -16}, {64, 16}}, color = {0, 0, 255}));
+    Line(points = {{82, -4}, {64, -4}, {64, 16}}, color = {0, 0, 255}));
   connect(L2.p, bus9.p) annotation(
-    Line(points = {{63, -22}, {63, -2}, {64, -2}, {64, 16}}, color = {0, 0, 255}));
+    Line(points = {{65, -28}, {65, -2}, {64, -2}, {64, 16}}, color = {0, 0, 255}, thickness = 0.5));
   connect(fault.T, bus8.p) annotation(
     Line(points = {{-30, -18}, {-30, 16}}, color = {0, 0, 255}));
   connect(L1.p, bus7.p) annotation(
-    Line(points = {{-108, -26}, {-108, 16}}, color = {0, 0, 255}));
+    Line(points = {{-108, -28}, {-108, 16}}, color = {0, 0, 255}, thickness = 0.5));
   connect(shunt_Capacitor.p, bus7.p) annotation(
-    Line(points = {{-128, -16}, {-108, -16}, {-108, 16}}, color = {0, 0, 255}));
+    Line(points = {{-128, -8}, {-128, -1}, {-108, -1}, {-108, 16}}, color = {0, 0, 255}));
   connect(impedance1.n, bus6.p) annotation(
     Line(points = {{-152, -8}, {-150, -8}, {-150, 16}}, color = {0, 0, 255}));
   connect(impedance1.p, bus2.p) annotation(

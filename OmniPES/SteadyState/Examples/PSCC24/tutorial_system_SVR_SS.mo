@@ -23,15 +23,15 @@ model tutorial_system_SVR_SS
     Placement(visible = true, transformation(origin = {49, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {49, -33}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 120, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
+  OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
     Placement(visible = true, transformation(origin = {108.5, -15.4444}, extent = {{-18.5, -20.5556}, {18.5, 16.4444}}, rotation = 0)));
-  replaceable OmniPES.SteadyState.Sources.VTHSource_Qlim_sigmoid G1(Qmax = 26, Vsp = 1.017, useExternalVoltageSpec = true, useExternalPowerSpec = false) annotation(
+  replaceable OmniPES.SteadyState.Sources.VTHSource_Qlim_sigmoid G1(Qmax = 2.6e7, Vsp = 1.017, useExternalVoltageSpec = true, useExternalPowerSpec = false) annotation(
     Placement(transformation(origin = {-143, -36}, extent = {{-21, -21}, {21, 21}}, rotation = -90)));
-  replaceable OmniPES.SteadyState.Sources.PVSource_Qlim_sigmoid G2(Psp = 90, Qmax = 78, Vsp = 1.025, useExternalVoltageSpec = true, useExternalPowerSpec = true) annotation(
+  replaceable OmniPES.SteadyState.Sources.PVSource_Qlim_sigmoid G2(Psp = 9e7, Qmax = 7.8e7, Vsp = 1.025, useExternalVoltageSpec = true, useExternalPowerSpec = true) annotation(
     Placement(transformation(origin = {-140.5, 33.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = -90)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {109, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp rampP (duration = 110, height = 110, startTime = 25) annotation(
+  Modelica.Blocks.Sources.Ramp rampP (duration = 110, height = 110e6, startTime = 25) annotation(
     Placement(visible = true, transformation(origin = {-210, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4)  annotation(
     Placement(visible = true, transformation(origin = {-173.5, 41.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}}, rotation = 0)));

@@ -5,12 +5,12 @@ model Test_Breaker
     Placement(visible = true, transformation(origin = {38, -34}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource annotation(
     Placement(visible = true, transformation(origin = {-74, -10}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
-  OmniPES.Transient.Loads.ZIPLoad zIPLoad(Psp = 100, Qsp = 50) annotation(
+  OmniPES.Transient.Loads.ZIPLoad zIPLoad(Psp = 1e8, Qsp = 5e7) annotation(
     Placement(visible = true, transformation(origin = {-4, -34}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Circuit.Switches.TimedBreaker timedBreaker(t_open = 0.6) annotation(
     Placement(visible = true, transformation(origin = {-14, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner SystemData data annotation(
-    Placement(visible = true, transformation(origin = {-62, 46}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-62, 66}, extent = {{-22, -22}, {22, 22}})));
   Circuit.Basic.SeriesImpedance seriesImpedance(x = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-50, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation

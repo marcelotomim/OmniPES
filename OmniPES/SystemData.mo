@@ -3,7 +3,7 @@ within OmniPES;
 model SystemData
   import Modelica.Units.SI;
   import Modelica.Constants.pi;
-  parameter Units.ApparentPower Sbase = 100 annotation(
+  parameter SI.ApparentPower Sbase(displayUnit = "MVA") = 100e6 annotation(
     Dialog(group = "Base Quantities"));
   parameter SI.Frequency fb = 60 annotation(
     Dialog(group = "Base Quantities"));
@@ -13,9 +13,9 @@ model SystemData
     defaultComponentName = "data",
     defaultComponentPrefixes = "inner",
     missingInnerMessage = "The System object is missing, please drag it on the top layer of your model",
-    Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}), graphics = {Rectangle(fillColor = {255, 255, 0}, fillPattern = FillPattern.Solid, extent = {{-80, 70}, {80, -70}}), Text(extent = {{-60, 40}, {60, -40}}, textString = "System
+    Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}), graphics = {Rectangle(fillColor = {255, 255, 0}, fillPattern = FillPattern.Solid, extent = {{-80, 70}, {80, -70}}), Text(extent = {{-70, 60}, {70, -60}}, textString = "System
 %Sbase
-%fb")}),
+%fb", fontSize = 8)}),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})),
   Documentation(info = "<html>
   

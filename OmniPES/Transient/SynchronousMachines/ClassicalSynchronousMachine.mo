@@ -1,15 +1,17 @@
 within OmniPES.Transient.SynchronousMachines;
 
 model ClassicalSynchronousMachine
+  outer SystemData data;
   parameter SynchronousMachineData smData "Record with machine parameters" annotation(
     Placement(visible = true, transformation(origin = {-78, 78}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
+  final parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData convData = ConvertBase(smData, data.Sbase) "Record with machine parameters in the system base";
   parameter RestrictionData specs "Record with load flow specs." annotation(
     Placement(visible = true, transformation(origin = {-126, 78}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-144, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-100, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.SynchronousMachines.Interfaces.Inertia inertia(smData = smData) annotation(
+  OmniPES.Transient.SynchronousMachines.Interfaces.Inertia inertia(smData = convData) annotation(
     Placement(visible = true, transformation(origin = {55, -9}, extent = {{-15, -15}, {15, 15}}, rotation = 0)));
-  Interfaces.Classical_Electric electrical(smData = smData) annotation(
+  Interfaces.Classical_Electric electrical(smData = convData) annotation(
     Placement(visible = true, transformation(origin = {-38, 0}, extent = {{-24, -24}, {24, 24}}, rotation = 0)));
   replaceable Interfaces.Restriction restriction constrainedby Interfaces.Restriction(param = specs) annotation(
      choicesAllMatching = true,

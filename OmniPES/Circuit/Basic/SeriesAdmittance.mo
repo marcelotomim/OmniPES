@@ -1,9 +1,10 @@
 within OmniPES.Circuit.Basic;
 
 model SeriesAdmittance
+  import Modelica.Units.SI;
   extends Circuit.Interfaces.SeriesComponent;
-  parameter Modelica.Units.SI.PerUnit g;
-  parameter Modelica.Units.SI.PerUnit b;
+  parameter SI.PerUnit g "parallel conductance";
+  parameter SI.PerUnit b "parallel susceptance";
 equation
   i = Complex(g, b)*v;
   annotation(

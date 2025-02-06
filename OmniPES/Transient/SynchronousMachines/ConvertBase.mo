@@ -1,9 +1,9 @@
 within OmniPES.Transient.SynchronousMachines;
 
 function ConvertBase
-  import OmniPES.Units;
+  import Modelica.Units.SI;
   input SynchronousMachineData machine_data "Machine parameters";
-  input Units.ApparentPower MVAs "System base power";
+  input SI.ApparentPower MVAs "System base power";
   output SynchronousMachineData conv_data "Machine parameters in the system base";
   protected
   Real conv_factor;

@@ -15,8 +15,4 @@ protected
 equation
   S.re = (Psp+dpsp)/data.Sbase*(pp + pi*(V/Vdef) + pz*(V/Vdef)^2);
   S.im = (Qsp+dqsp)/data.Sbase*(qq + qi*(V/Vdef) + qz*(V/Vdef)^2);
-
-  annotation(
-    Icon(graphics = {Rectangle(origin = {1, 0.424659}, extent = {{-60, 60.5753}, {60, -60.5753}}), Line(origin = {-81, 0}, points = {{21, 0}, {-19, 0}, {-21, 0}})}, coordinateSystem(extent = {{-100, -100}, {100, 80}})),
-    experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-6, Interval = 1));
 end ZIPLoad;

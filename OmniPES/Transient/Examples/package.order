@@ -5,10 +5,8 @@ Test_Generic_Load_Default
 Test_Generic_Machine_2
 Test_Breaker
 Test_Radial_System_SWITCHED
-Test_CtrlVoltageSource
-Kundur_Two_Area_System_ShortCircuit
-Problema_4_3_Generic_Machine
 PSCC24
 Test_Single_Machine
 IEEE9bus
-IEEE9bus_pf
+Test_LagLim
+Test_IntLim

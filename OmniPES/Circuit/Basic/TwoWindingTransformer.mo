@@ -1,11 +1,12 @@
 within OmniPES.Circuit.Basic;
 
 model TwoWindingTransformer
+  import Modelica.Units.SI;
   outer SystemData data;
-  parameter Units.ApparentPower NominalMVA = data.Sbase;
-  parameter Modelica.Units.SI.PerUnit r = 0;
-  parameter Modelica.Units.SI.PerUnit x;
-  parameter Real tap = 1;
+  parameter SI.ApparentPower NominalMVA(displayUnit="MW") = data.Sbase;
+  parameter SI.PerUnit r = 0 "series resistance";
+  parameter SI.PerUnit x "series reactance";
+  parameter SI.PerUnit tap = 1 "normalized tap position";
   Circuit.Interfaces.PositivePin p(v.re(start = 1)) annotation(
     Placement(visible = true, transformation(origin = {-66, 14}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Circuit.Interfaces.NegativePin n(v.re(start = 1)) annotation(
@@ -22,6 +23,6 @@ equation
   connect(Z.n, n) annotation(
     Line(points = {{36, 13.8}, {56, 13.8}}, color = {0, 0, 255}));
   annotation(
-    Icon(graphics = {Rectangle(origin = {0, -1}, extent = {{-100, 61}, {100, -61}}), Ellipse(origin = {-17, 0}, extent = {{-28, 28}, {28, -28}}), Ellipse(origin = {17, 0}, extent = {{-28, 28}, {28, -28}}), Line(origin = {-72, 0}, points = {{-30, 0}, {27, 0}}), Line(origin = {72, 0}, points = {{-27, 0}, {30, 0}}), Ellipse(origin = {-60, 40}, fillPattern = FillPattern.Solid, extent = {{-5, 5}, {5, -5}}), Text(origin = {-1, 78}, extent = {{-98, 21}, {100, -18}}, textString = "1:%tap")}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
+    Icon(graphics = {Ellipse(origin = {-17, 0}, extent = {{-28, 28}, {28, -28}}), Ellipse(origin = {17, 0}, extent = {{-28, 28}, {28, -28}}), Line(origin = {-72, 0}, points = {{-30, 0}, {27, 0}}), Line(origin = {72, 0}, points = {{-27, 0}, {30, 0}}), Ellipse(origin = {-60, 40}, fillPattern = FillPattern.Solid, extent = {{-5, 5}, {5, -5}}), Text(origin = {0, 80}, extent = {{-100, 20}, {100, -20}}, textString = "1:%tap", fontSize = 8)}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
   Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {1, 1})));
 end TwoWindingTransformer;

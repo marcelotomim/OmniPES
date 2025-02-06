@@ -1,14 +1,14 @@
 within OmniPES.Circuit.Sources;
 
 model VoltageSource
+  import Modelica.Units.SI;
   extends Icons.Vsource;
   extends Circuit.Interfaces.ShuntComponent;
   import Modelica.ComplexMath.conj;
   import OmniPES.Math.polar2cart;
-  import Modelica.Units.NonSI;
-  parameter Modelica.Units.SI.PerUnit magnitude = 1.0;
-  parameter NonSI.Angle_deg angle = 0.0;
-  Modelica.Units.SI.ComplexPerUnit S;
+  parameter SI.PerUnit magnitude = 1.0 "voltage magnitude";
+  parameter SI.Angle angle(displayUnit="deg") = 0.0 "voltage phase";
+  SI.ComplexPerUnit S "generated apparent power";
 equation
   v = polar2cart(magnitude, angle);
   S = -v*conj(i);

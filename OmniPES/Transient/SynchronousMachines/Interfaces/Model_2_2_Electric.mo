@@ -2,29 +2,31 @@ within OmniPES.Transient.SynchronousMachines.Interfaces;
 
 model Model_2_2_Electric
   extends Interfaces.PartialElectrical;
-  Modelica.Units.SI.PerUnit F1d(start = 1.0);
-  Modelica.Units.SI.PerUnit F2d(start = 1.0);
-  Modelica.Units.SI.PerUnit Fdi(start = 1.0);
-  Modelica.Units.SI.PerUnit F1q(start = 1.0);
-  Modelica.Units.SI.PerUnit F2q(start = 1.0);
-  Modelica.Units.SI.PerUnit Fqi(start = 1.0);
-  Modelica.Units.SI.PerUnit XmdIfd(start = 1.0);
-  Modelica.Units.SI.PerUnit XmqIgq(start = 0.0);
-  Modelica.Units.SI.PerUnit F2m if is_saturable;
-  Modelica.Units.SI.PerUnit sd if is_saturable;
-  Modelica.Units.SI.PerUnit sq if is_saturable;
+  import Modelica.Units.SI;
+  SI.PerUnit F1d(start = 1.0);
+  SI.PerUnit F2d(start = 1.0);
+  SI.PerUnit Fdi(start = 1.0);
+  SI.PerUnit F1q(start = 1.0);
+  SI.PerUnit F2q(start = 1.0);
+  SI.PerUnit Fqi(start = 1.0);
+  SI.PerUnit XmdIfd(start = 1.0);
+  SI.PerUnit XmqIgq(start = 0.0);
+  SI.PerUnit F2m if is_saturable;
+  SI.PerUnit sd if is_saturable;
+  SI.PerUnit sq if is_saturable;
 
 protected
-  parameter Modelica.Units.SI.PerUnit x2q = smData.X2q;
-  parameter Modelica.Units.SI.PerUnit x2d = smData.X2d;
-  parameter Modelica.Units.SI.PerUnit x1d = smData.X1d;
-  parameter Modelica.Units.SI.PerUnit x1q = smData.X1q;
-  parameter Modelica.Units.SI.PerUnit xd = smData.Xd;
-  parameter Modelica.Units.SI.PerUnit xq = smData.Xq;
-  parameter Modelica.Units.SI.PerUnit T1d0 = smData.T1d0;
-  parameter Modelica.Units.SI.PerUnit T1q0 = smData.T1q0;
-  parameter Modelica.Units.SI.PerUnit T2q0 = smData.T2q0;
-  parameter Modelica.Units.SI.PerUnit T2d0 = smData.T2d0;
+  parameter SI.PerUnit x2q = smData.X2q;
+  parameter SI.PerUnit x2d = smData.X2d;
+  parameter SI.PerUnit x1d = smData.X1d;
+  parameter SI.PerUnit x1q = smData.X1q;
+  parameter SI.PerUnit xd = smData.Xd;
+  parameter SI.PerUnit xq = smData.Xq;
+  parameter SI.PerUnit T1d0 = smData.T1d0;
+  parameter SI.PerUnit T1q0 = smData.T1q0;
+  parameter SI.PerUnit T2q0 = smData.T2q0;
+  parameter SI.PerUnit T2d0 = smData.T2d0;
+public
 initial equation
   der(F1d) = 0;
   der(F1q) = 0;
@@ -47,4 +49,6 @@ equation
   XmqIgq = -(xq-x1q)/(x1q-xl)*F2q + (xq-xl)/(x1q-xl)*F1q + (x2q-xl)/(x1q-xl)*(xq-x1q)*Iqd.re + (if is_saturable then sq else 0);
   Fqd.im = F2d - x2d*Iqd.im;
   Fqd.re = F2q - x2q*Iqd.re;
+annotation(
+    Icon(graphics = {Text(origin = {0, -60}, extent = {{-90, 40}, {90, -3}}, textString = "(2, 2)", fontSize = 8)}));
 end Model_2_2_Electric;

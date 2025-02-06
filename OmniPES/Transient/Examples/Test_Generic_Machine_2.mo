@@ -3,9 +3,9 @@ within OmniPES.Transient.Examples;
 model Test_Generic_Machine_2
   inner OmniPES.SystemData data annotation(
     Placement(visible = true, transformation(origin = {-74, 80}, extent = {{-16, -16}, {16, 16}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen1_data(D = 10, H = 5, MVAb = 100, Nmaq = 1, Ra = 0.0, X1d = 0.2, X1q = 0.2, Xd = 1.0, Xl = 0.0, Xq = 0.8) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen1_data(D = 10, H = 5, MVAb = 1e8, Nmaq = 1, Ra = 0.0, X1d = 0.2, X1q = 0.2, Xd = 1.0, Xl = 0.0, Xq = 0.8) annotation(
     Placement(visible = true, transformation(origin = {50, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 80., Qsp = 0, Vsp = 1.05) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 8e7, Qsp = 0, Vsp = 1.05) annotation(
     Placement(visible = true, transformation(origin = {24, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   //
   OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_1_0_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, redeclare OmniPES.Transient.Controllers.AVR.ConstantEfd avr, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg) annotation(
