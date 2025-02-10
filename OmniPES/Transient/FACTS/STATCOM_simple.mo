@@ -2,6 +2,8 @@ within OmniPES.Transient.FACTS;
 
 model STATCOM_simple
   import Modelica.Units.SI;
+  import Modelica.ComplexMath.abs;
+  import Modelica.ComplexMath.conj;
   extends OmniPES.Circuit.Interfaces.ShuntComponent;
   parameter SI.PerUnit k = 100 "controller gain";
   parameter SI.Time T = 0.1 "controller time constant";
@@ -13,17 +15,17 @@ model STATCOM_simple
     Placement(transformation(origin = {0, 60}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.Constant const_vref(k = vref) if not external_reference annotation(
     Placement(transformation(origin = {-70, 60}, extent = {{-10, -10}, {10, 10}})));
-  SI.ComplexPerUnit St;
-  SI.PerUnit I, V;
-  OmniPES.Transient.Controllers.Blocks.LagLimit simpleLagLim(k = k, T = T, ymax = imax, ymin = imin)  annotation(
-    Placement(transformation(origin = {40, 60}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Interfaces.RealInput ext_ref if external_reference annotation(
     Placement(transformation(origin = {-78, 16}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {114, 0}, extent = {{18, -18}, {-18, 18}})));
+  OmniPES.Transient.Controllers.Blocks.LagLimit simpleLagLim(k = k, T = T, ymax = imax, ymin = imin)  annotation(
+    Placement(transformation(origin = {40, 60}, extent = {{-10, -10}, {10, 10}})));
+  SI.ComplexPerUnit St;
+  SI.PerUnit I, V;
 equation
   I = simpleLagLim.y;
-  V = Modelica.ComplexMath.abs(p.v);
+  V = abs(p.v);
   feedback.u2 = V;
-  St = -p.v*Modelica.ComplexMath.conj(p.i);
+  St = -p.v*conj(p.i);
   St.re = 0;
   St.im = V*I;
   connect(feedback.y, simpleLagLim.u) annotation(
