@@ -12,7 +12,7 @@ model GenericSynchronousMachine
   final parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData convData = ConvertBase(smData, data.Sbase) "Record with machine parameters in the system base";
 //
 // Power Flow Restriction
-  //
+//
   parameter OmniPES.Transient.SynchronousMachines.RestrictionData specs "Record with load flow specs." annotation(Dialog(tab = "Power Flow Restriction", group = "Parameters"),
     Placement(visible = true, transformation(origin = {-40, 70}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
 //
