@@ -4,7 +4,6 @@ Test_Generic_Load
 Test_Generic_Load_Default
 Test_Generic_Machine_2
 Test_Breaker
-Test_Radial_System_SWITCHED
 PSCC24
 Test_Single_Machine
 IEEE9bus

@@ -23,7 +23,7 @@ model GenericSynchronousMachine
 //
 // Electrical Model
 //
-  replaceable OmniPES.Transient.SynchronousMachines.Interfaces.PartialElectrical electrical(smData = convData) constrainedby Interfaces.PartialElectrical(smData = convData) annotation(choicesAllMatching = true, Dialog(tab = "Electrical Model", group = "Model"), Placement(transformation(origin = {-11.5, 2.5}, extent = {{-20.5, -20.5}, {20.5, 20.5}})));
+  replaceable OmniPES.Transient.SynchronousMachines.Interfaces.PartialElectrical electrical(smData = convData) constrainedby Interfaces.PartialElectrical(smData = convData) annotation(Evaluate=true, choicesAllMatching = true, Dialog(tab = "Electrical Model", group = "Model"), Placement(transformation(origin = {-11.5, 2.5}, extent = {{-20.5, -20.5}, {20.5, 20.5}})));
 //
 // Mechanical Model
 //
@@ -32,19 +32,19 @@ OmniPES.Transient.SynchronousMachines.Interfaces.Inertia inertia(smData = convDa
 //
 // Automatic Voltage Regulator
 //
-parameter Boolean avr_on = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab = "Controllers", group="Automatic Voltage Regulator"));
+parameter Boolean avr_on = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab = "Controllers", group="Automatic Voltage Regulator", enable=electrical.allow_ctrl));
 //
 replaceable OmniPES.Transient.Controllers.AVR.ConstantEfd avr if avr_on constrainedby Interfaces.PartialAVR annotation(choicesAllMatching = true, Dialog(tab = "Controllers", group="Automatic Voltage Regulator", enable = avr_on), Placement(transformation(origin = {-68, -10}, extent = {{-10, 10}, {10, -10}})));
 //
 // Speed Regulator
-  //
-  parameter Boolean sreg_on = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab = "Controllers", group="Speed Regulator"));
+//
+  parameter Boolean sreg_on = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab = "Controllers", group="Speed Regulator", enable=electrical.allow_ctrl));
 //
   replaceable OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg if sreg_on constrainedby OmniPES.Transient.Controllers.Interfaces.PartialSpeedRegulator annotation(choicesAllMatching = true, Dialog(tab = "Controllers", group="Speed Regulator", enable = sreg_on), Placement(transformation(origin = {64, -44}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 //
 // PSS
 //
-parameter Boolean pss_on = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab = "Controllers", group="Power System Stabilizer", enable = avr_on));
+parameter Boolean pss_on = false "enabled only if avr_on == true" annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(tab = "Controllers", group="Power System Stabilizer", enable = avr_on));
 //
 replaceable OmniPES.Transient.Controllers.PSS.NoPSS pss if pss_on and avr_on constrainedby OmniPES.Transient.Controllers.Interfaces.PartialPSS annotation(Dialog(tab = "Controllers", group="Power System Stabilizer", enable = pss_on), choicesAllMatching = true, Placement(transformation(origin = {4, -69}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
 //
@@ -80,7 +80,7 @@ equation
   else
       der(electrical.Efd) = 0;
   end if;
-  
+    
   connect(electrical.Pe, inertia.Pe) annotation(
     Line(points = {{11.05, 14.8}, {45.05, 14.8}}, color = {0, 0, 127}));
   connect(inertia.delta, electrical.delta) annotation(

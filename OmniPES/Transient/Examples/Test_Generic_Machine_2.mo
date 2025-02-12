@@ -16,7 +16,7 @@ model Test_Generic_Machine_2
     Placement(visible = true, transformation(origin = {-50, 50}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TwoWindingTransformer twoWindingTransformer(tap = 1, x = 0.05) annotation(
     Placement(visible = true, transformation(origin = {-40, 20}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine(Q = 50, r = 1e-5, x = 0.1) annotation(
+  OmniPES.Circuit.Basic.TLine tLine(Q = 0, r = 0, x = 0.1) annotation(
     Placement(visible = true, transformation(origin = {0, 16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(SM2.terminal, twoWindingTransformer.p) annotation(

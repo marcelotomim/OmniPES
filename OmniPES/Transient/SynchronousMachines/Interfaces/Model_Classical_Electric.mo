@@ -1,7 +1,7 @@
 within OmniPES.Transient.SynchronousMachines.Interfaces;
 
 model Model_Classical_Electric
-  extends Interfaces.PartialElectrical(redeclare final parameter Boolean is_saturable=false);
+  extends Interfaces.PartialElectrical(redeclare final parameter Boolean is_saturable=false, redeclare final parameter Boolean allow_ctrl=false);
   import Modelica.Units.SI;
 protected
   final parameter SI.PerUnit x1d = smData.X1d;

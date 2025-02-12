@@ -13,7 +13,7 @@ partial model PartialElectrical
   replaceable OmniPES.Transient.SynchronousMachines.SaturationFunctions.Exponential_2 sat_d if is_saturable "Choose a saturation function model." constrainedby OmniPES.Transient.SynchronousMachines.Interfaces.PartialSaturationFunction annotation(choicesAllMatching = true, Placement(transformation(extent = {{-10, -10}, {10, 10}})), Dialog(group="Saturation data", enable = is_saturable));
   Circuit.Interfaces.PositivePin terminal annotation(
     Placement(visible = true, transformation(origin = {-104, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-110, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Interfaces.RealInput Efd(start = 1.5, unit = "1") annotation(
+  Modelica.Blocks.Interfaces.RealInput Efd(start = 1.5, unit = "1", min = 0) annotation(
     Placement(visible = true, transformation(origin = {-120, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput delta(unit = "rad", displayUnit = "deg") annotation(
     Placement(visible = true, transformation(origin = {-120, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -28,6 +28,7 @@ partial model PartialElectrical
   SI.ComplexPerUnit St;
   SI.ComplexPerUnit Iqd;
   SI.ComplexPerUnit Fqd;
+  final parameter Boolean allow_ctrl = true;
   protected
   parameter SI.PerUnit ra = smData.Ra;
   parameter SI.PerUnit xl = smData.Xl;
