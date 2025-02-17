@@ -21,8 +21,10 @@ model tutorial_system
     Placement(visible = true, transformation(origin = {28, 22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Basic.SeriesImpedance line21(x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {49, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18) annotation(
+  OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18, open = false) annotation(
     Placement(visible = true, transformation(origin = {49, -33}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+
+
   OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
     Placement(transformation(origin = {122.5, -68.4444}, extent = {{-18.5, -20.5556}, {18.5, 16.4444}}, rotation = -90)));
   replaceable OmniPES.SteadyState.Sources.VTHSource_Qlim_sigmoid G1(Qmax = 2.6e7, Vsp = 1.017, angle = 0.0, useExternalVoltageSpec = false, useExternalPowerSpec = false) annotation(

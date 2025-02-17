@@ -24,7 +24,7 @@ model Test_Radial_System_Power_Flow
     Placement(transformation(origin = {-39, -47}, extent = {{-19, -19}, {19, 19}}, rotation = -90)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData load_data annotation(
     Placement(transformation(origin = {-36, -86}, extent = {{-10, -10}, {10, 10}})));
-  OmniPES.Circuit.Basic.TLine_switched tLine_switched( r = 0, t_open = 2, x = 0.1, Q = 1.5e8) annotation(
+  OmniPES.Circuit.Basic.TLine_switched tLine_switched( r = 0, t_open_p = 2, t_open_n = 2, x = 0.1, Q = 1.5e8) annotation(
     Placement(visible = true, transformation(origin = {0, -12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
   connect(voltageSource.p, impedance2.n) annotation(
