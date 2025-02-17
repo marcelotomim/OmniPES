@@ -27,6 +27,6 @@ equation
     Line(points = {{12, 20}, {30, 20}}, color = {0, 0, 255}));
 protected
   annotation(
-    experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-6, Interval = 0.0001),
+    experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-06, Interval = 0.0001),
     Diagram);
 end Test_Generic_Machine_2;

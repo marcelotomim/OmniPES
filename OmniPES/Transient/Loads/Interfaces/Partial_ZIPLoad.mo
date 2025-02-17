@@ -16,13 +16,14 @@ partial model Partial_ZIPLoad
   SI.PerUnit Vabs(start = 1);
   SI.PerUnit Vo(start = 1);
   protected
+  final parameter SI.Time T = 1;
   Modelica.Blocks.Interfaces.RealOutput dp, dq;
 initial equation
   der(Vo) = 0;
 equation
   S = v*conj(i);
   Vabs^2 = v.re^2 + v.im^2;
-  der(Vo) = if initial() then Vabs - Vo else 0;
+  T*der(Vo) = if initial() then Vabs - Vo else 0;
   S.re = if initial() then (Psp + dp)/data.Sbase*(1 - ss_par.pi - ss_par.pz + ss_par.pi*(Vo/Vdef) + ss_par.pz*(Vo/Vdef)^2) else (Psp + dp)/data.Sbase*(1 - dyn_par.pi - dyn_par.pz + dyn_par.pi*(Vabs/Vo) + dyn_par.pz*(Vabs/Vo)^2);
   S.im = if initial() then (Qsp + dq)/data.Sbase*(1 - ss_par.qi - ss_par.qz + ss_par.qi*(Vo/Vdef) + ss_par.qz*(Vo/Vdef)^2) else (Qsp + dq)/data.Sbase*(1 - dyn_par.qi - dyn_par.qz + dyn_par.qi*(Vabs/Vo) + dyn_par.qz*(Vabs/Vo)^2);
   annotation(

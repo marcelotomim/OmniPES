@@ -22,7 +22,7 @@ model Test_Radial_System
     Placement(transformation(origin = {-52, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine SM(smData = gen1_data, specs = gen1_specs, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_2_Electric electrical(is_saturable = true, redeclare OmniPES.Transient.SynchronousMachines.SaturationFunctions.Exponential_2 sat_d), redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, redeclare OmniPES.Transient.Controllers.AVR.ConstantEfd avr, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.Controllers.SpeedRegulators.ConstantPm sreg, avr_on = false) annotation(
     Placement(transformation(origin = {80, 22}, extent = {{-10, -10}, {10, 10}})));
-  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen1_data(D = 0, H = 6.5, Nmaq = 1, Ra = 0.0, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7, MVAb = 1e8) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen1_data(D = 0, H = 6.5, Nmaq = 1, Ra = 0.0, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7, MVAb = 1e8, model_type = OmniPES.Transient.SynchronousMachines.Interfaces.Models.Turbo) annotation(
     Placement(visible = true, transformation(origin = {82, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Circuit.Switches.Fault fault(t_off = 0.2, t_on = 0.1) annotation(
     Placement(visible = true, transformation(origin = {-10, -30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

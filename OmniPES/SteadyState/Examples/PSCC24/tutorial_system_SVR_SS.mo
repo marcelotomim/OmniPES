@@ -26,15 +26,15 @@ model tutorial_system_SVR_SS
   OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
     Placement(visible = true, transformation(origin = {108.5, -15.4444}, extent = {{-18.5, -20.5556}, {18.5, 16.4444}}, rotation = 0)));
   replaceable OmniPES.SteadyState.Sources.VTHSource_Qlim_sigmoid G1(Qmax = 2.6e7, Vsp = 1.017, useExternalVoltageSpec = true, useExternalPowerSpec = false) annotation(
-    Placement(transformation(origin = {-143, -36}, extent = {{-21, -21}, {21, 21}}, rotation = -90)));
+    Placement(transformation(origin = {-137, -15}, extent = {{-21, -21}, {21, 21}}, rotation = 180)));
   replaceable OmniPES.SteadyState.Sources.PVSource_Qlim_sigmoid G2(Psp = 9e7, Qmax = 7.8e7, Vsp = 1.025, useExternalVoltageSpec = true, useExternalPowerSpec = true) annotation(
-    Placement(transformation(origin = {-140.5, 33.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = -90)));
+    Placement(transformation(origin = {-138.5, 53.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = 180)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {109, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp rampP (duration = 110, height = 110e6, startTime = 25) annotation(
+  Modelica.Blocks.Sources.Ramp rampP (duration = 140, height = 140e6, startTime = 0) annotation(
     Placement(visible = true, transformation(origin = {-210, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4)  annotation(
-    Placement(visible = true, transformation(origin = {-173.5, 41.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}}, rotation = 0)));
+    Placement(transformation(origin = {-172.5, 45.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}})));
   Real ref2, ref1;
 equation 
   bus30.V = 1.0;
@@ -43,7 +43,7 @@ equation
   G2.dVsp = ref2;
  
   connect(G2.p, bus2.p) annotation(
-    Line(points = {{-140.5, 55}, {-120.25, 55}, {-120.25, 54}, {-100, 54}}, color = {0, 0, 255}));
+    Line(points = {{-117, 53.5}, {-120.25, 53.5}, {-120.25, 54}, {-100, 54}}, color = {0, 0, 255}));
   connect(bus2.p, trafo2.p) annotation(
     Line(points = {{-100, 54}, {-75, 54}}, color = {0, 0, 255}));
   connect(trafo2.n, bus20.p) annotation(
@@ -61,9 +61,9 @@ equation
   connect(line1.n, bus10.p) annotation(
     Line(points = {{28, 12}, {28, -15}, {-24, -15}}, color = {0, 0, 255}));
   connect(gain.y, G2.dPsp) annotation(
-    Line(points = {{-166, 41.5}, {-157, 41.5}, {-157, 42}}, color = {0, 0, 127}));
+    Line(points = {{-165, 45.5}, {-165, 46}, {-153, 46}}, color = {0, 0, 127}));
   connect(rampP.y, gain.u) annotation(
-    Line(points = {{-199, -6}, {-191, -6}, {-191, 41.5}, {-181, 41.5}}, color = {0, 0, 127}));
+    Line(points = {{-199, -6}, {-191, -6}, {-191, 45.5}, {-180, 45.5}}, color = {0, 0, 127}));
   connect(line21.p, bus10.p) annotation(
     Line(points = {{39, -15}, {-24, -15}}, color = {0, 0, 255}));
   connect(line21.n, bus30.p) annotation(
@@ -71,12 +71,12 @@ equation
   connect(rampP.y, load.dPsp) annotation(
     Line(points = {{-199, -6}, {-191, -6}, {-191, -69}, {101, -69}, {101, -30}}, color = {0, 0, 127}));
   connect(G1.p, bus1.p) annotation(
-    Line(points = {{-143, -15}, {-100, -15}}, color = {0, 0, 255}));
+    Line(points = {{-116, -15}, {-100, -15}}, color = {0, 0, 255}));
   connect(line22.n, bus30.p) annotation(
     Line(points = {{59, -33}, {79, -33}, {79, -15}}, color = {0, 0, 255}));
   annotation(
     Icon(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
     Diagram(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
-  experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.1),
+  experiment(StartTime = 0, StopTime = 119.5, Tolerance = 1e-06, Interval = 0.001),
   __OpenModelica_simulationFlags(lv = "LOG_STDOUT,LOG_ASSERT,LOG_STATS", s = "dassl", variableFilter = ".*"));
 end tutorial_system_SVR_SS;
