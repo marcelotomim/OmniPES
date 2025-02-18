@@ -17,7 +17,7 @@ model Test_Radial_System_Power_Flow_Qlim_discrete
     Placement(visible = true, transformation(origin = {2, 26}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   replaceable OmniPES.SteadyState.Sources.PVSource_Qlim_discrete pVSource_Qlim(Psp = 1e8, Qmax = 6e7, Qmin = -6e7, Vsp = 1.0, voltage_limits = true) annotation(
     Placement(transformation(origin = {128.556, 19.4444}, extent = {{-18, -20}, {18, 16}})));
-  Circuit.Basic.TLine_switched tLine1(r = 0, x = 0.1, Q = 1e8, t_open = 2) annotation(
+  Circuit.Basic.TLine_switched tLine1(r = 0, x = 0.1, Q = 1e8, t_open_p = 2, t_open_n = 2, open_p = true, open_n = true) annotation(
     Placement(transformation(origin = {0, -8}, extent = {{-10, -10}, {10, 10}})));
   Sources.VTHSource vTHSource annotation(
     Placement(transformation(origin = {-115, 17}, extent = {{-15, -15}, {15, 15}}, rotation = 180)));

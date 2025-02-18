@@ -21,8 +21,10 @@ model tutorial_system
     Placement(visible = true, transformation(origin = {28, 22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Basic.SeriesImpedance line21(x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {49, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18) annotation(
+  OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18, open = false) annotation(
     Placement(visible = true, transformation(origin = {49, -33}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+
+
   OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
     Placement(transformation(origin = {122.5, -68.4444}, extent = {{-18.5, -20.5556}, {18.5, 16.4444}}, rotation = -90)));
   replaceable OmniPES.SteadyState.Sources.VTHSource_Qlim_sigmoid G1(Qmax = 2.6e7, Vsp = 1.017, angle = 0.0, useExternalVoltageSpec = false, useExternalPowerSpec = false) annotation(
@@ -31,10 +33,10 @@ model tutorial_system
     Placement(transformation(origin = {-137.5, 53.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = 180)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {109, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  Modelica.Blocks.Sources.Ramp rampP(duration = 100, height = 100e6, startTime = 25) annotation(
+  Modelica.Blocks.Sources.Ramp rampP(duration = 140, height = 140e6, startTime = 0) annotation(
     Placement(visible = true, transformation(origin = {-210, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Math.Gain gain(k = 3/4) annotation(
-    Placement(transformation(origin = {-171.5, 46.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}})));
+    Placement(transformation(origin = {-172.5, 46.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}})));
 equation
   connect(G2.p, bus2.p) annotation(
     Line(points = {{-116, 53.5}, {-119.75, 53.5}, {-119.75, 54}, {-100, 54}}, color = {0, 0, 255}));
@@ -65,12 +67,12 @@ equation
   connect(load.p, bus30.p) annotation(
     Line(points = {{120, -50}, {120, -15}, {79, -15}}, color = {0, 0, 255}));
   connect(gain.y, G2.dPsp) annotation(
-    Line(points = {{-164, 46.5}, {-161, 46.5}, {-161, 46}, {-152, 46}}, color = {0, 0, 127}));
+    Line(points = {{-165, 46.5}, {-161, 46.5}, {-161, 46}, {-152, 46}}, color = {0, 0, 127}));
   connect(gain.u, rampP.y) annotation(
-    Line(points = {{-179, 46.5}, {-191, 46.5}, {-191, -6}, {-199, -6}}, color = {0, 0, 127}));
+    Line(points = {{-180, 46.5}, {-191, 46.5}, {-191, -6}, {-199, -6}}, color = {0, 0, 127}));
   annotation(
     Icon(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
     Diagram(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1}), graphics = {Text(origin = {-164.5, 11}, extent = {{-1.5, -1}, {1.5, 1}}, textString = "text")}),
-    experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.1),
+    experiment(StartTime = 0, StopTime = 101, Tolerance = 1e-06, Interval = 0.1),
   __OpenModelica_simulationFlags(lv = "LOG_STDOUT,LOG_ASSERT,LOG_EVENTS_V,LOG_STATS,LOG_STATS_V", s = "dassl", variableFilter = ".*"));
 end tutorial_system;

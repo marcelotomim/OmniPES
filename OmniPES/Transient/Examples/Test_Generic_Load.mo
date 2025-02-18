@@ -40,5 +40,5 @@ protected
   annotation(
     Diagram(coordinateSystem(extent = {{-150, -100}, {150, 100}})),
     Icon(coordinateSystem(extent = {{-150, -100}, {150, 100}})),
-    experiment(StartTime = 0, StopTime = 3, Tolerance = 1e-6, Interval = 0.006));
+    experiment(StartTime = 0, StopTime = 3, Tolerance = 1e-06, Interval = 0.006));
 end Test_Generic_Load;

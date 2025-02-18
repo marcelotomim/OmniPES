@@ -13,9 +13,9 @@ protected
   parameter SI.PerUnit x1d = smData.X1d;
   parameter SI.PerUnit xd = smData.Xd;
   parameter SI.PerUnit xq = smData.Xq;
-  parameter SI.PerUnit T1d0 = smData.T1d0;
-  parameter SI.PerUnit T2q0 = smData.T2q0;
-  parameter SI.PerUnit T2d0 = smData.T2d0;
+  parameter SI.Time T1d0 = smData.T1d0;
+  parameter SI.Time T2q0 = smData.T2q0;
+  parameter SI.Time T2d0 = smData.T2d0;
 public
 initial equation
   der(F1d) = 0;

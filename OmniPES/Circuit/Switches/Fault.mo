@@ -12,7 +12,8 @@ model Fault
   Circuit.Interfaces.PositivePin T annotation(
     Placement(visible = true, transformation(origin = {0, 110}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {-1.77636e-15, 100}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
   Modelica.Units.SI.PerUnit If "fault current magnitude";
-  Boolean on, off "auxiliary " annotation(HideResult = true);
+  Boolean on "auxiliary " annotation(HideResult = true);
+  Boolean off "auxiliary " annotation(HideResult = true);
   Basic.ShuntImpedance shuntImpedance(r = R, x = X) annotation(
     Placement(transformation(origin = {0, 36}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
 protected

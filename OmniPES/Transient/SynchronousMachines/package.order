@@ -3,5 +3,4 @@ SaturationFunctions
 RestrictionData
 SynchronousMachineData
 ConvertBase
-ClassicalSynchronousMachine
 GenericSynchronousMachine

@@ -85,7 +85,7 @@ model Kundur_Two_Area_System
     Placement(visible = true, transformation(origin = {170, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Switches.Fault fault(R = 0, X = 1e-5, t_off = 0.3, t_on = 0.2) annotation(
     Placement(visible = true, transformation(origin = {-30, -28}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine_switched tLine21(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110, t_open = 0.3) annotation(
+  OmniPES.Circuit.Basic.TLine_switched tLine21(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110, t_open_p = 0.3, t_open_n = 0.3, open_p = false, open_n = false) annotation(
     Placement(visible = true, transformation(origin = {12, -4}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 
 model IEEE_AC4A

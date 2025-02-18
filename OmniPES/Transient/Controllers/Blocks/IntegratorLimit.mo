@@ -16,9 +16,9 @@ equation
   e = k*u;
   der(y) = if is_normal then e else 0;
 algorithm
-  hit_max := (y > ymax) or ((hit_max) and e > 0);
-  hit_min := (y < ymin) or ((hit_min) and e < 0);
-  is_normal := (y >= ymin and y <= ymax) or ((hit_max) and e < 0) or ((hit_min) and e > 0);
+  hit_max := (y > ymax) or (pre(hit_max) and e > 0);
+  hit_min := (y < ymin) or (pre(hit_min) and e < 0);
+  is_normal := (y >= ymin and y <= ymax) or (hit_max and e < 0) or (hit_min and e > 0);
   
   annotation(
     Diagram,
