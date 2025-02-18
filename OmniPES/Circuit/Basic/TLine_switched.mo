@@ -11,9 +11,9 @@ model TLine_switched
   Circuit.Interfaces.NegativePin n annotation(
     Placement(visible = true, transformation(origin = {90, 54}, extent = {{-4, -4}, {4, 4}}, rotation = 0), iconTransformation(origin = {110, 30}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   
-  parameter Boolean open_p = true "true, for opening the line from the positive terminal" annotation(Dialog(tab="Positive terminal breaker"), choices(checkBox=true), HideResult = true);
+  parameter Boolean open_p = true "true, for opening the line from the positive terminal" annotation(Dialog(tab="Positive terminal breaker"), choices(checkBox=true), HideResult = true, Evaluate=true);
   parameter SI.Time t_open_p = 0.3 if open_p "Time instant for the breaker opening" annotation(Dialog(tab="Positive terminal breaker", enable = open_p));
-  parameter Boolean open_n = true "true, for opening the line from the negative terminal" annotation(Dialog(tab="Negative terminal breaker"), choices(checkBox=true), HideResult = true);
+  parameter Boolean open_n = true "true, for opening the line from the negative terminal" annotation(Dialog(tab="Negative terminal breaker"), choices(checkBox=true), HideResult = true, Evaluate=true);
   parameter SI.Time t_open_n = 0.3 if open_n "Time instant for the breaker opening" annotation(Dialog(tab="Negative terminal breaker", enable = open_n));
   Circuit.Switches.TimedBreaker brk_p(t_open = t_open_p)  if open_p "breaker on the positive terminal" annotation(
     Placement(visible = true, transformation(origin = {-46, 52}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));

@@ -14,7 +14,7 @@ model Kundur_Two_Area_System_SteadyState
     Placement(visible = true, transformation(origin = {-66, -2}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine2(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110) annotation(
     Placement(visible = true, transformation(origin = {16, 24}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Circuit.Basic.TLine tLine3(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110) annotation(
+  OmniPES.Circuit.Basic.TLine_switched tLine3(Q = 0.175e6*110, r = 0.0001*110, x = 0.001*110, open_p = true, open_n = true, t_open_p = 1, t_open_n = 1) annotation(
     Placement(visible = true, transformation(origin = {18, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus9 annotation(
     Placement(visible = true, transformation(origin = {64, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
@@ -139,7 +139,7 @@ equation
     Line(points = {{-76, -22}, {-96, -22}, {-96, 16}, {-108, 16}}, color = {0, 0, 255}));
 protected
   annotation(
-    experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-6, Interval = 0.0001),
+    experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-06, Interval = 0.1),
     uses(Modelica(version = "3.2.2")),
     Diagram(coordinateSystem(extent = {{-300, -100}, {300, 100}})),
     Icon(coordinateSystem(extent = {{-300, -100}, {300, 100}})));
