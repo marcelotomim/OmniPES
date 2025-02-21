@@ -47,6 +47,6 @@ equation
   Vqd.im = -ra*Iqd.im - Fqd.re;
   Pe = Fqd.im*Iqd.re - Fqd.re*Iqd.im;
 annotation(
-    Icon(graphics = {Text(extent = {{-80, 30}, {80, -30}}, textString = "Electrical", fontSize = 8), Rectangle(extent = {{-100, 100}, {100, -100}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}})),
+    Icon(graphics = {Text(extent = {{-80, 60}, {80, -60}}, textString = "Electrical"), Rectangle(extent = {{-100, 100}, {100, -100}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}})),
   experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));
 end PartialElectrical;

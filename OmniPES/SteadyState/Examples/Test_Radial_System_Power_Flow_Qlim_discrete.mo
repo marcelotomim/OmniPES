@@ -22,11 +22,11 @@ model Test_Radial_System_Power_Flow_Qlim_discrete
   Sources.VTHSource vTHSource annotation(
     Placement(transformation(origin = {-115, 17}, extent = {{-15, -15}, {15, 15}}, rotation = 180)));
   Circuit.Switches.Breaker breaker annotation(
-    Placement(transformation(origin = {52, -14}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(transformation(origin = {52, -20}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Circuit.Basic.Shunt_Reactor shunt_Reactor(NominalPower = 1.5e8) annotation(
-    Placement(transformation(origin = {52, -42}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(transformation(origin = {52, -48}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   Modelica.Blocks.Sources.BooleanStep booleanStep(startTime = 4, startValue = true) annotation(
-    Placement(transformation(origin = {100, -58}, extent = {{10, -10}, {-10, 10}})));
+    Placement(transformation(origin = {88, -20}, extent = {{10, -10}, {-10, 10}})));
 equation
   connect(impedance2.p, bus1.p) annotation(
     Line(points = {{-60, 18}, {-46.8, 18}}, color = {0, 0, 255}));
@@ -47,11 +47,11 @@ equation
   connect(vTHSource.p, impedance2.n) annotation(
     Line(points = {{-100, 17}, {-100, 18}, {-80, 18}}, color = {0, 0, 255}));
   connect(breaker.p, bus2.p) annotation(
-    Line(points = {{52, -4}, {52, 16}}, color = {0, 0, 255}));
+    Line(points = {{52, -10}, {52, 16}}, color = {0, 0, 255}));
   connect(breaker.n, shunt_Reactor.p) annotation(
-    Line(points = {{52, -24}, {52, -32}}, color = {0, 0, 255}));
+    Line(points = {{51.8, -30}, {51.8, -38}}, color = {0, 0, 255}));
   connect(booleanStep.y, breaker.ext_open) annotation(
-    Line(points = {{89, -58}, {70, -58}, {70, -14}, {60, -14}}, color = {255, 0, 255}));
+    Line(points = {{77, -20}, {60, -20}}, color = {255, 0, 255}));
 protected
   annotation(
     experiment(StartTime = 0, StopTime = 6, Tolerance = 1e-06, Interval = 0.01),

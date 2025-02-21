@@ -28,7 +28,7 @@ equation
     Line(points = {{-66, -26}, {-50, -26}, {-50, -6}, {-27, -6}}, color = {0, 0, 127}));
   annotation(
     Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Rectangle(lineThickness = 0.75, extent = {{-100, 100}, {100, -100}}), Text(origin = {-0.5, -5}, extent = {{-90.5, 65}, {90.5, -65}}, textString = "Plant
-SRV", fontSize = 8)}),
+SRV")}),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.001));
 end Plant_SVR;

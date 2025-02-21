@@ -10,5 +10,5 @@ equation
   S.re = Psp/data.Sbase;
   Vsp = V;
   annotation(
-    Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}), graphics = {Text(origin = {1, 77}, extent = {{-97, 19}, {97, -19}}, textString = "PV", fontSize = 8, horizontalAlignment = TextAlignment.Left)}));
+    Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}), graphics = {Text(origin = {0, 80}, extent = {{-100, 20}, {100, -20}}, textString = "PV", horizontalAlignment = TextAlignment.Left)}));
 end PVSource;

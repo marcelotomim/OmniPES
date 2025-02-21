@@ -3,7 +3,7 @@ within OmniPES.Transient.Examples;
 model Kundur_Two_Area_System
   Real d13, d23, d43;
   inner OmniPES.SystemData data annotation(
-    Placement(transformation(origin = {-7, 71}, extent = {{-27, -27}, {27, 27}})));
+    Placement(transformation(origin = {-29, 63}, extent = {{-17, -17}, {17, 17}})));
   parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data_1(D = 0, H = 6.5, MVAb = 9e8, Nmaq = 1, Ra = 0.0025, T1d0 = 8, T1q0 = 0.4, T2d0 = 0.03, T2q0 = 0.05, X1d = 0.3, X1q = 0.55, X2d = 0.25, X2q = 0.25, Xd = 1.8, Xl = 0.2, Xq = 1.7) annotation(
     Placement(visible = true, transformation(origin = {-202, 70}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus7 annotation(

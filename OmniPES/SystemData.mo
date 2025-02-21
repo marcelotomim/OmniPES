@@ -15,7 +15,7 @@ model SystemData
     missingInnerMessage = "The System object is missing, please drag it on the top layer of your model",
     Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}), graphics = {Rectangle(fillColor = {255, 255, 0}, fillPattern = FillPattern.Solid, extent = {{-80, 70}, {80, -70}}), Text(extent = {{-70, 60}, {70, -60}}, textString = "System
 %Sbase
-%fb", fontSize = 8)}),
+%fb")}),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})),
   Documentation(info = "<html>
   

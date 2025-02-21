@@ -17,9 +17,9 @@ model GenericSynchronousMachine
     Placement(visible = true, transformation(origin = {-40, 70}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
 //
   replaceable OmniPES.Transient.SynchronousMachines.Interfaces.Restriction restriction annotation(
-    Placement(transformation(origin = {50, 72}, extent = {{-19, -19}, {19, 19}}))) constrainedby Interfaces.Restriction(param = specs) annotation(
+    Placement(transformation(origin = {59, 71}, extent = {{-19, -19}, {19, 19}}))) constrainedby Interfaces.Restriction(param = specs) annotation(
      choicesAllMatching = true, Dialog(tab = "Power Flow Restriction", group = "Model"),
-     Placement(visible = true, transformation(origin = {-19, 73}, extent = {{-19, -19}, {19, 19}}, rotation = 0)));
+     Placement(transformation(origin = {55, 70}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
 //
 // Electrical Model
 //
@@ -88,6 +88,6 @@ equation
   connect(terminal, electrical.terminal) annotation(
     Line(points = {{-91, 32}, {-65, 32}, {-65, 2.5}, {-34, 2.5}}, color = {0, 0, 255}));
   annotation(
-    Icon(graphics = {Ellipse(origin = {33, 0}, extent = {{65, 65}, {-65, -65}}), Line(origin = {-66, -1.07}, points = {{-34, 1}, {34, 1}}), Bitmap(extent = {{22, 4}, {22, 4}}), Text(origin = {10, 27}, extent = {{72, -67}, {-30, 13}}, textString = "SM")}, coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Text(origin = {28.5, 20}, extent = {{-4, 7}, {5, -7}}, textString = "Pe"), Text(origin = {38.5, -38}, extent = {{-4, 7}, {5, -7}}, textString = "Pm"), Text(origin = {97, 24}, extent = {{-2, 6}, {3, -6}}, textString = "δ"), Text(origin = {98, -22}, extent = {{-2, 6}, {3, -6}}, textString = "ω"), Text(origin = {-53, -62}, extent = {{-7, 7}, {9, -7}}, textString = "Vsad"), Text(origin = {-46, -15}, extent = {{-5, 5}, {6, -5}}, textString = "Efd"), Text(origin = {-30.5, -39}, extent = {{-4, 7}, {5, -7}}, textString = "Vt")}));
+    Icon(graphics = {Ellipse(origin = {33, 0}, extent = {{65, 65}, {-65, -65}}), Line(origin = {-66, -1.07}, points = {{-34, 1}, {34, 1}}), Bitmap(extent = {{22, 4}, {22, 4}}), Text( origin = {32, 0}, extent = {{65, -55}, {-65, 55}}, textString = "G")}, coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
+    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Text(origin = {28.5, 20}, extent = {{-4, 7}, {5, -7}}, textString = "Pe"), Text(origin = {35, -5}, extent = {{-4, 7}, {5, -7}}, textString = "Pm", textColor=if sreg_on then {0,0,0} else {255,0,0}), Text(origin = {97, 24}, extent = {{-2, 6}, {3, -6}}, textString = "δ"), Text(origin = {98, -22}, extent = {{-2, 6}, {3, -6}}, textString = "ω"), Text(origin = {-53, -62}, extent = {{-7, 7}, {9, -7}}, textString = "Vsad", textColor=if pss_on then {0,0,0} else {195,195,195}), Text(origin = {-46, -15}, extent = {{-5, 5}, {6, -5}}, textString = "Efd", textColor=if avr_on then {0,0,0} else {255,0,0}), Text(origin = {-30.5, -39}, extent = {{-4, 7}, {5, -7}}, textString = "Vt", textColor=if avr_on then {0,0,0} else {195,195,195})}));
 end GenericSynchronousMachine;

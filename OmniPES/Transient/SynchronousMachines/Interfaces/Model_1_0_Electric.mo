@@ -10,6 +10,7 @@ protected
   parameter SI.PerUnit xd = smData.Xd;
   parameter SI.PerUnit xq = smData.Xq;
   parameter SI.Time T1d0 = smData.T1d0;
+public
 initial equation
   der(F1d) = 0;
 equation
@@ -21,5 +22,5 @@ equation
   Fqd.im = F1d - x1d*Iqd.im;
   Fqd.re = -xq*Iqd.re;
 annotation(
-    Icon(graphics = {Text(origin = {0, -60}, extent = {{-90, 40}, {90, -3}}, textString = "(1, 0)", fontSize = 8)}));
+    Icon(graphics = {Text(origin = {0, -60}, extent = {{-90, 25}, {90, -5}}, textString = "(1,0)")}));
 end Model_1_0_Electric;

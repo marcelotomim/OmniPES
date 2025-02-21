@@ -35,9 +35,9 @@ initial equation
 equation
   if is_saturable then
    F2m = sqrt(F2d^2 + F2q^2);
-   sat_d.u = F2m;
-   sd = F2d/F2m*sat_d.y;
-   sq = F2q/F2m*(xq-xl)/(xd-xl)*sat_d.y;
+   F2m*sd = F2d*sat_d.y;
+   F2m*sq = F2q*(xq-xl)/(xd-xl)*sat_d.y;
+   F2m = sat_d.u;
   end if;
   T1d0*der(F1d) = Efd - XmdIfd;
   T1q0*der(F1q) = -XmqIgq;
@@ -50,5 +50,5 @@ equation
   Fqd.im = F2d - x2d*Iqd.im;
   Fqd.re = F2q - x2q*Iqd.re;
 annotation(
-    Icon(graphics = {Text(origin = {0, -60}, extent = {{-90, 40}, {90, -3}}, textString = "(2, 2)", fontSize = 8)}));
+    Icon(graphics = {Text(origin = {0, -60}, extent = {{-90, 25}, {90, -5}}, textString = "(2,2)")}));
 end Model_2_2_Electric;

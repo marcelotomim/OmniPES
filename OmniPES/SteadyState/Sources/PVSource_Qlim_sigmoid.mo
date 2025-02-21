@@ -5,6 +5,6 @@ model PVSource_Qlim_sigmoid
 equation
   S.re = (Psp + dpsp)/data.Sbase;
 annotation(
-    Icon(graphics = {Text(origin = {1, 80}, rotation = 180, extent = {{-97, 28}, {100, -19}}, textString = "PV
-Qlim", fontSize = 8, horizontalAlignment = TextAlignment.Right)}));
+    Icon(graphics = {Text(origin = {0, 80}, extent = {{-100, 20}, {100, -20}}, textString = "PV
+Qlim", horizontalAlignment = TextAlignment.Left)}));
 end PVSource_Qlim_sigmoid;

@@ -28,5 +28,5 @@ connect(Z.n, n) annotation(
     Line(points = {{10, 0}, {100, 0}}, color = {0, 0, 255}));
 
  annotation(
-    Icon(graphics = {Rectangle(origin = {1, -1}, extent = {{-61, 35}, {61, -35}}), Line(origin = {-73, 0}, points = {{13, 0}, {-13, 0}}), Line(origin = {76, 0}, points = {{-14, 0}, {14, 0}}), Text(extent = {{-60, 33}, {60, -33}}, textString = "SW")}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
+    Icon(graphics = {Rectangle(origin = {1, -1}, extent = {{-61, 35}, {61, -35}}), Line(origin = {-73, 0}, points = {{13, 0}, {-13, 0}}), Line(origin = {76, 0}, points = {{-14, 0}, {14, 0}}), Text(origin = {1, -1}, extent = {{-61, 34}, {61, -34}}, textString = "SW")}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
 end SeriesImpedance_switched;

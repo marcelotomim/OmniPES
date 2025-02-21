@@ -2,11 +2,11 @@ within OmniPES.Transient.Examples;
 
 model Test_Radial_System
   inner OmniPES.SystemData data annotation(
-    Placement(visible = true, transformation(origin = {-76, 78}, extent = {{-22, -22}, {22, 22}}, rotation = 0)));
+    Placement(transformation(origin = {-73, 75}, extent = {{-15, -15}, {15, 15}})));
   OmniPES.Circuit.Sources.VoltageSource voltageSource(angle = 0, magnitude = 1.0) annotation(
     Placement(transformation(origin = {-90, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 1e8, Qsp = 0.0, Vsp = 1.0, theta_sp = 0) annotation(
-    Placement(visible = true, transformation(origin = {52, 44}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {82, 68}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Basic.SeriesImpedance impedance(x = 0.15) annotation(
     Placement(visible = true, transformation(origin = {2, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.Circuit.Interfaces.Bus bus1 annotation(
