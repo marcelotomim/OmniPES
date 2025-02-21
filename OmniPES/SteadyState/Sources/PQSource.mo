@@ -9,5 +9,5 @@ equation
   S.re = Psp/data.Sbase;
   S.im = Qsp/data.Sbase;
   annotation(
-    Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}), graphics = {Text(origin = {1, 77}, extent = {{-97, 19}, {97, -19}}, textString = "PQ", fontSize = 8, horizontalAlignment = TextAlignment.Left)}));
+    Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}), graphics = {Text(origin = {0, 80}, extent = {{-100, 20}, {100, -20}}, textString = "PQ", horizontalAlignment = TextAlignment.Left)}));
 end PQSource;

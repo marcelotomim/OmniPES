@@ -22,5 +22,5 @@ equation
   2*smData.H*der(omega) = Pm - Pe - smData.D*(omega - 1.0);
   der(delta) = data.wb*(omega - 1);
   annotation(
-    Icon(graphics = {Text( extent = {{-80, 60}, {80, -60}}, textString = "Inertia", fontSize = 8), Rectangle(fillColor = {85, 87, 83}, extent = {{-100, 100}, {100, -100}})}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
+    Icon(graphics = {Text( extent = {{-80, 60}, {80, -60}}, textString = "Inertia"), Rectangle(fillColor = {85, 87, 83}, extent = {{-100, 100}, {100, -100}})}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
 end Inertia;

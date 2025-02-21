@@ -33,5 +33,5 @@ equation
   Fqd.im = F2d - x2d*Iqd.im;
   Fqd.re = F2q - x2q*Iqd.re;
   annotation(
-    Icon(graphics = {Text(origin = {0, -60}, extent = {{-90, 40}, {90, -3}}, textString = "(2, 1)", fontSize = 8)}));
+    Icon(graphics = {Text(origin = {0, -60}, extent = {{-90, 25}, {90, -5}}, textString = "(2,1)")}));
 end Model_2_1_Electric;

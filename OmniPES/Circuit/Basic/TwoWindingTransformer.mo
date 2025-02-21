@@ -23,6 +23,6 @@ equation
   connect(Z.n, n) annotation(
     Line(points = {{36, 13.8}, {56, 13.8}}, color = {0, 0, 255}));
   annotation(
-    Icon(graphics = {Ellipse(origin = {-17, 0}, extent = {{-28, 28}, {28, -28}}), Ellipse(origin = {17, 0}, extent = {{-28, 28}, {28, -28}}), Line(origin = {-72, 0}, points = {{-30, 0}, {27, 0}}), Line(origin = {72, 0}, points = {{-27, 0}, {30, 0}}), Ellipse(origin = {-60, 40}, fillPattern = FillPattern.Solid, extent = {{-5, 5}, {5, -5}}), Text(origin = {0, 80}, extent = {{-100, 20}, {100, -20}}, textString = "1:%tap", fontSize = 8)}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
+    Icon(graphics = {Ellipse(origin = {-17, 0}, extent = {{-28, 28}, {28, -28}}), Ellipse(origin = {17, 0}, extent = {{-28, 28}, {28, -28}}), Line(origin = {-72, 0}, points = {{-30, 0}, {27, 0}}), Line(origin = {72, 0}, points = {{-27, 0}, {30, 0}}), Ellipse(origin = {-60, 40}, fillPattern = FillPattern.Solid, extent = {{-5, 5}, {5, -5}}), Text(origin = {0, 80}, extent = {{-100, 20}, {100, -20}}, textString = "1:%tap")}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
   Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {1, 1})));
 end TwoWindingTransformer;

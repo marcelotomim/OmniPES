@@ -13,5 +13,5 @@ equation
   angle = arg(p.v);
   p.i = Complex(0);
   annotation(
-    Icon(graphics = {Rectangle(origin = {-7, 3}, extent = {{1, 97}, {13, -105}}), Text(origin = {0, 150}, textColor = {0, 0, 255}, extent = {{-120, 45}, {120, -45}}, textString = "%name", fontSize = 8)}));
+    Icon(graphics = {Rectangle(origin = {-7, 3}, extent = {{1, 97}, {13, -105}}), Text(origin = {0, 142}, textColor = {26, 95, 180}, extent = {{-150, 30}, {150, -30}}, textString = "%name")}));
 end Bus;

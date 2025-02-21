@@ -12,9 +12,9 @@ model Partial_Load
   SI.PerUnit V(start = 1) "Terminal voltage magnitude";
 
   Modelica.Blocks.Interfaces.RealInput dPsp if useExternalPsp  annotation(
-    Placement(visible = useExternalPsp, transformation(origin = {-70, 40}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-40, -72}, extent = {{-12, -12}, {12, 12}}, rotation = 90)));
+    Placement(visible = useExternalPsp, transformation(origin = {-60, 40}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-40, -72}, extent = {{-12, -12}, {12, 12}}, rotation = 90)));
   Modelica.Blocks.Interfaces.RealInput dQsp if useExternalQsp annotation(
-    Placement(visible = useExternalQsp, transformation(origin = {-70, 76}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {40, -72}, extent = {{-12, -12}, {12, 12}}, rotation = 90)));
+    Placement(visible = useExternalQsp, transformation(origin = {-60, -40}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {40, -72}, extent = {{-12, -12}, {12, 12}}, rotation = 90)));
   parameter Boolean useExternalPsp = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Selectors"));
   parameter Boolean useExternalQsp = false annotation(Evaluate=true, HideResult=true, choices(checkBox=true), Dialog(group="Selectors"));
   Modelica.Blocks.Interfaces.RealOutput dpsp, dqsp;
@@ -34,6 +34,6 @@ equation
     dqsp = 0;
   end if;
 annotation(
-    Icon(graphics = {Line(origin = {-81, 0}, points = {{21, 0}, {-19, 0}, {-21, 0}}), Text( origin = {36, 0}, rotation = 90,extent = {{-98, 62}, {98, -62}}, textString = "%Psp
-%Qsp", fontSize = 8), Polygon(origin = {-40, 0}, fillColor = {255, 255, 255}, fillPattern = FillPattern.Forward, lineThickness = 0.5, points = {{-20, -20}, {-20, 20}, {20, 0}, {-20, -20}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
+    Icon(graphics = {Text( origin = {101, -1}, rotation = 90, extent = {{-150, 50}, {150, -50}}, textString = "%Psp
+%Qsp"), Polygon( fillColor = {255, 255, 255}, fillPattern = FillPattern.Forward, lineThickness = 0.5, points = {{-20, -20}, {-20, 20}, {20, 0}, {-20, -20}}), Text(visible = useExternalPsp, origin = {-77, -72}, rotation = 90, extent = {{-15, 15}, {15, -15}}, textString = "P", horizontalAlignment = TextAlignment.Left), Text(visible = useExternalQsp, origin = {10, -72}, rotation = 90, extent = {{-15, 15}, {15, -15}}, textString = "Q", horizontalAlignment = TextAlignment.Left), Line(origin = {-60, 0.5}, points = {{-40, 0}, {40, 0}}, thickness = 0.5)}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
 end Partial_Load;

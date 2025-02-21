@@ -10,6 +10,6 @@ partial model Restriction
   SI.Angle theta(displayUnit = "deg");
   annotation(
     Icon(graphics = {Rectangle(extent = {{-100, 80}, {100, -80}}), Text(extent = {{-90, 70}, {90, -70}}, textString = "Power Flow 
-Restriction", fontSize = 8)}, coordinateSystem(extent = {{-100, -80}, {100, 80}})),
+Restriction")}, coordinateSystem(extent = {{-100, -80}, {100, 80}})),
   Diagram(coordinateSystem(extent = {{-100, -80}, {100, 80}})));
 end Restriction;

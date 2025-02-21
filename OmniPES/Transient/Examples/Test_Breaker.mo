@@ -10,7 +10,7 @@ model Test_Breaker
   Circuit.Switches.TimedBreaker timedBreaker(t_open = 0.6) annotation(
     Placement(visible = true, transformation(origin = {-14, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   inner SystemData data annotation(
-    Placement(transformation(origin = {-62, 66}, extent = {{-22, -22}, {22, 22}})));
+    Placement(transformation(origin = {-74, 76}, extent = {{-16, -16}, {16, 16}})));
   Circuit.Basic.SeriesImpedance seriesImpedance(x = 0.1) annotation(
     Placement(transformation(origin = {-48, 0}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Switches.Fault fault1(X = 1, t_on = 0.2, t_off = 10000, R = 1)  annotation(

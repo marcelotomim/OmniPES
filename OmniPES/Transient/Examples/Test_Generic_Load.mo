@@ -2,7 +2,7 @@ within OmniPES.Transient.Examples;
 
 model Test_Generic_Load
   inner OmniPES.SystemData data(Sbase = 1e8, fb = 60) annotation(
-    Placement(transformation(origin = {-105, 69}, extent = {{-33, -33}, {33, 33}})));
+    Placement(transformation(origin = {-116, 74}, extent = {{-20, -20}, {20, 20}})));
   OmniPES.Transient.Loads.ZIPLoad zip(Psp = 1e8, Qsp = 5e7, ss_par = ssData, dyn_par = dynData) annotation(
     Placement(transformation(origin = {71, -25}, extent = {{-15, -15}, {15, 15}}, rotation = -90)));
   OmniPES.Circuit.Sources.VoltageSource voltageSource(magnitude = 1.09) annotation(

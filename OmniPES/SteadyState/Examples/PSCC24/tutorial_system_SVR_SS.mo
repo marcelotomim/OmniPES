@@ -1,79 +1,78 @@
 within OmniPES.SteadyState.Examples.PSCC24;
 
 model tutorial_system_SVR_SS
-  inner OmniPES.SystemData data annotation(
-    Placement(visible = true, transformation(origin = {63, 50}, extent = {{-23, -23}, {23, 23}}, rotation = 0)));
   OmniPES.Circuit.Interfaces.Bus bus1 annotation(
-    Placement(visible = true, transformation(origin = {-100, -13}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-89, -35}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Interfaces.Bus bus2 annotation(
-    Placement(visible = true, transformation(origin = {-100, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-89, 34}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Interfaces.Bus bus10 annotation(
-    Placement(visible = true, transformation(origin = {-24, -13}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-13, -35}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Interfaces.Bus bus20 annotation(
-    Placement(visible = true, transformation(origin = {-24, 56}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-13, 34}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Interfaces.Bus bus30 annotation(
-    Placement(visible = true, transformation(origin = {79, -13}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {90, -33}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Basic.TwoWindingTransformer trafo1(x = 0.2) annotation(
-    Placement(visible = true, transformation(origin = {-64, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-52, -35}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Basic.TwoWindingTransformer trafo2(x = 0.07) annotation(
-    Placement(visible = true, transformation(origin = {-64, 54}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-52, 34}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Basic.SeriesImpedance line1(x = 0.07) annotation(
-    Placement(visible = true, transformation(origin = {28, 22}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
+    Placement(transformation(origin = {39, 2}, extent = {{-10, -10}, {10, 10}}, rotation = -90)));
   OmniPES.Circuit.Basic.SeriesImpedance line21(x = 0.18) annotation(
-    Placement(visible = true, transformation(origin = {49, -15}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {60, -35}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 2500, x = 0.18) annotation(
-    Placement(visible = true, transformation(origin = {49, -33}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
-    Placement(visible = true, transformation(origin = {108.5, -15.4444}, extent = {{-18.5, -20.5556}, {18.5, 16.4444}}, rotation = 0)));
+    Placement(transformation(origin = {60, -53}, extent = {{-10, -10}, {10, 10}})));
   replaceable OmniPES.SteadyState.Sources.VTHSource_Qlim_sigmoid G1(Qmax = 2.6e7, Vsp = 1.017, useExternalVoltageSpec = true, useExternalPowerSpec = false) annotation(
-    Placement(transformation(origin = {-137, -15}, extent = {{-21, -21}, {21, 21}}, rotation = 180)));
+    Placement(transformation(origin = {-126, -35}, extent = {{-21, -21}, {21, 21}}, rotation = 180)));
   replaceable OmniPES.SteadyState.Sources.PVSource_Qlim_sigmoid G2(Psp = 9e7, Qmax = 7.8e7, Vsp = 1.025, useExternalVoltageSpec = true, useExternalPowerSpec = true) annotation(
-    Placement(transformation(origin = {-138.5, 53.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = 180)));
+    Placement(transformation(origin = {-127.5, 33.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = 180)));
   parameter OmniPES.SteadyState.Loads.Interfaces.LoadData loadData annotation(
-    Placement(visible = true, transformation(origin = {109, 12}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {120, -8}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.Ramp rampP (duration = 140, height = 140e6, startTime = 0) annotation(
-    Placement(visible = true, transformation(origin = {-210, -6}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+    Placement(transformation(origin = {-199, -26}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Math.Gain gain(k = 3/4)  annotation(
-    Placement(transformation(origin = {-172.5, 45.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}})));
+    Placement(transformation(origin = {-161.5, 25.5}, extent = {{-6.5, -6.5}, {6.5, 6.5}})));
   Real ref2, ref1;
-equation 
+  OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
+    Placement(transformation(origin = {126.056, -77.9444}, extent = {{-10, -11.1111}, {10, 8.88886}}, rotation = -90)));
+  OmniPES.SystemData data annotation(
+    Placement(transformation(origin = {76.5, 36.5}, extent = {{-14.5, -14.5}, {14.5, 14.5}})));
+equation
   bus30.V = 1.0;
-  G1.S.im = (1/3)*G2.S.im; 
+  G1.S.im = (1/3)*G2.S.im;
   G1.dVsp = ref1;
   G2.dVsp = ref2;
- 
   connect(G2.p, bus2.p) annotation(
-    Line(points = {{-117, 53.5}, {-120.25, 53.5}, {-120.25, 54}, {-100, 54}}, color = {0, 0, 255}));
+    Line(points = {{-105.57, 33.5}, {-108.82, 33.5}, {-108.82, 34}, {-89, 34}}, color = {0, 0, 255}));
   connect(bus2.p, trafo2.p) annotation(
-    Line(points = {{-100, 54}, {-75, 54}}, color = {0, 0, 255}));
+    Line(points = {{-89, 34}, {-63, 34}}, color = {0, 0, 255}));
   connect(trafo2.n, bus20.p) annotation(
-    Line(points = {{-53, 54}, {-24, 54}}, color = {0, 0, 255}));
+    Line(points = {{-41, 34}, {-13, 34}}, color = {0, 0, 255}));
   connect(bus1.p, trafo1.p) annotation(
-    Line(points = {{-100.2, -15}, {-75, -15}}, color = {0, 0, 255}));
+    Line(points = {{-89, -35}, {-63, -35}}, color = {0, 0, 255}));
   connect(trafo1.n, bus10.p) annotation(
-    Line(points = {{-53, -15}, {-24, -15}}, color = {0, 0, 255}));
+    Line(points = {{-41, -35}, {-13, -35}}, color = {0, 0, 255}));
   connect(bus20.p, line1.p) annotation(
-    Line(points = {{-24, 54}, {27, 54}, {27, 32}, {28, 32}}, color = {0, 0, 255}));
+    Line(points = {{-13, 34}, {38.3, 34}, {38.3, 14}, {39.3, 14}}, color = {0, 0, 255}));
   connect(line22.p, bus10.p) annotation(
-    Line(points = {{39, -33}, {-24, -33}, {-24, -15}}, color = {0, 0, 255}));
-  connect(load.p, bus30.p) annotation(
-    Line(points = {{90, -15}, {79, -15}}, color = {0, 0, 255}));
+    Line(points = {{50.4, -53}, {-13, -53}, {-13, -35}}, color = {0, 0, 255}));
   connect(line1.n, bus10.p) annotation(
-    Line(points = {{28, 12}, {28, -15}, {-24, -15}}, color = {0, 0, 255}));
+    Line(points = {{38.8, -8}, {38.8, -35}, {-13, -35}}, color = {0, 0, 255}));
   connect(gain.y, G2.dPsp) annotation(
-    Line(points = {{-165, 45.5}, {-165, 46}, {-153, 46}}, color = {0, 0, 127}));
+    Line(points = {{-154.35, 25.5}, {-154.35, 26}, {-142.35, 26}}, color = {0, 0, 127}));
   connect(rampP.y, gain.u) annotation(
-    Line(points = {{-199, -6}, {-191, -6}, {-191, 45.5}, {-180, 45.5}}, color = {0, 0, 127}));
+    Line(points = {{-188, -26}, {-180, -26}, {-180, 25.5}, {-169, 25.5}}, color = {0, 0, 127}));
   connect(line21.p, bus10.p) annotation(
-    Line(points = {{39, -15}, {-24, -15}}, color = {0, 0, 255}));
+    Line(points = {{50.4, -35}, {-13, -35}}, color = {0, 0, 255}));
   connect(line21.n, bus30.p) annotation(
-    Line(points = {{59, -15}, {79, -15}}, color = {0, 0, 255}));
-  connect(rampP.y, load.dPsp) annotation(
-    Line(points = {{-199, -6}, {-191, -6}, {-191, -69}, {101, -69}, {101, -30}}, color = {0, 0, 127}));
+    Line(points = {{70, -35.2}, {90, -35.2}}, color = {0, 0, 255}));
   connect(G1.p, bus1.p) annotation(
-    Line(points = {{-116, -15}, {-100, -15}}, color = {0, 0, 255}));
+    Line(points = {{-104.58, -35}, {-89, -35}}, color = {0, 0, 255}));
   connect(line22.n, bus30.p) annotation(
-    Line(points = {{59, -33}, {79, -33}, {79, -15}}, color = {0, 0, 255}));
+    Line(points = {{70, -53}, {90, -53}, {90, -35}}, color = {0, 0, 255}));
+  connect(load.p, bus30.p) annotation(
+    Line(points = {{125, -68}, {125, -33}, {90, -33}}, color = {0, 0, 255}));
+  connect(load.dPsp, rampP.y) annotation(
+    Line(points = {{118, -74}, {-180, -74}, {-180, -26}, {-188, -26}}, color = {0, 0, 127}));
   annotation(
     Icon(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
     Diagram(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
