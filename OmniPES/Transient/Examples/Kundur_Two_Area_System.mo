@@ -141,7 +141,7 @@ model PSS_1
   Modelica.Blocks.Nonlinear.Limiter limiter(uMax = 0.2, uMin = -0.2) annotation(
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
 equation
-  connect(omega, gain.u) annotation(
+  connect(signalBus.omega, gain.u) annotation(
     Line(points = {{-120, 0}, {-86, 0}}, color = {0, 0, 127}));
   connect(gain.y, Washout.u) annotation(
     Line(points = {{-63, 0}, {-50, 0}}, color = {0, 0, 127}));
@@ -153,6 +153,9 @@ equation
     Line(points = {{52, 0}, {68, 0}}, color = {0, 0, 127}));
   connect(limiter.y, Vsad) annotation(
     Line(points = {{91, 0}, {110, 0}}, color = {0, 0, 127}));
+  connect(gain.u, signalBus.omega) annotation(
+      Line(points = {{-86, 0}, {-124, 0}, {-124, 72}}, color = {0, 0, 127}));
+
 end PSS_1;
 
 equation
