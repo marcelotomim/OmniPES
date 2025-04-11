@@ -17,7 +17,8 @@ partial model PartialElectrical
     Placement(visible = true, transformation(origin = {-120, -80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealInput delta(unit = "rad", displayUnit = "deg") annotation(
     Placement(visible = true, transformation(origin = {-120, 80}, extent = {{-20, -20}, {20, 20}}, rotation = 0), iconTransformation(origin = {-110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  SI.PerUnit Pt, Qt;
+  Modelica.Blocks.Interfaces.RealInput Pt(unit = "1");
+  Modelica.Blocks.Interfaces.RealInput Qt(unit = "1");
   Modelica.Blocks.Interfaces.RealOutput Pe(unit = "1") annotation(
     Placement(visible = true, transformation(origin = {110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0), iconTransformation(origin = {110, 60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Interfaces.RealOutput Vt(unit = "1") annotation(
@@ -29,7 +30,8 @@ partial model PartialElectrical
   SI.ComplexPerUnit Iqd;
   SI.ComplexPerUnit Fqd;
   final parameter Boolean allow_ctrl = true;
-  protected
+  Controllers.Interfaces.SignalBus signalBus annotation(
+    Placement(transformation(origin = {0, -105}, extent = {{-22, 19}, {22, -19}}, rotation = -0), iconTransformation(origin = {1, -108}, extent = {{-13, 16}, {13, -16}}, rotation = -0)));  protected
   parameter SI.PerUnit ra = smData.Ra;
   parameter SI.PerUnit xl = smData.Xl;
 initial equation
@@ -46,6 +48,7 @@ equation
   Vqd.re = -ra*Iqd.re + Fqd.im;
   Vqd.im = -ra*Iqd.im - Fqd.re;
   Pe = Fqd.im*Iqd.re - Fqd.re*Iqd.im;
+  connect(Pt, signalBus.Pt);
 annotation(
     Icon(graphics = {Text(extent = {{-80, 60}, {80, -60}}, textString = "Electrical"), Rectangle(extent = {{-100, 100}, {100, -100}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}})),
   experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));

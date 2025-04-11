@@ -67,8 +67,6 @@ model Single_Machine_GGOV
     Modelica.Blocks.Nonlinear.Limiter limiter(uMax = 0.2, uMin = -0.2) annotation(
       Placement(visible = true, transformation(origin = {80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   equation
-    connect(omega, gain.u) annotation(
-      Line(points = {{-120, 0}, {-86, 0}}, color = {0, 0, 127}));
     connect(gain.y, Washout.u) annotation(
       Line(points = {{-63, 0}, {-50, 0}}, color = {0, 0, 127}));
     connect(Washout.y, LeadLag1.u) annotation(
@@ -79,6 +77,8 @@ model Single_Machine_GGOV
       Line(points = {{52, 0}, {68, 0}}, color = {0, 0, 127}));
     connect(limiter.y, Vsad) annotation(
       Line(points = {{91, 0}, {110, 0}}, color = {0, 0, 127}));
+  connect(gain.u, signalBus.omega) annotation(
+      Line(points = {{-86, 0}, {-124, 0}, {-124, 72}}, color = {0, 0, 127}));
   end PSS_1;
 
   Circuit.Sources.VoltageSource voltageSource annotation(
@@ -156,7 +156,7 @@ model Single_Machine_GGOV
       Placement(transformation(origin = {11, 0}, extent = {{-16, -16}, {16, 16}})));
     Modelica.Blocks.Math.Add add annotation(
       Placement(transformation(origin = {-94, -6}, extent = {{-10, -10}, {10, 10}})));
-    Modelica.Blocks.Sources.RealExpression realExpression(y = if time < 2 then 0.0 else 0.0) annotation(
+    Modelica.Blocks.Sources.RealExpression realExpression(y = if time < 2 then 0.0 else 0.1) annotation(
       Placement(transformation(origin = {-182, -24}, extent = {{-10, -10}, {10, 10}})));
 
     model AccelarationControl
@@ -219,7 +219,7 @@ model Single_Machine_GGOV
     Modelica.Blocks.Math.Gain S2T(k = 100/30) annotation(
       Placement(transformation(origin = {-53, -6}, extent = {{-10, -10}, {10, 10}})));
     Modelica.Blocks.Nonlinear.Limiter FSR(uMax = 1.0, uMin = 0.15) annotation(
-      Placement(transformation(origin = {116, -102}, extent = {{-10, -10}, {10, 10}})));
+      Placement(transformation(origin = {116, -100}, extent = {{-10, -10}, {10, 10}})));
 
     model FuelSystem
       Modelica.Blocks.Interfaces.RealInput fsr annotation(
@@ -310,9 +310,9 @@ model Single_Machine_GGOV
         Placement(transformation(origin = {25, 12}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Interfaces.RealInput fsr annotation(
         Placement(transformation(origin = {-28, -53}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {8, -121}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
-      Modelica.Blocks.Continuous.Integrator integrator(initType = Modelica.Blocks.Types.Init.SteadyState, k = 0.67/2) annotation(
+  Modelica.Blocks.Continuous.Integrator integrator(initType = Modelica.Blocks.Types.Init.SteadyState, k = 0.67/2) annotation(
         Placement(transformation(origin = {53, -53}, extent = {{-10, -10}, {10, 10}})));
-      Modelica.Blocks.Math.Feedback feedback annotation(
+  Modelica.Blocks.Math.Feedback feedback annotation(
         Placement(transformation(origin = {9, -53}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Math.Add add11(k1 = +1, k2 = +1) annotation(
         Placement(transformation(origin = {115, 0}, extent = {{-10, -10}, {10, 10}})));
@@ -347,23 +347,18 @@ model Single_Machine_GGOV
         Line(points = {{126, 0}, {154, 0}}, color = {0, 0, 127}));
       connect(limiter.y, fsrt) annotation(
         Line(points = {{178, 0}, {210, 0}}, color = {0, 0, 127}));
-  connect(Ldref.y, gain.u) annotation(
+      connect(Ldref.y, gain.u) annotation(
         Line(points = {{-153, -65}, {-142, -65}, {-142, -64}, {-116, -64}}, color = {0, 0, 127}));
       annotation(
         Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
         Icon(graphics = {Rectangle(fillColor = {143, 240, 164}, fillPattern = FillPattern.Solid,lineThickness = 0.5, extent = {{-100, 100}, {100, -100}}), Text(extent = {{-98, 60}, {98, -60}}, textString = "%name")}));
     end TemperatureControl;
-
-    Modelica.Blocks.Interfaces.RealInput Pe annotation(
-      Placement(transformation(origin = {-182, -62}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-188, -146}, extent = {{-20, -20}, {20, 20}})));
     Modelica.Blocks.Math.Gain S2T1(k = 100/30) annotation(
       Placement(transformation(origin = {-135, -61}, extent = {{-10, -10}, {10, 10}})));
     Modelica.Blocks.Continuous.FirstOrder firstOrder(k = 1, T = 1, initType = Modelica.Blocks.Types.Init.SteadyState) annotation(
       Placement(transformation(origin = {-86, -62}, extent = {{-10, -10}, {10, 10}})));
     TemperatureControl TEMP annotation(
       Placement(transformation(origin = {104, -214}, extent = {{26, 26}, {-26, -26}})));
-  Modelica.Blocks.Sources.RealExpression WCTRL(y = wctrl)  annotation(
-      Placement(transformation(origin = {-88, -146}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.RealExpression SIG1(y = FSR.y) annotation(
       Placement(transformation(origin = {70, -165}, extent = {{-10, -10}, {10, 10}})));
   Modelica.Blocks.Sources.RealExpression SIG11(y = FSR.y) annotation(
@@ -384,41 +379,41 @@ model Single_Machine_GGOV
     connect(add.y, S2T.u) annotation(
       Line(points = {{-83, -6}, {-65, -6}}, color = {0, 0, 127}));
     connect(MIN.y, FSR.u) annotation(
-      Line(points = {{80, -101}, {90, -101}, {90, -102}, {104, -102}}, color = {0, 0, 127}));
+      Line(points = {{80, -101}, {90, -101}, {90, -100}, {104, -100}}, color = {0, 0, 127}));
     connect(FUEL.fsr, FSR.y) annotation(
-      Line(points = {{154, -101}, {141.1, -101}, {141.1, -102}, {127.1, -102}}, color = {0, 0, 127}));
-    connect(Pe, S2T1.u) annotation(
-      Line(points = {{-182, -62}, {-146, -62}, {-146, -60}}, color = {0, 0, 127}));
+      Line(points = {{154, -101}, {141.1, -101}, {141.1, -100}, {127, -100}}, color = {0, 0, 127}));
     connect(S2T1.y, firstOrder.u) annotation(
       Line(points = {{-124, -61}, {-98, -61}, {-98, -63}}, color = {0, 0, 127}));
-    connect(RV.w, wctrl) annotation(
-      Line(points = {{-8, 6}, {-38, 6}, {-38, 60}, {-120, 60}}, color = {0, 0, 127}));
     connect(RV.Pref, S2T.y) annotation(
       Line(points = {{-8, -6}, {-42, -6}}, color = {0, 0, 127}));
     connect(RV.Pe, firstOrder.y) annotation(
       Line(points = {{-8, -16}, {-24, -16}, {-24, -62}, {-75, -62}}, color = {0, 0, 127}));
-  connect(FUEL.Wf, TEMP.Wf) annotation(
+    connect(FUEL.Wf, TEMP.Wf) annotation(
       Line(points = {{196, -101}, {214, -101}, {214, -214}, {133, -214}}, color = {0, 0, 127}));
-  connect(ACCEL.fsra, MIN.u[2]) annotation(
+    connect(ACCEL.fsra, MIN.u[2]) annotation(
       Line(points = {{-26, -146}, {5, -146}, {5, -101}, {45, -101}}, color = {0, 0, 127}));
-  connect(WCTRL.y, ACCEL.w) annotation(
-      Line(points = {{-77, -146}, {-62, -146}}, color = {0, 0, 127}));
-  connect(SIG1.y, TEMP.fsr) annotation(
+    connect(SIG1.y, TEMP.fsr) annotation(
       Line(points = {{81, -165}, {101, -165}, {101, -183}}, color = {0, 0, 127}));
-  connect(SIG11.y, RV.fsr) annotation(
+    connect(SIG11.y, RV.fsr) annotation(
       Line(points = {{8, -42}, {11, -42}, {11, -19}}, color = {0, 0, 127}));
-  connect(SIG12.y, ACCEL.fsr) annotation(
+    connect(SIG12.y, ACCEL.fsr) annotation(
       Line(points = {{-62, -179}, {-44, -179}, {-44, -164}}, color = {0, 0, 127}));
-  connect(wref.y, RV.wref) annotation(
+    connect(wref.y, RV.wref) annotation(
       Line(points = {{-15, 78}, {-8, 78}, {-8, 16}}, color = {0, 0, 127}));
-  connect(PMECH.fsr, FUEL.Wf) annotation(
+    connect(PMECH.fsr, FUEL.Wf) annotation(
       Line(points = {{142, -44}, {208, -44}, {208, -98}, {196, -98}, {196, -101}}, color = {0, 0, 127}));
-  connect(RV.fsrn, MIN.u[1]) annotation(
+    connect(RV.fsrn, MIN.u[1]) annotation(
       Line(points = {{28, 0}, {46, 0}, {46, -100}}, color = {0, 0, 127}));
-  connect(PMECH.Pconv, T2S.u) annotation(
+    connect(PMECH.Pconv, T2S.u) annotation(
       Line(points = {{98, -44}, {56, -44}, {56, 0}, {64, 0}}, color = {0, 0, 127}));
-  connect(TEMP.fsrt, MIN.u[3]) annotation(
+    connect(TEMP.fsrt, MIN.u[3]) annotation(
       Line(points = {{76, -214}, {46, -214}, {46, -100}}, color = {0, 0, 127}));
+    connect(S2T1.u, signalBus.Pt) annotation(
+      Line(points = {{-146, -60}, {-212, -60}, {-212, 94}, {-88, 94}}, color = {0, 0, 127}));
+    connect(signalBus.omega, RV.w) annotation(
+      Line(points = {{-88, 94}, {-86, 94}, {-86, 26}, {-28, 26}, {-28, 6}, {-8, 6}}, color = {0, 0, 127}));
+  connect(ACCEL.w, signalBus.omega) annotation(
+      Line(points = {{-62, -146}, {-218, -146}, {-218, 100}, {-88, 100}, {-88, 94}}, color = {0, 0, 127}));
     annotation(
       Diagram(coordinateSystem(extent = {{-200, -300}, {200, 100}})),
       Icon(coordinateSystem(extent = {{-200, -300}, {200, 100}})),
@@ -429,12 +424,11 @@ model Single_Machine_GGOV
     Placement(transformation(origin = {-34, 0}, extent = {{-10, -10}, {10, 10}})));
   Circuit.Basic.TLine tLine(x = 0.1, Q = 5e7, r = 0)  annotation(
     Placement(transformation(origin = {22, 8}, extent = {{-10, -10}, {10, 10}})));
-  Circuit.Basic.TLine_switched tLine_switched(x = 0.1, Q = 5e7, r = 0)  annotation(
+  Circuit.Basic.TLine_switched tLine_switched(x = 0.1, Q = 5e7, r = 0, t_open_p = 1000.3, t_open_n = 1000.3)  annotation(
     Placement(transformation(origin = {22, -10}, extent = {{-10, -10}, {10, 10}})));
-  Circuit.Switches.Fault fault(t_on = 0.2, t_off = 0.3)  annotation(
+  Circuit.Switches.Fault fault(t_on = 1000.2, t_off = 1000.3)  annotation(
     Placement(transformation(origin = {-12, -36}, extent = {{-10, -10}, {10, 10}})));
 equation
-  G1.electrical.Pt = G1.sreg.Pe;
   connect(bus1.p, twoWindingTransformer.p) annotation(
     Line(points = {{-54, 0}, {-45, 0}}, color = {0, 0, 255}));
   connect(twoWindingTransformer.n, bus2.p) annotation(
@@ -457,7 +451,7 @@ protected
   OmniPES.Circuit.Interfaces.Bus bus3 annotation(
     Placement(transformation(origin = {59, -3}, extent = {{-6, -6}, {6, 6}})));
   annotation(
-    experiment(StartTime = 0, StopTime = 30, Tolerance = 1e-06, Interval = 0.001),
+    experiment(StartTime = 0, StopTime = 100, Tolerance = 1e-06, Interval = 0.001),
     uses(Modelica(version = "3.2.2")),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
     Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}})));
