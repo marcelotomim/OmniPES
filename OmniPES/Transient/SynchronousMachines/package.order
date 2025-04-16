@@ -4,3 +4,4 @@ RestrictionData
 SynchronousMachineData
 ConvertBase
 GenericSynchronousMachine
+GenericSynchronousMachine_new
