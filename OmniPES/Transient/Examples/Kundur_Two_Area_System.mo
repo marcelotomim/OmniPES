@@ -105,8 +105,6 @@ model IEEE_AC4A
 equation
   connect(Vref.y, add.u2) annotation(
     Line(points = {{-33, 0}, {-10, 0}}, color = {0, 0, 127}));
-  connect(limiter.y, Efd) annotation(
-    Line(points = {{87, 0}, {110, 0}}, color = {0, 0, 127}));
   connect(gain.y, limiter.u) annotation(
     Line(points = {{51, 0}, {64, 0}}, color = {0, 0, 127}));
   connect(add.y, gain.u) annotation(
@@ -115,10 +113,12 @@ equation
     Line(points = {{-69, 0}, {-56, 0}}, color = {0, 0, 127}));
   connect(filter.y, add.u1) annotation(
       Line(points = {{-42, 60}, {-20, 60}, {-20, 8}, {-10, 8}}, color = {0, 0, 127}));
+  connect(limiter.y, Efd) annotation(
+      Line(points = {{88, 0}, {156, 0}, {156, 90}, {210, 90}}, color = {0, 0, 127}));
   connect(Vctrl, filter.u) annotation(
-      Line(points = {{-112, 60}, {-66, 60}}, color = {0, 0, 127}));
+      Line(points = {{-210, 90}, {-130, 90}, {-130, 60}, {-66, 60}}, color = {0, 0, 127}));
   connect(Vsad, add.u3) annotation(
-      Line(points = {{-112, -60}, {-18, -60}, {-18, -8}, {-10, -8}}, color = {0, 0, 127}));
+      Line(points = {{-210, 70}, {-168, 70}, {-168, -36}, {-20, -36}, {-20, -8}, {-10, -8}}, color = {0, 0, 127}));
 
 end IEEE_AC4A;
 
@@ -140,9 +140,12 @@ model PSS_1
     Placement(visible = true, transformation(origin = {-74, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Blocks.Nonlinear.Limiter limiter(uMax = 0.2, uMin = -0.2) annotation(
     Placement(visible = true, transformation(origin = {80, 0}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  Modelica.Blocks.Sources.RealExpression WCTRL(y = omega)  annotation(
+      Placement(transformation(origin = {-114, 0}, extent = {{-10, -10}, {10, 10}})));
+  Modelica.Blocks.Sources.RealExpression VSAD(y = limiter.y) annotation(
+      Placement(transformation(origin = {169, 88}, extent = {{-15, -10}, {15, 10}})));
+
 equation
-  connect(signalBus.omega, gain.u) annotation(
-    Line(points = {{-120, 0}, {-86, 0}}, color = {0, 0, 127}));
   connect(gain.y, Washout.u) annotation(
     Line(points = {{-63, 0}, {-50, 0}}, color = {0, 0, 127}));
   connect(Washout.y, LeadLag1.u) annotation(
@@ -151,10 +154,10 @@ equation
     Line(points = {{11, 0}, {28, 0}}, color = {0, 0, 127}));
   connect(LeadLag2.y, limiter.u) annotation(
     Line(points = {{52, 0}, {68, 0}}, color = {0, 0, 127}));
-  connect(limiter.y, Vsad) annotation(
-    Line(points = {{91, 0}, {110, 0}}, color = {0, 0, 127}));
-  connect(gain.u, signalBus.omega) annotation(
-      Line(points = {{-86, 0}, {-124, 0}, {-124, 72}}, color = {0, 0, 127}));
+  connect(WCTRL.y, gain.u) annotation(
+      Line(points = {{-102, 0}, {-86, 0}}, color = {0, 0, 127}));
+  connect(VSAD.y, Vsad) annotation(
+      Line(points = {{185.5, 88}, {210, 88}, {210, 90}}, color = {0, 0, 127}));
 
 end PSS_1;
 

@@ -31,7 +31,7 @@ partial model PartialElectrical
   SI.ComplexPerUnit Fqd;
   final parameter Boolean allow_ctrl = true;
   Controllers.Interfaces.SignalBus signalBus annotation(
-    Placement(transformation(origin = {0, -105}, extent = {{-22, 19}, {22, -19}}, rotation = -0), iconTransformation(origin = {1, -108}, extent = {{-13, 16}, {13, -16}}, rotation = -0)));  protected
+    Placement(transformation(origin = {-60, 80}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {0, 110}, extent = {{-20, -20}, {20, 20}})));  protected
   parameter SI.PerUnit ra = smData.Ra;
   parameter SI.PerUnit xl = smData.Xl;
 initial equation
@@ -48,7 +48,9 @@ equation
   Vqd.re = -ra*Iqd.re + Fqd.im;
   Vqd.im = -ra*Iqd.im - Fqd.re;
   Pe = Fqd.im*Iqd.re - Fqd.re*Iqd.im;
-  connect(Pt, signalBus.Pt);
+  
+  connect(Pt, signalBus.TerminalActivePower);
+  connect(Qt, signalBus.TerminalReactivePower);
 annotation(
     Icon(graphics = {Text(extent = {{-80, 60}, {80, -60}}, textString = "Electrical"), Rectangle(extent = {{-100, 100}, {100, -100}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}})),
   experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));
