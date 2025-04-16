@@ -329,9 +329,9 @@ model Single_Machine_GGOV
         Placement(transformation(origin = {25, 12}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Interfaces.RealInput fsr annotation(
         Placement(transformation(origin = {-28, -53}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {8, -121}, extent = {{-20, -20}, {20, 20}}, rotation = 90)));
-      Modelica.Blocks.Continuous.Integrator integrator(initType = Modelica.Blocks.Types.Init.SteadyState, k = 0.67/2) annotation(
+  Modelica.Blocks.Continuous.Integrator integrator(initType = Modelica.Blocks.Types.Init.SteadyState, k = 0.67/2) annotation(
         Placement(transformation(origin = {53, -53}, extent = {{-10, -10}, {10, 10}})));
-      Modelica.Blocks.Math.Feedback feedback annotation(
+  Modelica.Blocks.Math.Feedback feedback annotation(
         Placement(transformation(origin = {9, -53}, extent = {{-10, -10}, {10, 10}})));
       Modelica.Blocks.Math.Add add11(k1 = +1, k2 = +1) annotation(
         Placement(transformation(origin = {115, 0}, extent = {{-10, -10}, {10, 10}})));
@@ -372,7 +372,6 @@ model Single_Machine_GGOV
         Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
         Icon(graphics = {Rectangle(fillColor = {143, 240, 164}, fillPattern = FillPattern.Solid, lineThickness = 0.5, extent = {{-100, 100}, {100, -100}}), Text(extent = {{-98, 60}, {98, -60}}, textString = "%name")}));
     end TemperatureControl;
-
     Modelica.Blocks.Math.Gain S2T1(k = 100/30) annotation(
       Placement(transformation(origin = {-167, -63}, extent = {{-10, -10}, {10, 10}})));
     Modelica.Blocks.Continuous.FirstOrder firstOrder(k = 1, T = 1, initType = Modelica.Blocks.Types.Init.SteadyState) annotation(
