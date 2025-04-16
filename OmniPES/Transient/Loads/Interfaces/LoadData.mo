@@ -2,7 +2,6 @@ within OmniPES.Transient.Loads.Interfaces;
 
 record LoadData
   extends Modelica.Icons.Record;
-  parameter Modelica.Units.SI.PerUnit Vdef = 1.0;
   parameter Real pi = 0 "Constant current factor for the active power";
   parameter Real pz = 0 "Constant impedance factor for the active power";
   parameter Real qi = 0 "Constant current factor for the reactive power";
