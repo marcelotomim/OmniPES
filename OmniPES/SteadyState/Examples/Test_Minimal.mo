@@ -6,7 +6,7 @@ model Test_Minimal
   OmniPES.Circuit.Basic.TLine tLine(Q = 5e7, r = 0, x = 0.05) annotation(
     Placement(transformation(origin = {37, -5}, extent = {{-15, -15}, {15, 15}})));
   inner OmniPES.SystemData data annotation(
-    Placement(transformation(origin = {-75, 67}, extent = {{-13, -13}, {13, 13}})));
+    Placement(transformation(origin = {-69, 61}, extent = {{-19, -19}, {19, 19}})));
   OmniPES.Circuit.Interfaces.Bus bus1 annotation(
     Placement(transformation(origin = {-60, 2}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.SteadyState.Sources.PQSource pQSource(Psp = 1e8, Qsp = 0, voltage_limits = false) annotation(

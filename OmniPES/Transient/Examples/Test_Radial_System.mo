@@ -2,7 +2,7 @@ within OmniPES.Transient.Examples;
 
 model Test_Radial_System
   inner OmniPES.SystemData data annotation(
-    Placement(transformation(origin = {-73, 75}, extent = {{-15, -15}, {15, 15}})));
+    Placement(transformation(origin = {-70, 72}, extent = {{-18, -18}, {18, 18}})));
   OmniPES.Circuit.Sources.VoltageSource voltageSource(angle = 0, magnitude = 1.0) annotation(
     Placement(transformation(origin = {-90, 22}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   parameter OmniPES.Transient.SynchronousMachines.RestrictionData gen1_specs(Psp = 1e8, Qsp = 0.0, Vsp = 1.0, theta_sp = 0) annotation(
