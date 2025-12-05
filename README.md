@@ -898,7 +898,7 @@ If you use OmniPES in your research or work, please cite:
 ```
 
 ### Plain Text
-Tomim, M. A., Henriques, R. M., & Passos Filho, J. A. (2025). Introduction to OmniPES: A Modelica Library for Power Systems Modeling and Analysis. *IEEE Access*, vol. 13. DOI: 10.1109/ACCESS.2024.0429000
+Tomim, M. A., Henriques, R. M., & Passos Filho, J. A. (2025). Introduction to OmniPES: A Modelica Library for Power Systems Modeling and Analysis. *IEEE Access*, vol. 13. DOI: [10.1109/ACCESS.2024.0429000](https://doi.org/10.1109/ACCESS.2024.0429000)
 
 <!-- ---
 
