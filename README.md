@@ -813,7 +813,7 @@ end CustomLoad;
    - Official OpenModelica documentation: https://openmodelica.org/
    - Version 1.22.2+
 
-### Related Papers and References
+<!-- ### Related Papers and References
 
 - Kundur benchmark systems (Kundur, P., et al., 1994)
   - Two-area system for transient stability analysis
@@ -821,7 +821,7 @@ end CustomLoad;
 
 - Power System Dynamics and Stability
   - Classic references on power system modeling
-  - NEPLAN and PSS/E are industrial equivalents
+  - NEPLAN and PSS/E are industrial equivalents -->
 
 ### Library Development Notes
 
