@@ -888,17 +888,20 @@ If you use OmniPES in your research or work, please cite:
 ### BibTeX
 ```bibtex
 @article{OmniPES,
-  title={Introduction to {OmniPES}: A {Modelica} Library for Power Systems Modeling and Analysis},
-  author={Tomim, Marcelo A. and Henriques, Ricardo M. and Passos Filho, João A.},
-  journal={IEEE Access},
-  volume={13},
+  author={Tomim, Marcelo Aroca and Henriques, Ricardo Mota and Filho, João A. Passos},
+  journal={IEEE Access}, 
+  title={Introduction to OmniPES: A Novel Modelica Library for Power Systems Modeling and Analysis}, 
   year={2025},
-  doi={10.1109/ACCESS.2024.0429000}
+  volume={13},
+  number={},
+  pages={51922-51937},
+  keywords={Power system stability;Libraries;Load modeling;Analytical models;Object oriented modeling;Transient analysis;Steady-state;Stability analysis;Computational modeling;Voltage control;Modelica;power systems;secondary voltage control;steady-state analysis;transient analysis},
+  doi={10.1109/ACCESS.2025.3553782}
 }
 ```
 
 ### Plain Text
-Tomim, M. A., Henriques, R. M., & Passos Filho, J. A. (2025). Introduction to OmniPES: A Modelica Library for Power Systems Modeling and Analysis. *IEEE Access*, vol. 13. DOI: [10.1109/ACCESS.2024.0429000](https://doi.org/10.1109/ACCESS.2024.0429000)
+Tomim, M. A., Henriques, R. M., & Passos Filho, J. A. (2025). Introduction to OmniPES: A Modelica Library for Power Systems Modeling and Analysis. *IEEE Access*, vol. 13, pp. 51922–51937, Mar. 2025. DOI: [10.1109/ACCESS.2025.3553782](https://doi.org/10.1109/ACCESS.2025.3553782)
 
 <!-- ---
 
