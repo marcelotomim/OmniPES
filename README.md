@@ -823,12 +823,12 @@ end CustomLoad;
   - Classic references on power system modeling
   - NEPLAN and PSS/E are industrial equivalents -->
 
-### Library Development Notes
+<!-- ### Library Development Notes
 
 - **Author/Contributors**: Library developed as learning experience
 - **License**: As per project licensing
 - **Version Control**: Track updates and modifications
-- **Testing**: Include test cases for validation
+- **Testing**: Include test cases for validation -->
 
 ---
 
