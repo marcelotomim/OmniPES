@@ -887,7 +887,7 @@ If you use OmniPES in your research or work, please cite:
 
 ### BibTeX
 ```bibtex
-@article{Tomim2025OmniPES,
+@article{OmniPES,
   title={Introduction to {OmniPES}: A {Modelica} Library for Power Systems Modeling and Analysis},
   author={Tomim, Marcelo A. and Henriques, Ricardo M. and Passos Filho, João A.},
   journal={IEEE Access},
