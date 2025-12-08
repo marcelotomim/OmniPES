@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+type: software
+title: "OmniPES: A Novel Modelica Library for Power Systems Modeling and Analysis"
+authors:
+  - family-names: Tomim
+    given-names: Marcelo Aroca
+    affiliation: "Federal University of Juiz de Fora (UFJF), Brazil"
+    email: marcelo.tomim@ufjf.br
+  - family-names: Henriques
+    given-names: Ricardo Mota
+    affiliation: "Federal University of Juiz de Fora (UFJF), Brazil"
+    email: ricardo.henriques@ufjf.br
+  - family-names: "Passos Filho"
+    given-names: João A.
+    affiliation: "Federal University of Juiz de Fora (UFJF), Brazil"
+    email: joao.passos@ufjf.br
+repository-code: "https://github.com/marcelotomim/OmniPES"
+version: 0.1
+date-released: "2022-11-23"
+keywords:
+  - Modelica
+  - power systems
+  - power flow analysis
+  - transient stability
+  - steady-state analysis
+  - simulation
+license: MIT
+references:
+  - type: journal
+    authors:
+      - family-names: Tomim
+        given-names: Marcelo Aroca
+      - family-names: Henriques
+        given-names: Ricardo Mota
+      - family-names: "Passos Filho"
+        given-names: João A.
+    title: "Introduction to OmniPES: A Novel Modelica Library for Power Systems Modeling and Analysis"
+    journal: "IEEE Access"
+    volume: 13
+    pages: "51922-51937"
+    year: 2025
+    doi: "10.1109/ACCESS.2025.3553782"
