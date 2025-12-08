@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-type: software
+type: article
 title: "OmniPES: A Novel Modelica Library for Power Systems Modeling and Analysis"
 authors:
   - family-names: Tomim
