@@ -7,5 +7,6 @@ record LoadData
   parameter Real qi = 0 "Constant current factor for the reactive power";
   parameter Real qz = 0 "Constant impedance factor for the reactive power";
   annotation(
-    defaultComponentPrefixes = "parameter");
+    defaultComponentPrefixes = "parameter",
+    Documentation(info="<html><body>TODO</body></html>"));
 end LoadData;

@@ -38,4 +38,7 @@ model AVR_SRV
     Line(points = {{-167, 0}, {-154, 0}}, color = {0, 0, 127}));
   annotation(
       Icon(coordinateSystem(extent = {{-120, 100}, {120, -120}}), graphics = {Text(origin = {0, -60}, extent = {{-80, 20}, {80, -20}}, textString = "SVR")}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
   end AVR_SRV;

@@ -119,6 +119,9 @@ equation
       Line(points = {{-210, 90}, {-130, 90}, {-130, 60}, {-66, 60}}, color = {0, 0, 127}));
   connect(Vsad, add.u3) annotation(
       Line(points = {{-210, 70}, {-168, 70}, {-168, -36}, {-20, -36}, {-20, -8}, {-10, -8}}, color = {0, 0, 127}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 
 end IEEE_AC4A;
 

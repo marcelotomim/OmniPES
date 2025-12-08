@@ -16,4 +16,7 @@ initial equation
   annotation(
     Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}})),
     Icon(graphics = {Rectangle(extent = {{-100, 100}, {100, -100}}), Text(extent = {{-80, 60}, {80, -60}}, textString = "AVR")}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end PartialAVR;

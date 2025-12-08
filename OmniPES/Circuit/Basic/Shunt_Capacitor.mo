@@ -7,5 +7,13 @@ model Shunt_Capacitor
   extends Circuit.Basic.ShuntAdmittance(redeclare final parameter SI.PerUnit g = 0, redeclare final parameter SI.PerUnit b = NominalPower/data.Sbase);
   annotation(
     Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {150, 100}}), graphics = {Line(origin = {-21.0002, -2.2362e-05}, points = {{-13, 0}, {13, 0}}), Line(origin = {20.9998, -2.2362e-05}, points = {{-13, 0}, {13, 0}}), Line(origin = {-8.00024, -3.00002}, points = {{0, 23}, {0, -17}}), Line(origin = {7.99976, -3.00002}, points = {{0, 23}, {0, -17}}), Text(origin = {160, 0}, rotation = 90, extent = {{-140, 30}, {140, -30}}, textString = "%NominalPower", fontSize = 8)}),
-  Diagram(coordinateSystem(extent = {{-100, -100}, {150, 100}}, initialScale = 0.1)));
+  Diagram(coordinateSystem(extent = {{-100, -100}, {150, 100}}, initialScale = 0.1)),
+  Documentation(info="<html><body>
+<h4>Related Components</h4>
+<ul>
+  <li><a href=\"modelica://OmniPES.Circuit.Basic.ShuntAdmittance\">OmniPES.Circuit.Basic.ShuntAdmittance</a>: Base shunt admittance model</li>
+  <li><a href=\"modelica://OmniPES.SystemData\">OmniPES.SystemData</a>: System base data (outer)</li>
+  <li><a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a>: Reactive power and per-unit types</li>
+</ul>
+</body></html>"));
 end Shunt_Capacitor;

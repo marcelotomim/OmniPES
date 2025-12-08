@@ -10,5 +10,8 @@ equation
   Fqd.re = - x1d*Iqd.re;
 annotation(
     Icon(graphics = {Text(origin = {0, -60}, extent = {{-90, 25}, {90, -5}}, textString = "Classical")}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 
 end Classical_Electric;

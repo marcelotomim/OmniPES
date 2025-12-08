@@ -58,4 +58,7 @@ protected
     uses(Modelica(version = "3.2.2")),
     Diagram(coordinateSystem(extent = {{-150, -100}, {150, 100}})),
     Icon(coordinateSystem(extent = {{-150, -100}, {150, 100}})));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Test_Radial_System_Power_Flow_Qlim_discrete;

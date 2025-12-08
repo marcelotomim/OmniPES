@@ -78,4 +78,7 @@ equation
     Diagram(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
   experiment(StartTime = 0, StopTime = 119.5, Tolerance = 1e-06, Interval = 0.001),
   __OpenModelica_simulationFlags(lv = "LOG_STDOUT,LOG_ASSERT,LOG_STATS", s = "dassl", variableFilter = ".*"));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end tutorial_system_SVR_SS;

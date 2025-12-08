@@ -149,4 +149,7 @@ protected
     uses(Modelica(version = "3.2.2")),
     Diagram(coordinateSystem(extent = {{-300, -100}, {300, 100}})),
     Icon(coordinateSystem(extent = {{-300, -100}, {300, 100}})));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Kundur_Two_Area_System_ShortCircuit;

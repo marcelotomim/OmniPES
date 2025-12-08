@@ -49,4 +49,7 @@ equation
     Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Rectangle(lineThickness = 0.75, extent = {{-100, 100}, {100, -100}}), Text(origin = {-0.5, -5}, extent = {{-90.5, 65}, {90.5, -65}}, textString = "Central
 SRV")}),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Central_SVR;

@@ -8,4 +8,7 @@ dq = 0;
 annotation(
     Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}})),
     Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}})));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end ZIPLoad;

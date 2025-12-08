@@ -39,4 +39,7 @@ equation
 protected
   annotation(
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Test_Minimal;

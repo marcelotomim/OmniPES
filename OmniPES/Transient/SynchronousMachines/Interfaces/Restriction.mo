@@ -11,5 +11,6 @@ partial model Restriction
   annotation(
     Icon(graphics = {Rectangle(extent = {{-100, 80}, {100, -80}}), Text(extent = {{-90, 70}, {90, -70}}, textString = "Power Flow 
 Restriction")}, coordinateSystem(extent = {{-100, -80}, {100, 80}})),
-  Diagram(coordinateSystem(extent = {{-100, -80}, {100, 80}})));
+  Diagram(coordinateSystem(extent = {{-100, -80}, {100, 80}})),
+  Documentation(info="<html><body>TODO</body></html>"));
 end Restriction;

@@ -22,6 +22,9 @@ model Test_Single_Machine
     der(Efd0) = 0;
     Efd = Efd0 + dEfd;
     dEfd = if time > 0.1 and time < 10 then 0.1*Efd0 else 0.0;
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
   end FieldStep;
 equation
   connect(SM.terminal, bus.p) annotation(

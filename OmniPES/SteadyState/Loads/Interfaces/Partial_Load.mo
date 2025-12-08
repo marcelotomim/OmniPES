@@ -35,5 +35,6 @@ equation
   end if;
 annotation(
     Icon(graphics = {Text( origin = {101, -1}, rotation = 90, extent = {{-150, 50}, {150, -50}}, textString = "%Psp
-%Qsp"), Polygon( fillColor = {255, 255, 255}, fillPattern = FillPattern.Forward, lineThickness = 0.5, points = {{-20, -20}, {-20, 20}, {20, 0}, {-20, -20}}), Text(visible = useExternalPsp, origin = {-77, -72}, rotation = 90, extent = {{-15, 15}, {15, -15}}, textString = "P", horizontalAlignment = TextAlignment.Left), Text(visible = useExternalQsp, origin = {10, -72}, rotation = 90, extent = {{-15, 15}, {15, -15}}, textString = "Q", horizontalAlignment = TextAlignment.Left), Line(origin = {-60, 0.5}, points = {{-40, 0}, {40, 0}}, thickness = 0.5)}, coordinateSystem(extent = {{-100, -100}, {100, 100}})));
+%Qsp"), Polygon( fillColor = {255, 255, 255}, fillPattern = FillPattern.Forward, lineThickness = 0.5, points = {{-20, -20}, {-20, 20}, {20, 0}, {-20, -20}}), Text(visible = useExternalPsp, origin = {-77, -72}, rotation = 90, extent = {{-15, 15}, {15, -15}}, textString = "P", horizontalAlignment = TextAlignment.Left), Text(visible = useExternalQsp, origin = {10, -72}, rotation = 90, extent = {{-15, 15}, {15, -15}}, textString = "Q", horizontalAlignment = TextAlignment.Left), Line(origin = {-60, 0.5}, points = {{-40, 0}, {40, 0}}, thickness = 0.5)}, coordinateSystem(extent = {{-100, -100}, {100, 100}})),
+    Documentation(info="<html><body>TODO</body></html>"));
 end Partial_Load;

@@ -24,5 +24,16 @@ equation
     Line(points = {{36, 13.8}, {56, 13.8}}, color = {0, 0, 255}));
   annotation(
     Icon(graphics = {Ellipse(origin = {-17, 0}, extent = {{-28, 28}, {28, -28}}), Ellipse(origin = {17, 0}, extent = {{-28, 28}, {28, -28}}), Line(origin = {-72, 0}, points = {{-30, 0}, {27, 0}}), Line(origin = {72, 0}, points = {{-27, 0}, {30, 0}}), Ellipse(origin = {-60, 40}, fillPattern = FillPattern.Solid, extent = {{-5, 5}, {5, -5}}), Text(origin = {0, 80}, extent = {{-100, 20}, {100, -20}}, textString = "1:%tap")}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
-  Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {1, 1})));
+  Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, initialScale = 0.1, grid = {1, 1})),
+  Documentation(info="<html><body>
+<h4>Related Components</h4>
+<ul>
+  <li><a href=\"modelica://OmniPES.Circuit.Basic.SeriesImpedance\">OmniPES.Circuit.Basic.SeriesImpedance</a>: Series impedance used for leakage modeling</li>
+  <li><a href=\"modelica://OmniPES.Circuit.Interfaces.IdealTransformer\">OmniPES.Circuit.Interfaces.IdealTransformer</a>: Ideal tap-changing transformer</li>
+  <li><a href=\"modelica://OmniPES.Circuit.Interfaces.PositivePin\">OmniPES.Circuit.Interfaces.PositivePin</a>: Primary-side pin</li>
+  <li><a href=\"modelica://OmniPES.Circuit.Interfaces.NegativePin\">OmniPES.Circuit.Interfaces.NegativePin</a>: Secondary-side pin</li>
+  <li><a href=\"modelica://OmniPES.SystemData\">OmniPES.SystemData</a>: System base data (outer)</li>
+  <li><a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a>: Apparent power and per-unit parameters</li>
+</ul>
+</body></html>"));
 end TwoWindingTransformer;

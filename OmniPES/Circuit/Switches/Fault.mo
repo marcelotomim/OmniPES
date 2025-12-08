@@ -35,5 +35,15 @@ equation
   annotation(
     Icon(coordinateSystem(grid = {0.5, 0.5}, initialScale = 0.1), graphics = {Rectangle(origin = {-15, -1}, extent = {{-45, 71}, {75, -71}}), Line(origin = {0, 86}, points = {{0, 16}, {0, -16}}), Polygon(origin = {-1, 0}, fillColor = {255, 255, 0}, fillPattern = FillPattern.Solid, lineThickness = 0.5, points = {{-11, 60}, {-31, 28}, {-11, 28}, {-31, -4}, {-11, -4}, {-29, -52}, {21, -4}, {7, -4}, {27, 28}, {9, 28}, {29, 60}, {-11, 60}})}),
     Diagram(coordinateSystem(grid = {0.5, 0.5})),
-    __OpenModelica_commandLineOptions = "");
+    __OpenModelica_commandLineOptions = "",
+    Documentation(info="<html><body>
+<h4>Related Components</h4>
+<ul>
+  <li><a href=\"modelica://OmniPES.Circuit.Switches.Breaker\">OmniPES.Circuit.Switches.Breaker</a>: Switch used to apply/clear the fault</li>
+  <li><a href=\"modelica://OmniPES.Circuit.Basic.ShuntImpedance\">OmniPES.Circuit.Basic.ShuntImpedance</a>: Fault shunt impedance model</li>
+  <li><a href=\"modelica://OmniPES.Circuit.Interfaces.PositivePin\">OmniPES.Circuit.Interfaces.PositivePin</a>: Connection point to the network</li>
+  <li><a href=\"modelica://Modelica.Units.SI\">Modelica.Units.SI</a>: Per-unit impedance and timing types</li>
+  <li><a href=\"modelica://Modelica.ComplexMath\">Modelica.ComplexMath</a>: Magnitude and component extraction</li>
+</ul>
+</body></html>"));
 end Fault;

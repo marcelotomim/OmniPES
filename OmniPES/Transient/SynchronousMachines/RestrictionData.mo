@@ -11,5 +11,6 @@ record RestrictionData
     Dialog(group = "Steady-State Specifications"));
   parameter SI.Angle theta_sp(displayUnit = "deg") = 0 "Bus voltage angle" annotation(
     Dialog(group = "Steady-State Specifications"));
-annotation(defaultComponentPrefixes = "parameter");
- end RestrictionData;
+annotation(defaultComponentPrefixes = "parameter",
+    Documentation(info="<html><body>TODO</body></html>"));
+end RestrictionData;

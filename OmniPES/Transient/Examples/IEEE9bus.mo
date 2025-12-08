@@ -85,6 +85,9 @@ model IEEE9bus
       parameter Real Be=1 "Second saturation function coefficient";
     equation
 y = (Ae*Modelica.Math.exp(Be*abs(u)))*u;
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
     end Sat;
 
     Sat sat(Ae = 0.0039, Be = 1.555)  annotation(

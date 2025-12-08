@@ -37,5 +37,6 @@ record SynchronousMachineData
     Dialog(group = "Mechanical Data"));
   parameter SI.PerUnit D = 0.0 "damping constant" annotation(
     Dialog(group = "Mechanical Data"));
-annotation(defaultComponentPrefixes = "parameter");
+annotation(defaultComponentPrefixes = "parameter",
+    Documentation(info="<html><body>TODO</body></html>"));
 end SynchronousMachineData;

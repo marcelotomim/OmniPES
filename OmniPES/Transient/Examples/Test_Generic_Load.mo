@@ -45,4 +45,7 @@ protected
     Diagram(coordinateSystem(extent = {{-150, -100}, {150, 100}})),
     Icon(coordinateSystem(extent = {{-150, -100}, {150, 100}})),
     experiment(StartTime = 0, StopTime = 3, Tolerance = 1e-06, Interval = 0.006));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Test_Generic_Load;

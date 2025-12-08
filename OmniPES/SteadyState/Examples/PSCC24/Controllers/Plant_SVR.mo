@@ -27,4 +27,7 @@ equation
 SRV")}),
   Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, grid = {1, 1})),
   experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-6, Interval = 0.001));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Plant_SVR;

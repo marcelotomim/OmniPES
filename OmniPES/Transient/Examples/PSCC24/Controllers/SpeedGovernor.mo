@@ -43,4 +43,7 @@ within OmniPES.Transient.Examples.PSCC24.Controllers;
   Diagram(graphics = {Rectangle(origin = {-13, 42}, lineColor = {255, 0, 0}, lineThickness = 0.5, extent = {{-38, 23}, {38, -23}}), Text(origin = {-14, 77}, textColor = {255, 0, 0}, extent = {{-38, 14}, {39, -13}}, textString = "Unknown
 Reference 
 Value")}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
   end SpeedGovernor;

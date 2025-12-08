@@ -49,4 +49,7 @@ protected
   annotation(
     experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-06, Interval = 0.001),
     uses(Modelica(version = "3.2.2")));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Test_Radial_System_Classical;

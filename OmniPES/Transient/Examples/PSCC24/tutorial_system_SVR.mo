@@ -87,4 +87,7 @@ public
     Icon(coordinateSystem(extent = {{-250, -100}, {200, 100}}, grid = {1, 1})),
     Diagram(coordinateSystem(extent = {{-250, -100}, {200, 100}}, grid = {1, 1}), graphics = {Text(origin = {-194, 49.5}, extent = {{-12, 6}, {13, -5}}, textString = "Qcom[1]"), Text(origin = {-184.5, 35}, extent = {{-7, 4}, {8, -4}}, textString = "Qg"), Text(origin = {-182.5, -50}, extent = {{-7, 4}, {8, -4}}, textString = "Qg"), Text(origin = {-200, -7}, extent = {{-18, 5}, {19, -4}}, textString = "Vpilot"), Text(origin = {-192.5, 11}, extent = {{-7, 4}, {8, -4}}, textString = "Qin"), Text(origin = {-191, -35.5}, extent = {{-12, 6}, {13, -5}}, textString = "Qcom[2]"), Text(origin = {-134.5, 42}, extent = {{-7, 4}, {8, -4}}, textString = "Vref"), Text(origin = {-133.5, -8}, extent = {{-7, 4}, {8, -4}}, textString = "Vref"), Text(origin = {-133.5, -42}, extent = {{-7, 4}, {8, -4}}, textString = "Vref"), Text(origin = {-134.5, 11}, extent = {{-7, 4}, {8, -4}}, textString = "Qcom")}),
     experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.001));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end tutorial_system_SVR;
