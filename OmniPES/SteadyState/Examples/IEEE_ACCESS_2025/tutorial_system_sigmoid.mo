@@ -76,10 +76,7 @@ equation
 
 <p>
 This tutorial system demonstrates the OmniPES library capabilities for steady-state power flow 
-and secondary voltage regulation (SVR) with smooth (sigmoid) reactive power limiting functions. 
-This model is used as a tutorial example in the paper:
-<a href=\"https://doi.org/10.1109/ACCESS.2025.3553782\">Introduction to OmniPES: A Modelica Library for 
-Power Systems Modeling and Analysis</a>, published in IEEE Access (2025).
+and secondary voltage regulation (SVR) with smooth (sigmoid) reactive power limiting functions.
 </p>
 
 <h4>System Overview</h4>
