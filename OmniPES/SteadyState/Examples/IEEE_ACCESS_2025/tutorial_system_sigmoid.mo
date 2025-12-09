@@ -1,6 +1,6 @@
-within OmniPES.SteadyState.Examples.PSCC24;
+within OmniPES.SteadyState.Examples.IEEE_ACCESS_2025;
 
-model tutorial_system
+model tutorial_system_sigmoid
   inner OmniPES.SystemData data annotation(
     Placement(transformation(origin = {107, 46}, extent = {{-23, -23}, {23, 23}})));
   OmniPES.Circuit.Interfaces.Bus bus1 annotation(
@@ -74,4 +74,4 @@ equation
   annotation(
     Documentation(info="<html><body>TODO</body></html>"));
 
-end tutorial_system;
+end tutorial_system_sigmoid;

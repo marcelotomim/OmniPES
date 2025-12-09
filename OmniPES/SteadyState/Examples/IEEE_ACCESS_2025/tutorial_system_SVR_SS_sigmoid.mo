@@ -1,6 +1,8 @@
-within OmniPES.SteadyState.Examples.PSCC24;
+within OmniPES.SteadyState.Examples.IEEE_ACCESS_2025;
 
-model tutorial_system_SVR_SS
+model tutorial_system_SVR_SS_sigmoid
+  inner OmniPES.SystemData data annotation(
+    Placement(transformation(origin = {76.5, 36.5}, extent = {{-14.5, -14.5}, {14.5, 14.5}})));
   OmniPES.Circuit.Interfaces.Bus bus1 annotation(
     Placement(transformation(origin = {-89, -35}, extent = {{-10, -10}, {10, 10}})));
   OmniPES.Circuit.Interfaces.Bus bus2 annotation(
@@ -34,8 +36,6 @@ model tutorial_system_SVR_SS
   Real ref2, ref1;
   OmniPES.SteadyState.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, ss_par = loadData, useExternalPsp = true, useExternalQsp = false) annotation(
     Placement(transformation(origin = {126.056, -77.9444}, extent = {{-10, -11.1111}, {10, 8.88886}}, rotation = -90)));
-  OmniPES.SystemData data annotation(
-    Placement(transformation(origin = {76.5, 36.5}, extent = {{-14.5, -14.5}, {14.5, 14.5}})));
 equation
   bus30.V = 1.0;
   G1.S.im = (1/3)*G2.S.im;
@@ -81,4 +81,4 @@ equation
   annotation(
     Documentation(info="<html><body>TODO</body></html>"));
 
-end tutorial_system_SVR_SS;
+end tutorial_system_SVR_SS_sigmoid;
