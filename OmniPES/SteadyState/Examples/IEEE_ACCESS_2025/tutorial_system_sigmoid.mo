@@ -70,8 +70,125 @@ equation
     Icon(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1})),
     Diagram(coordinateSystem(extent = {{-260, -120}, {200, 80}}, grid = {1, 1}), graphics = {Text(origin = {-157.5, 5}, extent = {{-1.5, -1}, {1.5, 1}}, textString = "text")}),
     experiment(StartTime = 0, StopTime = 101, Tolerance = 1e-06, Interval = 0.1),
-    __OpenModelica_simulationFlags(lv = "LOG_STDOUT,LOG_ASSERT,LOG_EVENTS_V,LOG_STATS,LOG_STATS_V", s = "dassl", variableFilter = ".*"));
-  annotation(
-    Documentation(info="<html><body>TODO</body></html>"));
+    __OpenModelica_simulationFlags(lv = "LOG_STDOUT,LOG_ASSERT,LOG_EVENTS_V,LOG_STATS,LOG_STATS_V", s = "dassl", variableFilter = ".*"),
+    Documentation(info="<html>
+<h3>Tutorial System with Sigmoid Reactive Power Limiting</h3>
+
+<p>
+This tutorial system demonstrates the OmniPES library capabilities for steady-state power flow 
+and secondary voltage regulation (SVR) with smooth (sigmoid) reactive power limiting functions. 
+This model is used as a tutorial example in the paper:
+<a href=\"https://doi.org/10.1109/ACCESS.2025.3553782\">Introduction to OmniPES: A Modelica Library for 
+Power Systems Modeling and Analysis</a>, published in IEEE Access (2025).
+</p>
+
+<h4>System Overview</h4>
+
+<p>
+The test system consists of a three-bus network with two generators and one load, interconnected through transformers and transmission lines. The model demonstrates steady-state analysis capabilities with under load variations and reactive power control using sigmoid-type limiting functions.
+</p>
+
+<h4>System Components</h4>
+
+<table border=\"1\" cellpadding=\"2\">
+<tr><th>Component</th><th>Type</th><th>Location</th><th>Parameters</th></tr>
+<tr><td>G1</td><td>VTHSource_Qlim_sigmoid</td><td>Bus 1</td><td>Vsp=1.017 pu, Qmax=26 Mvar</td></tr>
+<tr><td>G2</td><td>PVSource_Qlim_sigmoid</td><td>Bus 2</td><td>Psp=90 MW, Vsp=1.025 pu, Qmax=78 Mvar</td></tr>
+<tr><td>load</td><td>ZIPLoad</td><td>Bus 30</td><td>Psp=120 MW (variable), Qsp=0 Mvar</td></tr>
+<tr><td>trafo1</td><td>TwoWindingTransformer</td><td>Bus 1-10</td><td>x=0.2 pu</td></tr>
+<tr><td>trafo2</td><td>TwoWindingTransformer</td><td>Bus 2-20</td><td>x=0.07 pu</td></tr>
+<tr><td>line1</td><td>SeriesImpedance</td><td>Bus 20-10</td><td>x=0.07 pu</td></tr>
+<tr><td>line21</td><td>SeriesImpedance</td><td>Bus 10-30</td><td>x=0.18 pu</td></tr>
+<tr><td>line22</td><td>SeriesImpedance_switched</td><td>Bus 10-30</td><td>x=0.18 pu (can be opened)</td></tr>
+</table>
+
+<h4>Key Features</h4>
+
+<ul>
+<li><strong>Sigmoid Reactive Power Limiting:</strong> Both generators use sigmoid-type (smooth) 
+reactive power limiting functions instead of hard limits. </li>
+
+<li><strong>Load Variations:</strong> The load active power increases linearly over 140 seconds 
+from 120 MW to 260 MW (140 MW ramp), simulating load growth with time.</li>
+
+<li><strong>Generator Power Dispatch:</strong> Generator G2 power output varies proportionally with 3/4th of the load increase, while G1 varies with the remaining 1/4th, demonstrating load sharing between generators.</li>
+
+<li><strong>Line Contingency:</strong> The parallel line (Line22) can be opened, 
+simulating a transmission line outage scenario.</li>
+
+<li><strong>Steady-State Focus:</strong> This model emphasizes steady-state power flow calculations 
+rather than dynamic transients.</li>
+</ul>
+
+<h4>Recommended Simulation Parameters</h4>
+
+<ul>
+<li><strong>Duration:</strong> 101 seconds</li>
+<li><strong>Tolerance:</strong> 1e-06</li>
+<li><strong>Solver:</strong> DASSL (Differential-Algebraic System Solver)</li>
+<li><strong>Output Interval:</strong> 0.1 second</li>
+</ul>
+
+<h4>Main Control Signals</h4>
+
+<ul>
+<li><strong>rampP:</strong> Linear load increase from 0 to 140 MW over 140 seconds</li>
+<li><strong>gain (3/4):</strong> Proportional power dispatch to generator G2, passed to its setpoint input <code>G2.dPsp</code>.</li>
+<li><strong>load.dPsp:</strong> Active power setpoint for the load</li>
+</ul>
+
+<h4>Initial Operating Point</h4>
+
+<ul>
+<li><strong>Generator G1 (Bus 1):</strong>
+  <ul>
+    <li> slack node </li>
+    <li> <em>voltage setpoint:</em> 1.017 pu (angle reference)</li>
+  </ul>  
+</li>
+<li><strong>Generator G2 (Bus 2):</strong>
+  <ul>
+    <li> PV node </li>
+    <li> <em>voltage setpoint:</em> 1.025 pu</li>
+    <li> <em>active power setpoint:</em> 90 MW</li>
+  </ul>  
+</li>
+<li><strong>Load (Bus 30):</strong>
+  <ul>
+    <li> PQ node </li>
+    <li> <em>active power setpoint:</em> 120 MW</li>
+    <li> <em>reactive power setpoint:</em> 0 Mvar</li>
+  </ul>  
+</li>
+</ul>
+
+<h4>Expected Behavior</h4>
+
+<p>
+During simulation, as the load increases:
+</p>
+
+<ol>
+<li>Load active power increases linearly from 120 MW to 260 MW</li>
+<li>Generator G2 output increases proportionally to the load increase</li>
+<li>Generator G1 output increases in order keep the power balance</li>
+<li>Bus voltages remain controlled by the generators' voltage setpoints and reactive power limits</li>
+<li>Reactive power requirements increase due to higher transmission losses</li>
+<li>When reactive power limits are reached, generators lose voltage controls and keep reactive power at the limit</li>
+<li>The sigmoid reactive power limits ensure smooth control without abrupt changes</li>
+</ol>
+
+<h4>References</h4>
+
+<p>
+For more information on OmniPES library and these tutorial systems, please refer to:
+</p>
+
+<ul>
+<li>Tomim, M. A., Henriques, R. M., &amp; Passos Filho, J. A. (2025). 
+<a href=\"https://doi.org/10.1109/ACCESS.2025.3553782\">Introduction to OmniPES: A Modelica Library 
+for Power Systems Modeling and Analysis</a>. IEEE Access.</li>
+</ul>
+</html>"));
 
 end tutorial_system_sigmoid;

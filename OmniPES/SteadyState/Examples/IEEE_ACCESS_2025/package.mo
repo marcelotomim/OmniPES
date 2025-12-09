@@ -13,13 +13,13 @@ published in IEEE Access (2025).
 <h4>Tutorial Systems</h4>
 <ul>
 <li><a href=\"modelica://OmniPES.SteadyState.Examples.IEEE_ACCESS_2025.tutorial_system_sigmoid\">tutorial_system_sigmoid</a> – 
-Basic tutorial system example</li>
+tutorial system example for testing reactive power limits by means of sigmoid functions</li>
 <li><a href=\"modelica://OmniPES.SteadyState.Examples.IEEE_ACCESS_2025.tutorial_system_discrete\">tutorial_system_discrete</a> – 
-Tutorial system with discrete control</li>
+tutorial system example for testing reactive power limits by means of discrete saturation</li>
 <li><a href=\"modelica://OmniPES.SteadyState.Examples.IEEE_ACCESS_2025.tutorial_system_SVR_SS_sigmoid\">tutorial_system_SVR_SS_sigmoid</a> – 
-Tutorial system with steady-state secondary voltage regulation (SVR)</li>
+tutorial system example for with steady-state secondary voltage regulation (SVR); reactive power limits by means of sigmoid functions.</li>
 <li><a href=\"modelica://OmniPES.SteadyState.Examples.IEEE_ACCESS_2025.tutorial_system_SVR_SS_discrete\">tutorial_system_SVR_SS_discrete</a> – 
-Tutorial system with discrete steady-state SVR</li>
+tutorial system example for with discrete steady-state secondary voltage regulation (SVR); reactive power limits by means of discrete saturation.</li>
 </ul>
 </html>"));
 end IEEE_ACCESS_2025;
