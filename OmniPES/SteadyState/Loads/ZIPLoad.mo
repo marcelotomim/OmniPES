@@ -15,4 +15,7 @@ protected
 equation
   S.re = (Psp+dpsp)/data.Sbase*(pp + pi*(V/Vdef) + pz*(V/Vdef)^2);
   S.im = (Qsp+dqsp)/data.Sbase*(qq + qi*(V/Vdef) + qz*(V/Vdef)^2);
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end ZIPLoad;

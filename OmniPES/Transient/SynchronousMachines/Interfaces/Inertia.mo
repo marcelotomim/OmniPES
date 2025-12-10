@@ -23,4 +23,7 @@ equation
   der(delta) = data.wb*(omega - 1);
   annotation(
     Icon(graphics = {Text( extent = {{-80, 60}, {80, -60}}, textString = "Inertia"), Rectangle(fillColor = {85, 87, 83}, extent = {{-100, 100}, {100, -100}})}, coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}})));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Inertia;

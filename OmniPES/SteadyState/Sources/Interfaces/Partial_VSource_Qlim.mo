@@ -36,5 +36,6 @@ equation
   end if;
   
 annotation(
-    Icon(graphics = {Text(visible = useExternalPowerSpec, origin = {68, 62}, extent = {{-12, 14}, {12, -14}}, textString = "P"), Text(visible = useExternalVoltageSpec, origin = {68, -60}, extent = {{-12, 14}, {12, -14}}, textString = "V")}));
+    Icon(graphics = {Text(visible = useExternalPowerSpec, origin = {68, 62}, extent = {{-12, 14}, {12, -14}}, textString = "P"), Text(visible = useExternalVoltageSpec, origin = {68, -60}, extent = {{-12, 14}, {12, -14}}, textString = "V")}),
+    Documentation(info="<html><body>TODO</body></html>"));
 end Partial_VSource_Qlim;

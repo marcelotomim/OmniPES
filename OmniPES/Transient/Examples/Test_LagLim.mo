@@ -20,4 +20,7 @@ equation
     Diagram(coordinateSystem(extent = {{-150, -100}, {150, 100}}, grid = {1, 1})),
     Icon(coordinateSystem(extent = {{-150, -100}, {150, 100}}, grid = {1, 1})),
   experiment(StartTime = 0, StopTime = 4, Tolerance = 1e-06, Interval = 0.001));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Test_LagLim;

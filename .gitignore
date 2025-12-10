@@ -12,3 +12,6 @@ examples/rollback_radial/*.pdf
 *.pyc
 .vscode
 .idea
+scripts/*
+*.code-workspace
+.venv/

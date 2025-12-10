@@ -38,4 +38,7 @@ model AVR
   Diagram(graphics = {Rectangle(origin = {-119, 0}, lineColor = {255, 0, 0}, lineThickness = 0.5, extent = {{-33, 22}, {33, -22}}), Text(origin = {-116, 34}, textColor = {255, 0, 0}, extent = {{-38, 14}, {39, -13}}, textString = "Unknown
 Reference 
 Value")}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
   end AVR;

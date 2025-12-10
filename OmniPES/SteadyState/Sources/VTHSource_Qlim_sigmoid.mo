@@ -9,4 +9,7 @@ equation
   annotation(
     Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}, grid = {1, 1}), graphics = {Text(origin = {0, 80}, extent = {{-100, 20}, {100, -20}}, textString = "Vth
 Qlim", horizontalAlignment = TextAlignment.Left)}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end VTHSource_Qlim_sigmoid;

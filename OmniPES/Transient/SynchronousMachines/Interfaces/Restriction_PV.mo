@@ -5,4 +5,7 @@ model Restriction_PV
 initial equation
   P = param.Psp/data.Sbase;
   V = param.Vsp;
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Restriction_PV;

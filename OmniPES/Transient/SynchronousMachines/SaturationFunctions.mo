@@ -14,4 +14,7 @@ model Exponential_2
     annotation(
       Icon(graphics = {Line(origin = {-7.86, -28.86}, points = {{-72.1371, -51.1371}, {-32.1371, -51.1371}, {19.8629, -45.1371}, {59.8629, 8.8629}, {79.8629, 100.863}}, color = {0, 0, 255}, thickness = 1, smooth = Smooth.Bezier)}));  end Exponential_2
   ;
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end SaturationFunctions;

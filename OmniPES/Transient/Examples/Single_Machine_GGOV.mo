@@ -52,6 +52,9 @@ model Single_Machine_GGOV
       Line(points = {{-98, -40}, {-20, -40}, {-20, -8}, {-10, -8}}, color = {0, 0, 127}));
     connect(EFD.y, Efd) annotation(
       Line(points = {{185, 90}, {210, 90}}, color = {0, 0, 127}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
   end IEEE_AC4A;
 
   model PSS_1

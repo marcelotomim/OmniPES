@@ -44,4 +44,7 @@ algorithm
   ch4 := 1/(1 + exp(-growth_rate*(   V - lim_inf)));
   annotation(
     Icon(coordinateSystem(initialScale = 0.1, extent = {{-100, -100}, {100, 100}}, grid = {1, 1})));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Partial_VSource_Qlim_sigmoid;

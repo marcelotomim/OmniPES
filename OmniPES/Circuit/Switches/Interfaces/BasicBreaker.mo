@@ -12,5 +12,11 @@ equation
   end if;
   annotation(
     Icon(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {0.5, 0.5}), graphics = {Line(origin = {-70, 0}, points = {{-30, 0}, {30, 0}}, thickness = 0.5), Line(origin = {70, 0}, points = {{-30, 0}, {30, 0}}, thickness = 0.5), Line(origin = {-40, 0}, points = {{0, 0}, {69.28, 40}}, thickness = 0.5, arrow = {Arrow.None, Arrow.Filled}, arrowSize = 6), Line(origin = {50, 0}, points = {{-10, 10}, {10, -10}, {10, -10}}), Line(origin = {50, 0}, points = {{-10, -10}, {10, 10}, {10, 10}})}),
-    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})));
+    Diagram(coordinateSystem(extent = {{-100, -100}, {100, 100}}, preserveAspectRatio = true, initialScale = 0.1, grid = {2, 2})),
+    Documentation(info="<html><body>
+<h4>Related Components</h4>
+<ul>
+  <li><a href=\"modelica://OmniPES.Circuit.Interfaces.SeriesComponent\">OmniPES.Circuit.Interfaces.SeriesComponent</a>: Base two-terminal series connector</li>
+</ul>
+</body></html>"));
 end BasicBreaker;

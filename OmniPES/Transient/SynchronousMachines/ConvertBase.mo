@@ -25,4 +25,6 @@ algorithm
   conv_data.T1q0 := machine_data.T1q0; 
   conv_data.T2d0 := machine_data.T2d0; 
   conv_data.T2q0 := machine_data.T2q0;
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
 end ConvertBase;

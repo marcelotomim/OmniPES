@@ -28,4 +28,7 @@ equation
     Line(points = {{58, -24}, {60, -24}, {60, 0}, {-4, 0}}, color = {0, 0, 255}));
   annotation(
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Test_Breaker;

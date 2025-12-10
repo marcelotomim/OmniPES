@@ -23,4 +23,7 @@ algorithm
   annotation(
     Diagram,
   Icon(graphics = {Line(origin = {1, 1}, points = {{-85, 1}, {85, 1}}, thickness = 0.5), Text(origin = {0, 50}, extent = {{-100, 40}, {100, -40}}, textString = "k"), Text(origin = {0, -50}, extent = {{-100, 40}, {100, -40}}, textString = "s"), Line(origin = {32.21, -9}, points = {{-160, -110}, {-100, -110}, {60, 130}, {100, 130}}, thickness = 0.5)}));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
  end IntegratorLimit;

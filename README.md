@@ -914,10 +914,10 @@ This library is released under the **MIT License**. See the LICENSE file in the 
 ## Authors
 
 - **Marcelo A. Tomim** - Federal University of Juiz de Fora (UFJF), Brazil  
-  Email: marcelo.tomim@ufjf.br
+  Email: marcelo.tomim[at]ufjf.br
 
 - **Ricardo M. Henriques** (Senior Member, IEEE) - Federal University of Juiz de Fora (UFJF), Brazil  
-  Email: ricardo.henriques@ufjf.br
+  Email: ricardo.henriques[at]ufjf.br
 
 - **João A. Passos Filho** (Senior Member, IEEE) - Federal University of Juiz de Fora (UFJF), Brazil  
-  Email: joao.passos@ufjf.br
+  Email: joao.passos[at]ufjf.br

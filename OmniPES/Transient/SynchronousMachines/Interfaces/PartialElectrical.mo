@@ -54,4 +54,7 @@ equation
 annotation(
     Icon(graphics = {Text(extent = {{-80, 60}, {80, -60}}, textString = "Electrical"), Rectangle(extent = {{-100, 100}, {100, -100}})}, coordinateSystem(extent = {{-100, -100}, {100, 100}})),
   experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end PartialElectrical;

@@ -29,4 +29,7 @@ protected
   annotation(
     experiment(StartTime = 0, StopTime = 5, Tolerance = 1e-06, Interval = 0.0001),
     Diagram);
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Test_Generic_Machine_2;

@@ -16,7 +16,7 @@ model Test_Radial_System_Power_Flow
     Placement(transformation(origin = {-70, 18}, extent = {{-10, -10}, {10, 10}}, rotation = 180)));
   OmniPES.SteadyState.Sources.PVSource pVSource(Psp = 1e8, Vsp = 1.0) annotation(
     Placement(transformation(origin = {123, 17}, extent = {{-13, -13}, {13, 13}})));
-  OmniPES.Circuit.Interfaces.Bus bus annotation(
+  OmniPES.Circuit.Interfaces.Bus bus3 annotation(
     Placement(visible = true, transformation(origin = {94, 18}, extent = {{-6, -6}, {6, 6}}, rotation = 0)));
   OmniPES.Circuit.Basic.TLine tLine(Q = 1.5e8, r = 0, x = 0.1) annotation(
     Placement(transformation(origin = {2, 20}, extent = {{-10, -10}, {10, 10}})));
@@ -33,9 +33,9 @@ equation
     Line(points = {{-60, 18}, {-46.8, 18}}, color = {0, 0, 255}));
   connect(bus2.p, impedance1.n) annotation(
     Line(points = {{52, 16}, {66, 16}}, color = {0, 0, 255}));
-  connect(impedance1.p, bus.p) annotation(
+  connect(impedance1.p, bus3.p) annotation(
     Line(points = {{86, 16}, {94, 16}}, color = {0, 0, 255}));
-  connect(pVSource.p, bus.p) annotation(
+  connect(pVSource.p, bus3.p) annotation(
     Line(points = {{110, 17}, {105.5, 17}, {105.5, 16}, {94, 16}}, color = {0, 0, 255}));
   connect(tLine.n, bus2.p) annotation(
     Line(points = {{13, 23}, {13, 22}, {52, 22}, {52, 16}}, color = {0, 0, 255}));
@@ -53,4 +53,49 @@ protected
     uses(Modelica(version = "3.2.2")),
     Diagram(coordinateSystem(extent = {{-150, -100}, {150, 100}})),
     Icon(coordinateSystem(extent = {{-150, -100}, {150, 100}})));
+  annotation(
+    Documentation(info="<html>
+<h3>Radial System Power-Flow Example</h3>
+
+<p>
+Steady-state power-flow example with a voltage-source injection, a remote-source injection, and a
+ZIP load connected through two radial feeders (one fixed, one switchable). Use this as a template
+for simple radial studies, line switching tests, and voltage/reactive power checks.
+</p>
+
+<h4>Topology</h4>
+<ul>
+  <li><strong><code>data</code></strong>: inner <em>OmniPES.SystemData</em> (base S and frequency)</li>
+  <li><strong><code>voltageSource</code></strong>: <em>OmniPES.Circuit.Sources.VoltageSource</em> (angle = 0, magnitude = 0.98)</li>
+  <li><strong><code>bus1</code></strong>, <strong><code>bus2</code></strong>, <strong><code>bus3</code></strong>: <em>OmniPES.Circuit.Interfaces.Bus</em> (interconnection nodes)</li>
+  <li><strong><code>impedance2</code></strong>: <em>OmniPES.Circuit.Basic.SeriesImpedance</em> (x = 0.01) between <code>voltageSource</code> and <code>bus1</code></li>
+  <li><strong><code>impedance1</code></strong>: <em>OmniPES.Circuit.Basic.SeriesImpedance</em> (x = 0.01) between <code>bus2</code> and <code>bus3</code></li>
+  <li><strong><code>tLine</code></strong>: <em>OmniPES.Circuit.Basic.TLine</em> (r = 0, x = 0.1, Q = 1.5e8) between <code>bus1</code> and <code>bus2</code></li>
+  <li><strong><code>tLine_switched</code></strong>: <em>OmniPES.Circuit.Basic.TLine_switched</em> (r = 0, x = 0.1, Q = 1.5e8, t_open_p = 2, t_open_n = 2) in parallel with <code>tLine</code></li>
+  <li><strong><code>zip</code></strong>: <em>OmniPES.SteadyState.Loads.ZIPLoad</em> (Psp = 1e8, Qsp = 5e7, ss_par = <code>load_data</code>) connected to <code>bus1</code></li>
+  <li><strong><code>load_data</code></strong>: parameter <em>OmniPES.SteadyState.Loads.Interfaces.LoadData</em></li>
+  <li><strong><code>pVSource</code></strong>: <em>OmniPES.SteadyState.Sources.PVSource</em> (Psp = 1e8, Vsp = 1.0) connected to remote <code>bus3</code></li>
+</ul>
+
+<h4>Key Parameters</h4>
+<ul>
+  <li>ZIP load data set via <code>load_data</code> record. in this manner the same load parameters can be reused or modified easily for many system loads simultaneously</li>
+  <li><code>tLine_switched</code> can be used for line switching tests to observe the impact on power flow and voltage profiles</li>
+</ul>
+
+<h4>Simulation</h4>
+<ul>
+  <li>StartTime = 0 s, StopTime = 5 s</li>
+  <li>Tolerance = 1e-6</li>
+  <li>Output Interval = 1e-4 s</li>
+</ul>
+
+<h4>What to Observe</h4>
+<ul>
+  <li>Voltage profile at Bus2 before/after the transmission line opening</li>
+  <li>Power flow redistribution when the parallel line opens at 2 s</li>
+  <li>Reactive power support from <code>pVSource</code> vs. <code>voltageSource</code></li>
+</ul>
+</html>"));
+
 end Test_Radial_System_Power_Flow;

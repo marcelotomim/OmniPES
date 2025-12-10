@@ -5,4 +5,7 @@ model Restriction_TH
   import Modelica.Constants.pi;
 initial equation
   theta = param.theta_sp;
+  annotation(
+    Documentation(info="<html><body>TODO</body></html>"));
+
 end Restriction_TH;
