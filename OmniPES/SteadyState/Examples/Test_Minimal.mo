@@ -40,6 +40,46 @@ protected
   annotation(
     experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));
   annotation(
-    Documentation(info="<html><body>TODO</body></html>"));
+    Documentation(info="<html>
+<h3>Minimal Steady-State Power-Flow Example</h3>
+
+<p>
+This example shows a simple working steady-state setup in OmniPES: one slack source feeding a
+load through a transformer and a short transmission line, plus an additional PQ source at the
+remote bus. Use it as a starting point to validate installations and to extend with more devices.
+</p>
+
+<h4>Network Topology</h4>
+<ul>
+<li><strong>Bus1</strong>: Slack bus (VTHSource)</li>
+<li><strong>Bus2</strong>: Intermediate/load bus (transformer secondary, load connection)</li>
+<li><strong>Bus3</strong>: Remote bus with PQ source</li>
+</ul>
+
+<h4>Main Components</h4>
+<ul>
+<li><strong>VTHSource</strong> (Bus1): Slack/thevenin source setting the reference voltage</li>
+<li><strong>TwoWindingTransformer</strong> (Bus1–Bus2): tap = 1.05, x = 0.01 pu</li>
+<li><strong>TLine</strong> (Bus2–Bus3): r = 0, x = 0.05 pu, Q = 5e7</li>
+<li><strong>PQSource</strong> (Bus3): Psp = 100 MW, Qsp = 0 Mvar, voltage_limits = false</li>
+<li><strong>ZIPLoad</strong> (Bus2): Psp = 50 MW, Qsp = 10 Mvar, parameters from LoadData</li>
+<li><strong>LoadData</strong>: pi = 0.75 (constant impedance share of active power), qz = 1 (constant
+    impedance share of reactive power)</li>
+</ul>
+
+<h4>Simulation Setup</h4>
+<ul>
+<li>StartTime = 0 s, StopTime = 1 s</li>
+<li>Tolerance = 1e-6</li>
+<li>Interval = 0.002 s (output)</li>
+</ul>
+
+<h4>Suggested Uses</h4>
+<ul>
+<li>Quick sanity check of the steady-state solver and connectors</li>
+<li>Template to add additional lines, transformers, or control blocks</li>
+<li>Sensitivity checks on transformer tap, line reactance, and load composition</li>
+</ul>
+</html>"));
 
 end Test_Minimal;
