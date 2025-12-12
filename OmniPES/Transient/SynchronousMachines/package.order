@@ -1,7 +1,6 @@
-Interfaces
+SynchronousMachineData
 SaturationFunctions
 RestrictionData
-SynchronousMachineData
-ConvertBase
+Interfaces
 GenericSynchronousMachine
-GenericSynchronousMachine_new
+ConvertBase
