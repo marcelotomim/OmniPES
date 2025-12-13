@@ -1,8 +1,8 @@
-within OmniPES.Transient.Examples.PSCC24;
+within OmniPES.Transient.Examples.IEEE_ACCESS_2025;
 
-model tutorial_system_SVR
+model tutorial_system_SVR_QSS
   inner OmniPES.SystemData data annotation(
-    Placement(transformation(origin = {98.5, 32.5}, extent = {{-16.5, -16.5}, {16.5, 16.5}})));
+    Placement(visible = true, transformation(origin = {101.5, 30.5}, extent = {{-21.5, -21.5}, {21.5, 21.5}}, rotation = 0)));
   Modelica.Units.SI.Angle d12;
   OmniPES.Circuit.Interfaces.Bus bus1 annotation(
     Placement(visible = true, transformation(origin = {-34, -25}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
@@ -24,35 +24,37 @@ model tutorial_system_SVR
     Placement(visible = true, transformation(origin = {75, -27}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 25, x = 0.18) annotation(
     Placement(visible = true, transformation(origin = {75, -47}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G2(redeclare OmniPES.Transient.Examples.PSCC24.Controllers.AVR_SRV avr, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_1_Electric electrical, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_P restriction, smData = G2_data, specs = G2_pf_data, redeclare OmniPES.Transient.Examples.PSCC24.Controllers.SpeedGovernor sreg, avr_on = true, sreg_on = true) annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G2(redeclare OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.AVR_SRV avr, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_1_0_Electric electrical, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_P restriction, smData = G2_data, specs = G2_pf_data, redeclare OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.SpeedGovernor sreg, avr_on = true, sreg_on = true) annotation(
     Placement(visible = true, transformation(origin = {-68, 27}, extent = {{-14, -14}, {14, 14}}, rotation = 180)));
-  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G1(redeclare OmniPES.Transient.Examples.PSCC24.Controllers.AVR_SRV avr, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_1_Electric electrical, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_TH restriction, smData = G1_data, specs = G1_pf_data, redeclare OmniPES.Transient.Examples.PSCC24.Controllers.SpeedGovernor sreg, avr_on = true, sreg_on = true) annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G1(redeclare OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.AVR_SRV avr, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_1_0_Electric electrical, redeclare OmniPES.Transient.Controllers.PSS.NoPSS pss, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_TH restriction, smData = G1_data, specs = G1_pf_data, redeclare OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.SpeedGovernor sreg, avr_on = true, sreg_on = true) annotation(
     Placement(visible = true, transformation(origin = {-68, -27}, extent = {{-14.5, -14.5}, {14.5, 14.5}}, rotation = 180)));
   parameter OmniPES.Transient.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {144, -3}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData G2_data(H = 3.0, MVAb = 1.5e8, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75) annotation(
-    Placement(visible = true, transformation(origin = {-100, 41}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData G1_data(H = 3.0, MVAb = 5e7, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75) annotation(
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData G2_data(H = 3.0e7, MVAb = 1.5e8, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75, D = 2) annotation(
+    Placement(transformation(origin = {-101, 41}, extent = {{-10, -10}, {10, 10}})));
+  parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData G1_data(H = 3e7, MVAb = 5e7, T1d0 = 9.0, T1q0 = 0, T2d0 = 0.025, T2q0 = 0.08, X1d = 0.4, X1q = 0, X2d = 0.25, X2q = 0.25, Xd = 1.4, Xl = 0.15, Xq = 0.75, D = 2) annotation(
     Placement(visible = true, transformation(origin = {-100, -17}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Transient.Loads.ZIPLoad load(Psp = 1.2e8, Qsp = 0, dyn_par = loadData, ss_par = loadData) annotation(
-    Placement(transformation(origin = {146, -43}, extent = {{-16, -16}, {16, 16}}, rotation = -90)));
+    Placement(transformation(origin = {149, -45}, extent = {{-18, -18}, {18, 18}}, rotation = -90)));
   parameter OmniPES.Transient.SynchronousMachines.RestrictionData G2_pf_data(Psp = 9e7, Vsp = 1.025) annotation(
     Placement(visible = true, transformation(origin = {-100, 19}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   parameter OmniPES.Transient.SynchronousMachines.RestrictionData G1_pf_data(Vsp = 1.017) annotation(
     Placement(visible = true, transformation(origin = {-100, -39}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.Examples.PSCC24.Controllers.Plant_SVR g1_srv(init = Modelica.Blocks.Types.Init.NoInit) annotation(
-    Placement(transformation(origin = {-159, -42}, extent = {{-12, -12}, {12, 12}})));
-  OmniPES.Transient.Examples.PSCC24.Controllers.Plant_SVR g2_srv(init = Modelica.Blocks.Types.Init.SteadyState) annotation(
-    Placement(transformation(origin = {-160, 42}, extent = {{-13, -13}, {13, 13}})));
-  OmniPES.Transient.Examples.PSCC24.Controllers.Central_SVR central_SVR annotation(
-    Placement(transformation(origin = {-162.5, 1.5}, extent = {{-15.5, -15.5}, {15.5, 15.5}})));
+  OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.Plant_SVR g1_srv(init = Modelica.Blocks.Types.Init.NoInit)  annotation(
+    Placement(visible = true, transformation(origin = {-156, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
+  OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.Plant_SVR g2_srv(init = Modelica.Blocks.Types.Init.SteadyState)  annotation(
+    Placement(transformation(origin = {-156, 45}, extent = {{-10, -10}, {10, 10}})));
+  OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.Central_SVR central_SVR annotation(
+    Placement(visible = true, transformation(origin = {-156, 0}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
 equation
   G1.avr.Vext = g1_srv.Vref + central_SVR.Vref;
   G2.avr.Vext = g2_srv.Vref + central_SVR.Vref;
   g1_srv.Qg = G1.electrical.Qt;
   g2_srv.Qg = G2.electrical.Qt;
-  central_SVR.Qin = {G1.electrical.Qt, G2.electrical.Qt};
-  central_SVR.Qout = {g1_srv.Qcom, g2_srv.Qcom};
+  central_SVR.Qin[1] = G1.electrical.Qt;
+  central_SVR.Qin[2] = G2.electrical.Qt;
+  g1_srv.Qcom = central_SVR.Qout[1];
+  g2_srv.Qcom = central_SVR.Qout[2];
   central_SVR.Vpilot = bus30.V;
   d12 = G1.inertia.delta - G2.inertia.delta;
   connect(G2.terminal, bus2.p) annotation(
@@ -80,14 +82,13 @@ equation
   connect(line21.n, bus30.p) annotation(
     Line(points = {{85, -27.2}, {106, -27.2}}, color = {0, 0, 255}));
   connect(load.p, bus30.p) annotation(
-    Line(points = {{146, -27}, {105.64, -27}}, color = {0, 0, 255}));
+    Line(points = {{149, -27}, {105.64, -27}}, color = {0, 0, 255}));
 protected
-public
   annotation(
-    Icon(coordinateSystem(extent = {{-250, -100}, {200, 100}}, grid = {1, 1})),
-    Diagram(coordinateSystem(extent = {{-250, -100}, {200, 100}}, grid = {1, 1}), graphics = {Text(origin = {-194, 49.5}, extent = {{-12, 6}, {13, -5}}, textString = "Qcom[1]"), Text(origin = {-184.5, 35}, extent = {{-7, 4}, {8, -4}}, textString = "Qg"), Text(origin = {-182.5, -50}, extent = {{-7, 4}, {8, -4}}, textString = "Qg"), Text(origin = {-200, -7}, extent = {{-18, 5}, {19, -4}}, textString = "Vpilot"), Text(origin = {-192.5, 11}, extent = {{-7, 4}, {8, -4}}, textString = "Qin"), Text(origin = {-191, -35.5}, extent = {{-12, 6}, {13, -5}}, textString = "Qcom[2]"), Text(origin = {-134.5, 42}, extent = {{-7, 4}, {8, -4}}, textString = "Vref"), Text(origin = {-133.5, -8}, extent = {{-7, 4}, {8, -4}}, textString = "Vref"), Text(origin = {-133.5, -42}, extent = {{-7, 4}, {8, -4}}, textString = "Vref"), Text(origin = {-134.5, 11}, extent = {{-7, 4}, {8, -4}}, textString = "Qcom")}),
+    Icon(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1})),
+    Diagram(coordinateSystem(extent = {{-200, -100}, {200, 100}}, grid = {1, 1}), graphics = {Text(origin = {-186, 54}, extent = {{-15, 7}, {16, -7}}, textString = "Qcom[1]", fontSize = 14), Text(origin = {-179.5, 40}, extent = {{-7, 4}, {8, -4}}, textString = "Qg", fontSize = 14), Text(origin = {-178.5, -45}, extent = {{-7, 4}, {8, -4}}, textString = "Qg", fontSize = 14), Text(origin = {-185, -33}, extent = {{-15, 8}, {15, -8}}, textString = "Qcom[2]", fontSize = 14), Text(origin = {-187, -7}, extent = {{-12, 4}, {13, -4}}, textString = "Vpilot", fontSize = 14), Text(origin = {-182, 7}, extent = {{-10, 7}, {10, -7}}, textString = "Qin", fontSize = 14), Text(origin = {-135, 40}, extent = {{-10, 7}, {10, -7}}, textString = "Vref", fontSize = 14), Text(origin = {-135, -40}, extent = {{-10, 7}, {10, -7}}, textString = "Vref", fontSize = 14), Text(origin = {-133, -7}, extent = {{-10, 7}, {10, -7}}, textString = "Vref", fontSize = 14), Text(origin = {-134, 7}, extent = {{-10, 7}, {10, -7}}, textString = "Qcom", fontSize = 14)}),
     experiment(StartTime = 0, StopTime = 200, Tolerance = 1e-06, Interval = 0.001));
   annotation(
     Documentation(info="<html><body>TODO</body></html>"));
 
-end tutorial_system_SVR;
+end tutorial_system_SVR_QSS;

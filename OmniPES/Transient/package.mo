@@ -16,18 +16,19 @@ The <strong>Transient</strong> subpackage contains models for electromechanical 
   <li><a href=\"modelica://OmniPES.Transient.Loads\">Loads</a> — Dynamic polynomial load models with distinct steady-state and transient behavior</li>
   <li><a href=\"modelica://OmniPES.Transient.FACTS\">FACTS</a> — Flexible AC transmission system devices (STATCOM)</li>
   <li><a href=\"modelica://OmniPES.Transient.Examples\">Examples</a> — Demonstration models including benchmark systems, fault analysis, and controller testing</li>
-  <li><a href=\"modelica://OmniPES.Math\">Math</a> — Utilities used by transient models (e.g., <a href=\"modelica://OmniPES.Math.sys2qd\">sys2qd</a>)</li>
 </ul>
 
 <h3>Key Models</h3>
 <ul>
   <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine\">GenericSynchronousMachine</a> — Core synchronous machine model</li>
+  <li><a href=\"modelica://OmniPES.Transient.Loads.ZIPLoad\">ZIPLoad</a> — Dynamic polynomial load model for transient studies</li>
   <li><strong>Restriction (Initial Condition) Models:</strong>
     <ul>
       <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PQ\">Restriction_PQ</a> — specified P and Q</li>
       <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV\">Restriction_PV</a> — specified P and V</li>
       <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_VTH\">Restriction_VTH</a> — specified V and angle (swing/stack bus)</li>
       <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_P\">Restriction_P</a> — specified P</li>
+      <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_TH\">Restriction_TH</a> — specified angle</li>
     </ul>
   </li>
   <li><strong>Electrical Models:</strong>
@@ -56,20 +57,21 @@ The <strong>Transient</strong> subpackage contains models for electromechanical 
   <li><a href=\"modelica://OmniPES.Transient.Examples.Test_Breaker\">Test_Breaker</a></li>
 </ul>
 
-<h3>Usage Notes</h3>
-<p>
-Use Transient models when analyzing power system dynamics during disturbances such as faults, load changes, or generation trips.
-</p>
-
 <h3>Steady-State Initial Conditions</h3>
-<p>The OmniPES library provides embedded calculation of initial conditions from typical power-flow specifications. Generators receive a power-flow data record to define active power, reactive power, voltage magnitude and angle at the terminal, depending on the chosen restriction model.</p>
+<p>The OmniPES library provides embedded calculation of initial conditions from typical power-flow specifications. Generators receive a power-flow data record (detailed below) to define active power, reactive power, voltage magnitude and angle at the terminal, depending on the chosen restriction model.</p>
 <p>Restriction models can be redeclared as needed for specifying initial operating conditions for generators:</p>
 <ul>
   <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PQ\">Restriction_PQ</a>: specified active and reactive power</li>
   <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV\">Restriction_PV</a>: specified active power and voltage magnitude</li>
   <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_VTH\">Restriction_VTH</a>: specified voltage magnitude and angle (swing bus)</li>
-  <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_P\">Restriction_P</a>: specified active power</li>
 </ul>
+
+<p>For special study cases, additional restriction models, that define incomplete power-flow restrictions, are available:</p>
+<ul>
+  <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_P\">Restriction_P</a>: specified active power</li>
+  <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_TH\">Restriction_TH</a>: specified angle</li>
+</ul>
+<p>An usage example for these restriction models can be found in test case <a href=\"modelica://OmniPES.Transient.Examples.IEEE_ACCESS_2025.tutorial_system_SVR\">tutorial_system_SVR</a>.</p>
 
 </body></html>"));
 end Transient;

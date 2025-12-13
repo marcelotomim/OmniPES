@@ -546,9 +546,9 @@ Provides automatic control systems for synchronous machines. All controllers ext
   - [`Transient.Examples.IEEE9bus`](OmniPES/Transient/Examples/IEEE9bus.mo) — `AVR_Type_I` (local)
   - [`Transient.Examples.Kundur_Two_Area_System`](OmniPES/Transient/Examples/Kundur_Two_Area_System.mo) — `IEEE_AC4A` (local)
   - [`Transient.Examples.Single_Machine_GGOV`](OmniPES/Transient/Examples/Single_Machine_GGOV.mo) — `IEEE_AC4A` (local)
-  - [`Transient.Examples.PSCC24.tutorial_system`](OmniPES/Transient/Examples/PSCC24/tutorial_system.mo) — `PSCC24.Controllers.AVR` (local package)
-  - [`Transient.Examples.PSCC24.tutorial_system_SVR`](OmniPES/Transient/Examples/PSCC24/tutorial_system_SVR.mo) — `PSCC24.Controllers.AVR_SRV` (local package)
-  - [`Transient.Examples.PSCC24.tutorial_system_SVR_QSS`](OmniPES/Transient/Examples/PSCC24/tutorial_system_SVR_QSS.mo) — `PSCC24.Controllers.AVR_SRV` (local package)
+  - [`Transient.Examples.IEEE_ACCESS_2025.tutorial_system`](OmniPES/Transient/Examples/IEEE_ACCESS_2025/tutorial_system.mo) — `IEEE_ACCESS_2025.Controllers.AVR` (local package)
+  - [`Transient.Examples.IEEE_ACCESS_2025.tutorial_system_SVR`](OmniPES/Transient/Examples/IEEE_ACCESS_2025/tutorial_system_SVR.mo) — `IEEE_ACCESS_2025.Controllers.AVR_SRV` (local package)
+  - [`Transient.Examples.IEEE_ACCESS_2025.tutorial_system_SVR_QSS`](OmniPES/Transient/Examples/IEEE_ACCESS_2025/tutorial_system_SVR_QSS.mo) — `IEEE_ACCESS_2025.Controllers.AVR_SRV` (local package)
 
 **Speed Regulator (`Controllers.SpeedRegulators`)**
 - **ConstantPm**: Fixed mechanical power placeholder → extends [`PartialSpeedRegulator`](#a-interfaces-transientsynchronousmachinesinterfaces--transientcontrollersinterfaces)
@@ -556,9 +556,9 @@ Provides automatic control systems for synchronous machines. All controllers ext
   - Means no governor is considered; mechanical power held constant
 - Examples with implemented speed regulator/governor models (type in parentheses):
   - [`Transient.Examples.Single_Machine_GGOV`](OmniPES/Transient/Examples/Single_Machine_GGOV.mo) — `IEEE_GGOV1` (local)
-  - [`Transient.Examples.PSCC24.tutorial_system`](OmniPES/Transient/Examples/PSCC24/tutorial_system.mo) — `PSCC24.Controllers.SpeedGovernor`
-  - [`Transient.Examples.PSCC24.tutorial_system_SVR`](OmniPES/Transient/Examples/PSCC24/tutorial_system_SVR.mo) — `PSCC24.Controllers.SpeedGovernor`
-  - [`Transient.Examples.PSCC24.tutorial_system_SVR_QSS`](OmniPES/Transient/Examples/PSCC24/tutorial_system_SVR_QSS.mo) — `PSCC24.Controllers.SpeedGovernor`
+  - [`Transient.Examples.IEEE_ACCESS_2025.tutorial_system`](OmniPES/Transient/Examples/IEEE_ACCESS_2025/tutorial_system.mo) — `IEEE_ACCESS_2025.Controllers.SpeedGovernor`
+  - [`Transient.Examples.IEEE_ACCESS_2025.tutorial_system_SVR`](OmniPES/Transient/Examples/IEEE_ACCESS_2025/tutorial_system_SVR.mo) — `IEEE_ACCESS_2025.Controllers.SpeedGovernor`
+  - [`Transient.Examples.IEEE_ACCESS_2025.tutorial_system_SVR_QSS`](OmniPES/Transient/Examples/IEEE_ACCESS_2025/tutorial_system_SVR_QSS.mo) — `IEEE_ACCESS_2025.Controllers.SpeedGovernor`
 
 **Power System Stabilizer (PSS) (`Controllers.PSS`)**
 - **NoPSS** placeholder → extends [`PartialPSS`](#a-interfaces-transientsynchronousmachinesinterfaces--transientcontrollersinterfaces)

@@ -1,4 +1,4 @@
-within OmniPES.Transient.Examples.PSCC24.Controllers;
+within OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers;
 
 model Central_SVR
   Modelica.Blocks.Continuous.PI pilot_ctrl(T = kp/ki, initType = Modelica.Blocks.Types.Init.SteadyState, k = kp) annotation(
