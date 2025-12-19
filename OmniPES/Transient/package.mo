@@ -6,7 +6,7 @@ package Transient
     Documentation(info= "<html><head></head><body>
 <h2>Transient Package</h2>
 <p>
-The <strong>Transient</strong> subpackage contains models for electromechanical transient stability analysis, including synchronous machine models and their controllers. This framework considers the premises of transient stability programs, which allow the inclusion of slow dynamics associated with generation, load, and other system controlling devices. Embedded power-flow restrictions automatically determine initial conditions without the need for external power flow calculations.
+The <strong>Transient</strong> subpackage contains models for electromechanical transient stability analysis, including synchronous machine models and their controllers. This framework considers the premises of transient stability programs, which allow the inclusion of slow dynamics associated with generation, load, and other system controlling devices. Embedded power-flow restrictions aid users in automatically determining initial conditions without the need for external power flow calculations.
 </p>
 
 <h3>Main Subpackages</h3>

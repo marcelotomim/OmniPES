@@ -38,10 +38,10 @@ record SynchronousMachineData
   parameter SI.PerUnit D = 0.0 "damping constant" annotation(
     Dialog(group = "Mechanical Data"));
 annotation(defaultComponentPrefixes = "parameter",
-    Documentation(info="<html><head></head><body>
+    Documentation(info= "<html><head></head><body>
 <h3>Overview</h3>
 <p>
-<strong>SynchronousMachineData</strong> stores nameplate and dynamic parameters for a synchronous generator in per‑unit, used by electrical and mechanical submodels in <a href=\"modelica://OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine\">GenericSynchronousMachine</a> and related interfaces.
+<strong>SynchronousMachineData</strong> stores nameplate and dynamic parameters for a synchronous generator in per‑unit of the specific machine base values, used by electrical and mechanical submodels in <a href=\"modelica://OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine\">GenericSynchronousMachine</a> and related interfaces.
 </p>
 
 <h4>Model Type</h4>
@@ -54,13 +54,13 @@ annotation(defaultComponentPrefixes = "parameter",
 <h4>Base Quantities</h4>
 <ul>
   <li><strong>MVAb</strong> [MVA]: machine base apparent power.</li>
-  <li><strong>Nmaq</strong> [-]: number of identical parallel machines represented by this dataset (scales electrical quantities).</li>
+  <li><strong>Nmaq</strong> [-]: number of identical parallel machines associated with this power plant (note: scales electrical and mechanical quantities).</li>
 </ul>
 
 <h4>Model Type → Enabled Parameters</h4>
 <p>The record UI enables parameters depending on <code>model_type</code>:</p>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"4\" style=\"border-collapse:collapse;\">
-  <tr>
+  <tbody><tr>
     <th>Parameter</th><th>Enabled when</th>
   </tr>
   <tr><td><code>Xl</code></td><td><code>Hydro</code> or <code>Turbo</code></td></tr>
@@ -75,7 +75,7 @@ annotation(defaultComponentPrefixes = "parameter",
   <tr><td><code>Ra</code>, <code>X1d</code>, <code>H</code>, <code>D</code></td><td>always enabled</td></tr>
   <tr><td><code>MVAb</code>, <code>Nmaq</code></td><td>base quantities (always enabled)</td></tr>
   <tr><td><em>Note</em></td><td>Enablement reflects the actual <code>annotation(Dialog(enable=...))</code> conditions in this record.</td></tr>
-</table>
+</tbody></table>
 
 <h4>Electrical Data</h4>
 <ul>
@@ -91,19 +91,18 @@ annotation(defaultComponentPrefixes = "parameter",
 <h4>Mechanical Data</h4>
 <ul>
   <li><strong>H</strong> [s]: inertia constant (stored energy at rated speed per MVA base).</li>
-  <li><strong>D</strong> [-]: damping coefficient.</li>
+  <li><strong>D</strong> [pu]: damping coefficient.</li>
 </ul>
 
 <h4>Usage</h4>
 <ul>
   <li>Pass this record to <a href=\"modelica://OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine\">GenericSynchronousMachine</a> via <code>smData</code>. Internally, values are converted to the system base (see <code>convData</code> in the machine).</li>
-  <li>Enable/disable parameters are controlled by <code>model_type</code>. For example, <code>Xq</code> is disabled for <code>Classic</code>, <code>X2q</code> is enabled for <code>Turbo</code>.</li>
-  <li><strong>convData</strong>: the machine creates a converted copy of this record on the system base using <a href=\"modelica://OmniPES.Transient.SynchronousMachines.ConvertBase\">ConvertBase</a> (<code>MVAs</code>, <code>MVAb</code>, <code>Nmaq</code> scaling). Controllers and electrical models typically read from this converted record.</li>
+  <li>Enable/disable parameters are controlled by <code>model_type</code>. See table above for details.</li>
+  <li><strong>convData</strong>: the machine creates a converted copy of this record on the system base using <a href=\"modelica://OmniPES.Transient.SynchronousMachines.ConvertBase\">ConvertBase</a> (<code>MVAs</code>, <code>MVAb</code>, <code>Nmaq</code> scaling). Electrical and mechanical (inertia) models read from this converted record.</li>
 </ul>
 
 <h4>Example</h4>
-<pre>
-parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data(
+<pre>parameter OmniPES.Transient.SynchronousMachines.SynchronousMachineData gen_data(
   MVAb=100e6, Nmaq=1,
   Ra=0.0, Xl=0.2,
   Xd=1.8, Xq=1.7,

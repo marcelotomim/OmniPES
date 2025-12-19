@@ -1,11 +1,20 @@
 within OmniPES.Transient;
 
 package SynchronousMachines
+  
+
+
+
+
+
+
+
+
+
   annotation(
     Icon(coordinateSystem(initialScale = 0.4, grid = {0.5, 0.5}), graphics = {Ellipse(origin = {14, -5}, lineThickness = 1, extent = {{-114, 105}, {86, -95}}, endAngle = 360), Line(origin = {-28.88, 28.79}, points = {{-31.1188, -28.7929}, {-27.1188, -8.79289}, {-21.1188, 11.2071}, {-9.1188, 27.2071}, {8.88124, 27.2071}, {18.8812, 11.2071}, {24.8812, -8.79289}, {28.8812, -28.7929}}, thickness = 1, smooth = Smooth.Bezier), Line(origin = {31.12, -29.21}, points = {{-31.1188, 28.7929}, {-27.1188, 8.79289}, {-21.1188, -11.2071}, {-11.1188, -29.2071}, {8.88124, -29.2071}, {18.8812, -11.2071}, {24.8812, 8.79289}, {28.8812, 28.7929}}, thickness = 1, smooth = Smooth.Bezier)}),
-    Diagram(coordinateSystem(extent = {{-100, -150}, {100, 100}})));
-annotation(
-    Documentation(info= "<html><head></head><body>
+    Diagram(coordinateSystem(extent = {{-100, -150}, {100, 100}})),
+    Documentation(info = "<html><head></head><body>
 <h2>SynchronousMachines Subpackage</h2>
 <p>
 This subpackage contains models of synchronous machines with various electrical complexities (Classical, IEEE models 1.0, 2.1 and 2.2) and initial condition restriction models (PQ, PV, VTH, P, TH). These models are designed for electromechanical transient stability analysis within the OmniPES Transient framework.
@@ -36,10 +45,10 @@ This subpackage contains models of synchronous machines with various electrical 
 <h3>Data Records</h3>
 <p><a href=\"modelica://OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine\">GenericSynchronousMachine</a> model relies on parameter records to organize machine parameters and initial operating specifications:</p>
 <ul>
-  <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.SynchronousMachineData\">SynchronousMachineData</a>: rated values and electrical constants (e.g., Xd, Xq, X1d/X2d, time constants, inertia H, damping).</li>
+  <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.SynchronousMachineData\">SynchronousMachineData</a>: rated values and electrical constants (e.g., Xd, Xq, X1d, X2d, time constants, inertia H, damping, etc.).</li>
   <li><a href=\"modelica://OmniPES.Transient.SynchronousMachines.RestrictionData\">RestrictionData</a>: power-flow specifications used for initial conditions (e.g., Psp, Qsp, Vsp, theta_sp).</li>
 </ul>
-<p>These records are typically passed to <a href=\"modelica://OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine\">GenericSynchronousMachine</a> via parameters <code>smData</code>.</p>
+<p>These records are passed to <a href=\"modelica://OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine\">GenericSynchronousMachine</a> via parameters <code>smData</code>.</p>
 
 
 </body></html>"));
