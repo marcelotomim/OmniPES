@@ -18,14 +18,14 @@ model GenericSynchronousMachine
     Placement(visible = true, transformation(origin = {-40, 70}, extent = {{-12, -12}, {12, 12}}, rotation = 0)));
   //
   replaceable OmniPES.Transient.SynchronousMachines.Interfaces.Restriction restriction annotation(
-    Placement(transformation(origin = {59, 71}, extent = {{-19, -19}, {19, 19}}))) constrainedby Interfaces.Restriction(param = specs) annotation(
+    Placement(transformation(origin = {59, 71}, extent = {{-19, -19}, {19, 19}}))) constrainedby OmniPES.Transient.SynchronousMachines.Interfaces.Restriction(param = specs) annotation(
      choicesAllMatching = true,
      Dialog(tab = "Power Flow Restriction", group = "Model"),
      Placement(transformation(origin = {55, 70}, extent = {{-20, -20}, {20, 20}}, rotation = 0)));
   //
   // Electrical Model
   //
-  replaceable OmniPES.Transient.SynchronousMachines.Interfaces.PartialElectrical electrical(smData = convData) constrainedby Interfaces.PartialElectrical(smData = convData) annotation(
+  replaceable OmniPES.Transient.SynchronousMachines.Interfaces.PartialElectrical electrical(smData = convData) constrainedby OmniPES.Transient.SynchronousMachines.Interfaces.PartialElectrical(smData = convData) annotation(
      Evaluate = true,
      choicesAllMatching = true,
      Dialog(tab = "Electrical Model", group = "Model"),
@@ -45,7 +45,7 @@ model GenericSynchronousMachine
     Dialog(tab = "Controllers", group = "Automatic Voltage Regulator", enable = electrical.allow_ctrl));
   //
   replaceable OmniPES.Transient.Controllers.AVR.ConstantEfd avr if avr_on annotation(
-    Placement(transformation(origin = {-68, -10}, extent = {{-10, 10}, {10, -10}}))) constrainedby Interfaces.PartialAVR annotation(
+    Placement(transformation(origin = {-68, -10}, extent = {{-10, 10}, {10, -10}}))) constrainedby OmniPES.Transient.Controllers.Interfaces.PartialAVR annotation(
      choicesAllMatching = true,
      Dialog(tab = "Controllers", group = "Automatic Voltage Regulator", enable = avr_on),
      Placement(transformation(origin = {-68, -10}, extent = {{-10, 10}, {10, -10}})));
