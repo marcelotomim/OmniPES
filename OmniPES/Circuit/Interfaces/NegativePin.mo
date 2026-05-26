@@ -3,7 +3,7 @@ within OmniPES.Circuit.Interfaces;
 connector NegativePin
   import Modelica.Units.SI;
   SI.ComplexPerUnit v(re(start = 1.0), im(start = 0.0)) "Negative node voltage";
-  flow SI.ComplexPerUnit i(re(start = 1e-6), im(start = 1e-6)) "Sum of currents flowing into node";
+  flow SI.ComplexPerUnit i "Sum of currents flowing into node";
   annotation(
     Documentation(info = "<html><p>Negative terminal connector for AC network elements in OmniPES. Carries complex per-unit voltage <code>v</code> and flow current <code>i</code> (positive sign into the connector). </p></html>"),
     defaultComponentName = "pin_n",
