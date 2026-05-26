@@ -34,8 +34,6 @@ partial model PartialElectrical
     Placement(transformation(origin = {-60, 80}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {0, 110}, extent = {{-20, -20}, {20, 20}})));  protected
   parameter SI.PerUnit ra = smData.Ra;
   parameter SI.PerUnit xl = smData.Xl;
-initial equation
-  der(delta) = 0.0;
 equation
   Vabs = abs(terminal.v);
   theta = arg(terminal.v);
