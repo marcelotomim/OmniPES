@@ -1,4 +1,4 @@
-within OmniPES.Transient.Examples.PSCC24.Controllers;
+within OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers;
 
 model AVR_SRV
   extends OmniPES.Transient.Controllers.Interfaces.PartialAVR;

@@ -18,5 +18,12 @@ This package contains steady-state example models for phasor-domain studies in t
 <li><a href=\"modelica://OmniPES.SteadyState.Examples.Test_Radial_System_Power_Flow_Qlim_discrete\">Test_Radial_System_Power_Flow_Qlim_discrete</a> – Radial system power-flow with discrete Q-limits</li>
 <li><a href=\"modelica://OmniPES.SteadyState.Examples.IEEE_ACCESS_2025\">IEEE_ACCESS_2025</a> – Tutorial systems and related controllers used in the paper <a href=\"https://doi.org/10.1109/ACCESS.2025.3553782\">\"Introduction to OmniPES: A Modelica Library for Power Systems Modeling and Analysis\"</a>, published in the IEEE ACCESS.</li>
 </ul>
+</p>
+
+<h4>See Also</h4>
+<ul>
+  <li>Steady-state ZIP load usage: <a href=\"modelica://OmniPES.SteadyState.Examples.Test_Minimal\">Test_Minimal</a>, <a href=\"modelica://OmniPES.SteadyState.Examples.IEEE_ACCESS_2025.tutorial_system_sigmoid\">tutorial_system_sigmoid</a></li>
+  <li>Transient ZIP load usage: <a href=\"modelica://OmniPES.Transient.Examples.IEEE9bus\">Transient.IEEE9bus</a>, <a href=\"modelica://OmniPES.Transient.Examples.IEEE_ACCESS_2025.tutorial_system\">Transient.tutorial_system</a>, <a href=\"modelica://OmniPES.Transient.Examples.IEEE_ACCESS_2025.tutorial_system_SVR\">Transient.tutorial_system_SVR</a></li>
+</ul>
 </html>"));
 end Examples;

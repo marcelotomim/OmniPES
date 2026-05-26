@@ -1,4 +1,4 @@
-within OmniPES.Transient.Examples.PSCC24;
+within OmniPES.Transient.Examples.IEEE_ACCESS_2025;
 
 model tutorial_system
   inner OmniPES.SystemData data annotation(
@@ -24,9 +24,9 @@ model tutorial_system
     Placement(visible = true, transformation(origin = {58, -40}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   OmniPES.Circuit.Basic.SeriesImpedance_switched line22(t_open = 25, x = 0.18)  annotation(
     Placement(visible = true, transformation(origin = {58, -60}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
-  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G2(redeclare OmniPES.Transient.Examples.PSCC24.Controllers.AVR avr,redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_1_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, smData = G2_data, specs = G2_pf_data, redeclare OmniPES.Transient.Examples.PSCC24.Controllers.SpeedGovernor sreg, avr_on = true, sreg_on = true)  annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G2(redeclare OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.AVR avr,redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_1_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_PV restriction, smData = G2_data, specs = G2_pf_data, redeclare OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.SpeedGovernor sreg, avr_on = true, sreg_on = true)  annotation(
     Placement(visible = true, transformation(origin = {-123, 50}, extent = {{-14, -14}, {14, 14}}, rotation = 180)));
-  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G1(redeclare OmniPES.Transient.Examples.PSCC24.Controllers.AVR avr,redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_1_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_VTH restriction,smData = G1_data, specs = G1_pf_data, redeclare OmniPES.Transient.Examples.PSCC24.Controllers.SpeedGovernor sreg, avr_on = true, sreg_on = true)  annotation(
+  OmniPES.Transient.SynchronousMachines.GenericSynchronousMachine G1(redeclare OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.AVR avr,redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Model_2_1_Electric electrical, redeclare OmniPES.Transient.SynchronousMachines.Interfaces.Restriction_VTH restriction,smData = G1_data, specs = G1_pf_data, redeclare OmniPES.Transient.Examples.IEEE_ACCESS_2025.Controllers.SpeedGovernor sreg, avr_on = true, sreg_on = true)  annotation(
     Placement(visible = true, transformation(origin = {-126, -40}, extent = {{-14.5, -14.5}, {14.5, 14.5}}, rotation = 180)));
   parameter OmniPES.Transient.Loads.Interfaces.LoadData loadData annotation(
     Placement(visible = true, transformation(origin = {160, -16}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
